@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cal3gy6gs6ymk"]
+
+[node name="TitleScreen" type="Node2D" unique_id=288353752]
+
+[node name="Label" type="Label" parent="." unique_id=1009098578]
+offset_left = 446.0
+offset_top = 226.0
+offset_right = 1163.0
+offset_bottom = 363.0
+theme_override_font_sizes/font_size = 100
+text = "jogo da egj26 :)"
+
+[node name="Button" type="Button" parent="." unique_id=724268205]
+offset_left = 643.0
+offset_top = 654.0
+offset_right = 965.0
+offset_bottom = 771.0
+theme_override_font_sizes/font_size = 64
+text = "Começar"
+
+[node name="Button2" type="Button" parent="." unique_id=2134512822]
+offset_left = 643.0
+offset_top = 795.0
+offset_right = 965.0
+offset_bottom = 912.0
+theme_override_font_sizes/font_size = 64
+text = "Calibrar"
+
+[node name="Button3" type="Button" parent="." unique_id=2021947295]
+offset_left = 643.0
+offset_top = 940.0
+offset_right = 965.0
+offset_bottom = 1057.0
+theme_override_font_sizes/font_size = 64
+text = "Sair"
