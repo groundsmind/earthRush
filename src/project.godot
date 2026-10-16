@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="TTEA.gd - Template"
+run/main_scene="res://DebugScene.tscn"
+config/features=PackedStringArray("4.7", "Forward Plus")
+config/icon="uid://80876face0o4"
+
+[autoload]
+
+Server="*uid://85c5ckx3cda7"
+SceneSwitch="*uid://dmba3lmopdfp8"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=1200
+window/size/mode=3
+window/size/initial_position_type=3
+window/stretch/mode="viewport"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
