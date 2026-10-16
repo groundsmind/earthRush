@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://410fcehxgsmi"]
 
-[node name="Game" type="Node2D" unique_id=336676652]
+[node name="MainGame" type="Node2D" unique_id=336676652]
+
+[node name="Label" type="Label" parent="." unique_id=1009039504]
+offset_left = 560.0
+offset_top = 501.0
+offset_right = 1061.0
+offset_bottom = 689.0
+theme_override_font_sizes/font_size = 128
+text = "[ AÇÃO ]"
+
+[node name="Timer" type="Timer" parent="." unique_id=59972649]
+wait_time = 3.0
