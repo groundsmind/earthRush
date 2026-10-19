@@ -1,7 +1,23 @@
 [gd_scene format=3 uid="uid://cal3gy6gs6ymk"]
 
 [ext_resource type="Texture2D" uid="uid://dukine88ffubf" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Dark/texture_08.png" id="1_ddlbn"]
-[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/juice/node2d_swing.gd" id="2_7kha8"]
+[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/swing_sprite.gd" id="2_7kha8"]
+[ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/SceneTransitionFade/scene_transition_rect.tscn" id="3_cb5jd"]
+[ext_resource type="Script" uid="uid://xfxipoxftyrq" path="res://Scripts/juice/button_hover_bump.gd" id="3_rb55s"]
+
+[sub_resource type="GDScript" id="GDScript_g4v7s"]
+resource_name = "ButtonMgr"
+script/source = "extends Node2D
+
+@onready var scene_transition_rect: ColorRect = $\"../SceneTransitionRect\"
+
+func _on_exit_pressed() -> void:
+	scene_transition_rect.transition_to(\"res://Scenes/Title/Exit.tscn\")
+
+
+func _on_start_pressed() -> void:
+	scene_transition_rect.transition_to(\"res://Scenes/Game/MainGame.tscn\")
+"
 
 [node name="TitleScreen" type="Node2D" unique_id=288353752]
 
@@ -27,26 +43,42 @@ theme_override_font_sizes/font_size = 100
 text = "jogo da egj26 :)"
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="." unique_id=724268205]
+[node name="ButtonMgr" type="Node2D" parent="." unique_id=174553260]
+script = SubResource("GDScript_g4v7s")
+
+[node name="Start" type="Button" parent="ButtonMgr" unique_id=724268205]
 offset_left = 643.0
 offset_top = 654.0
 offset_right = 965.0
 offset_bottom = 771.0
 theme_override_font_sizes/font_size = 64
 text = "Começar"
+script = ExtResource("3_rb55s")
 
-[node name="Button2" type="Button" parent="." unique_id=2134512822]
+[node name="Cal" type="Button" parent="ButtonMgr" unique_id=2134512822]
 offset_left = 643.0
 offset_top = 795.0
 offset_right = 965.0
 offset_bottom = 912.0
 theme_override_font_sizes/font_size = 64
 text = "Calibrar"
+script = ExtResource("3_rb55s")
 
-[node name="Button3" type="Button" parent="." unique_id=2021947295]
+[node name="Exit" type="Button" parent="ButtonMgr" unique_id=2021947295]
 offset_left = 643.0
 offset_top = 940.0
 offset_right = 965.0
 offset_bottom = 1057.0
 theme_override_font_sizes/font_size = 64
 text = "Sair"
+script = ExtResource("3_rb55s")
+
+[node name="SceneTransitionRect" parent="." unique_id=861179771 instance=ExtResource("3_cb5jd")]
+visible = false
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 1613.0
+offset_bottom = 1205.0
+
+[connection signal="pressed" from="ButtonMgr/Start" to="ButtonMgr" method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonMgr/Exit" to="ButtonMgr" method="_on_exit_pressed"]

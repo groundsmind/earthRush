@@ -16,8 +16,8 @@ func _on_mouse_exited() -> void:
 	zoom_hover(base_scale)
 
 func _on_button_pressed() -> void:
-	var zoom = create_tween().tween_property(self, "scale", Vector2(0.001, 0.001), 0.5).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-	var spin = create_tween().tween_property(self, "rotation", deg_to_rad(720), 0.5).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	var _zoom = create_tween().tween_property(self, "scale", Vector2(0.001, 0.001), 0.5).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	var _spin = create_tween().tween_property(self, "rotation", deg_to_rad(720), 0.5).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	mouse_entered.disconnect(_on_mouse_entered)
 	mouse_exited.disconnect(_on_mouse_exited)
 

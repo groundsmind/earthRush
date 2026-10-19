@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://5ldncy3ye0ow"]
 
-[ext_resource type="Script" uid="uid://c322tvaty0uy" path="res://Scenes/Game/game_over.gd" id="1_ok6i5"]
-[ext_resource type="Texture2D" uid="uid://diml067yew64w" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Red/texture_05.png" id="2_pda5h"]
-[ext_resource type="Script" uid="uid://xfxipoxftyrq" path="res://Scripts/juice/button_hover_bump.gd" id="3_4p3hf"]
-[ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/SceneTransitionFade/scene_transition_rect.tscn" id="4_wpovb"]
+[ext_resource type="Script" uid="uid://c322tvaty0uy" path="res://Scenes/GameOver/game_over.gd" id="1_apf3g"]
+[ext_resource type="Texture2D" uid="uid://diml067yew64w" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Red/texture_05.png" id="2_als7q"]
+[ext_resource type="Script" uid="uid://xfxipoxftyrq" path="res://Scripts/juice/button_hover_bump.gd" id="3_fdts5"]
+[ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/SceneTransitionFade/scene_transition_rect.tscn" id="4_owf3c"]
 
 [sub_resource type="GDScript" id="GDScript_4p3hf"]
 resource_name = "ButtonMgr"
@@ -12,7 +12,7 @@ script/source = "extends Node2D
 @onready var scene_transition_rect: ColorRect = $\"../SceneTransitionRect\"
 
 func _on_back_2_menu_pressed() -> void:
-	scene_transition_rect.transition_to() #scene
+	scene_transition_rect.transition_to(\"res://Scenes/Title/TitleScreen.tscn\") #scene
 "
 
 [sub_resource type="Animation" id="Animation_ok6i5"]
@@ -92,7 +92,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Node2D/Replay:modulate")
+tracks/6/path = NodePath("ButtonMgr/Replay:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -104,7 +104,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Node2D/Recal:modulate")
+tracks/7/path = NodePath("ButtonMgr/Recal:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -116,7 +116,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Node2D/Back2Menu:modulate")
+tracks/8/path = NodePath("ButtonMgr/Back2Menu:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -204,7 +204,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Node2D/Replay:modulate")
+tracks/6/path = NodePath("ButtonMgr/Replay:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -216,7 +216,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Node2D/Recal:modulate")
+tracks/7/path = NodePath("ButtonMgr/Recal:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -228,7 +228,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Node2D/Back2Menu:modulate")
+tracks/8/path = NodePath("ButtonMgr/Back2Menu:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -245,7 +245,7 @@ _data = {
 }
 
 [node name="GameOver" type="CanvasGroup" unique_id=1027146577]
-script = ExtResource("1_ok6i5")
+script = ExtResource("1_apf3g")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=2026305026]
 repeat_size = Vector2(1024, 1024)
@@ -254,7 +254,7 @@ repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=491981996]
 modulate = Color(0.24313726, 0.24313726, 0.24313726, 1)
-texture = ExtResource("2_pda5h")
+texture = ExtResource("2_als7q")
 offset = Vector2(1024, 1024)
 
 [node name="title" type="Label" parent="." unique_id=568784481]
@@ -343,10 +343,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "999"
 
-[node name="Node2D" type="Node2D" parent="." unique_id=276078124]
+[node name="ButtonMgr" type="Node2D" parent="." unique_id=276078124]
 script = SubResource("GDScript_4p3hf")
 
-[node name="Replay" type="Button" parent="Node2D" unique_id=2088078025]
+[node name="Replay" type="Button" parent="ButtonMgr" unique_id=2088078025]
 offset_left = 994.0
 offset_top = 350.0
 offset_right = 1494.0
@@ -354,29 +354,34 @@ offset_bottom = 427.0
 pivot_offset = Vector2(7.015, 0)
 theme_override_font_sizes/font_size = 50
 text = "Jogar de novo"
-script = ExtResource("3_4p3hf")
+script = ExtResource("3_fdts5")
 
-[node name="Recal" type="Button" parent="Node2D" unique_id=1769122439]
+[node name="Recal" type="Button" parent="ButtonMgr" unique_id=1769122439]
 offset_left = 994.0
 offset_top = 555.0
 offset_right = 1494.0
 offset_bottom = 632.0
 theme_override_font_sizes/font_size = 50
 text = "Recalibrar"
-script = ExtResource("3_4p3hf")
+script = ExtResource("3_fdts5")
 
-[node name="Back2Menu" type="Button" parent="Node2D" unique_id=1576054163]
+[node name="Back2Menu" type="Button" parent="ButtonMgr" unique_id=1576054163]
 offset_left = 994.0
 offset_top = 760.0
 offset_right = 1494.0
 offset_bottom = 837.0
 theme_override_font_sizes/font_size = 50
 text = "Voltar ao menu"
-script = ExtResource("3_4p3hf")
+script = ExtResource("3_fdts5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=616064751]
 libraries/ = SubResource("AnimationLibrary_4p3hf")
 
-[node name="SceneTransitionRect" parent="." unique_id=861179771 instance=ExtResource("4_wpovb")]
+[node name="SceneTransitionRect" parent="." unique_id=861179771 instance=ExtResource("4_owf3c")]
+visible = false
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 1613.0
+offset_bottom = 1205.0
 
-[connection signal="pressed" from="Node2D/Back2Menu" to="Node2D" method="_on_back_2_menu_pressed"]
+[connection signal="pressed" from="ButtonMgr/Back2Menu" to="ButtonMgr" method="_on_back_2_menu_pressed"]

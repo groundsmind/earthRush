@@ -9,9 +9,8 @@ extends Node2D
 
 @onready var transition_timer = $TransitionTimer
 @onready var transition_animation_player = $TransitionVisuals/Transition/AnimationPlayer
-@onready var victory_label = $TransitionVisuals/Transition/VictoryLabel
-@onready var defeat_label = $TransitionVisuals/Transition/DefeatLabel
 @onready var game_end_timer_display = $GameEndTimerDisplay
+@onready var result_label: Label = $TransitionVisuals/Transition/ResultLabel
 
 # game variables #
 var total_hp: int = 3
@@ -39,8 +38,6 @@ func start_transition() -> void:
 	
 	transitioning = false 
 	var next_game : PackedScene
-	victory_label.visible = false
-	defeat_label.visible = false
 	if randomize_game_order:
 		next_game = game_list.pick_random()
 	else:
@@ -57,19 +54,19 @@ func start_game_over_sequence() -> void:
 
 func game_won(scene) -> void:
 	print_debug("received game won!")
-	end_microgame(scene, victory_label)
+	end_microgame(scene, "win!!")
 	games_won += 1
 
 func game_lost(scene) -> void:
 	print_debug("received game lost!")
-	end_microgame(scene, defeat_label)
+	end_microgame(scene, "lose!! :(")
 	decrease_health()
 
-func end_microgame(scene, result_label: Label) -> void:
+func end_microgame(scene, result_text: String) -> void:
 	if transitioning: return
 	transitioning = true
 	transition_animation_player.play("close")
-	result_label.visible = true
+	result_label.text = result_text
 	await transition_animation_player.animation_finished
 	cleanup_microgame(scene)
 	games_played += 1

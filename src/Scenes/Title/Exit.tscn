@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ch8u8klok8aty"]
+
+[sub_resource type="GDScript" id="GDScript_g4v7s"]
+resource_name = "exit_Game"
+script/source = "extends Node2D
+
+func _on_timer_timeout() -> void:
+	get_tree().quit()
+"
+
+[node name="Exit" type="Node2D" unique_id=2110007502]
+script = SubResource("GDScript_g4v7s")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1576792349]
+offset_left = -60.0
+offset_top = -71.0
+offset_right = 1671.0
+offset_bottom = 1243.0
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="." unique_id=1450095034]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

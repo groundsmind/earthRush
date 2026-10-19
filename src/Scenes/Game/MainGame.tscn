@@ -8,7 +8,8 @@
 [ext_resource type="Script" uid="uid://dmd63p8wyuv04" path="res://Scenes/Game/heart_display.gd" id="6_1605l"]
 [ext_resource type="Texture2D" uid="uid://ph4fwqaias0l" path="res://Assets/Sprites/UI/heart_full.png" id="7_1605l"]
 [ext_resource type="Texture2D" uid="uid://cyvi4ymsjpvxp" path="res://Assets/Sprites/UI/heart_break.png" id="8_5jl82"]
-[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/juice/node2d_swing.gd" id="9_5jl82"]
+[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/swing_sprite.gd" id="9_5jl82"]
+[ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/SceneTransitionFade/scene_transition_rect.tscn" id="10_wn6li"]
 
 [sub_resource type="Animation" id="Animation_oilwc"]
 length = 0.001
@@ -108,6 +109,30 @@ tracks/7/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ResultLabel:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ResultLabel:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(656, 522)]
+}
 
 [sub_resource type="Animation" id="Animation_u6ljv"]
 resource_name = "Close"
@@ -171,6 +196,30 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, -0.5),
 "update": 0,
 "values": [Vector2(250, 250), Vector2(250, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ResultLabel:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.033333335, 0.33333334),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0.001, 0.001), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ResultLabel:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(656, 522), Vector2(656, 522)]
 }
 
 [sub_resource type="Animation" id="Animation_to5xg"]
@@ -271,6 +320,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [0.0, 6.283185307179586]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ResultLabel:position")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(656, 522), Vector2(656, -305)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nl514"]
 _data = {
@@ -347,27 +408,25 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_1605l")
 script = ExtResource("9_5jl82")
 
-[node name="VictoryLabel" type="Label" parent="TransitionVisuals/Transition" unique_id=665863663]
-visible = false
+[node name="ResultLabel" type="Label" parent="TransitionVisuals/Transition" unique_id=665863663]
 offset_left = 656.0
 offset_top = 522.0
-offset_right = 948.0
-offset_bottom = 688.0
+offset_right = 956.0
+offset_bottom = 691.99994
+pivot_offset = Vector2(150, 85)
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 121
 text = "Win!!"
-metadata/_edit_use_anchors_ = true
-
-[node name="DefeatLabel" type="Label" parent="TransitionVisuals/Transition" unique_id=2016846676]
-visible = false
-offset_left = 579.0
-offset_top = 516.0
-offset_right = 996.0
-offset_bottom = 673.0
-theme_override_constants/outline_size = 32
-theme_override_font_sizes/font_size = 115
-text = "lose... :("
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionVisuals/Transition" unique_id=957542050]
 libraries/ = SubResource("AnimationLibrary_nl514")
+
+[node name="SceneTransitionRect" parent="." unique_id=861179771 instance=ExtResource("10_wn6li")]
+visible = false
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 1613.0
+offset_bottom = 1205.0
