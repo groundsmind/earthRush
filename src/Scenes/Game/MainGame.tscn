@@ -5,59 +5,172 @@
 [ext_resource type="Texture2D" uid="uid://cxfsk5bchlypt" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Orange/texture_04.png" id="3_oilwc"]
 [ext_resource type="PackedScene" uid="uid://tx0g7s1e571g" path="res://Scenes/Microgames/Maze/maze.tscn" id="3_to5xg"]
 [ext_resource type="Texture2D" uid="uid://dtmgg7ptua8iq" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Purple/texture_02.png" id="4_oilwc"]
+[ext_resource type="Script" uid="uid://dmd63p8wyuv04" path="res://Scenes/Game/hearts.gd" id="6_1605l"]
+[ext_resource type="Texture2D" uid="uid://ph4fwqaias0l" path="res://Assets/Sprites/UI/heart_full.png" id="7_1605l"]
+[ext_resource type="Texture2D" uid="uid://cyvi4ymsjpvxp" path="res://Assets/Sprites/UI/heart_break.png" id="8_5jl82"]
+[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/heart_swing.gd" id="9_5jl82"]
 
 [sub_resource type="Animation" id="Animation_oilwc"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LeftDoor:position")
+tracks/0/path = NodePath("Doors/LeftDoor:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(0.3298776),
 "update": 0,
-"values": [Vector2(85.00001, 608)]
+"values": [Vector2(-800, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LeftDoor2:position")
+tracks/1/path = NodePath("Doors/RightDoor:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.3298776),
+"update": 0,
+"values": [Vector2(800, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hearts/Heart1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1518.9999, 608)]
+"values": [Vector2(-250, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hearts/Heart2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hearts/Heart3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(250, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hearts/Heart1:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Hearts/Heart2:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hearts/Heart3:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_u6ljv"]
 resource_name = "Close"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LeftDoor:position")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Doors/LeftDoor:position")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.96666664),
-"transitions": PackedFloat32Array(5.6568513, 5.6568513),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 5),
 "update": 0,
-"values": [Vector2(-761.99994, 608), Vector2(97, 608)]
+"values": [Vector2(-1600, 0), Vector2(-800, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LeftDoor2:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Doors/RightDoor:position")
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.9333334),
-"transitions": PackedFloat32Array(5.6568513, 5.6568513),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 5),
 "update": 0,
-"values": [Vector2(2366, 608), Vector2(1536, 608)]
+"values": [Vector2(1600, 0), Vector2(800, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hearts/Heart1:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.20000008),
+"transitions": PackedFloat32Array(1, -0.5),
+"update": 0,
+"values": [Vector2(-250, 250), Vector2(-250, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hearts/Heart2:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, -0.5),
+"update": 0,
+"values": [Vector2(0, 250), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hearts/Heart3:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.40000007),
+"transitions": PackedFloat32Array(1, -0.5),
+"update": 0,
+"values": [Vector2(250, 250), Vector2(250, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_to5xg"]
@@ -65,26 +178,98 @@ resource_name = "Open"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LeftDoor:position")
+tracks/0/path = NodePath("Doors/LeftDoor:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.96666664),
-"transitions": PackedFloat32Array(0.3298776, 0.3298776),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.3298776, 0.5),
 "update": 0,
-"values": [Vector2(85.00001, 608), Vector2(-761.99994, 608)]
+"values": [Vector2(-800, 0), Vector2(-1600, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LeftDoor2:position")
+tracks/1/path = NodePath("Doors/RightDoor:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.96666664),
-"transitions": PackedFloat32Array(0.3298776, 0.3298776),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.3298776, 0.5),
 "update": 0,
-"values": [Vector2(1518.9999, 608), Vector2(2366, 608)]
+"values": [Vector2(800, 0), Vector2(1600, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hearts/Heart1:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5.9604645e-08, 0.23333333),
+"transitions": PackedFloat32Array(3.3635814, 1),
+"update": 0,
+"values": [Vector2(-250, 0), Vector2(-250, 250)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hearts/Heart2:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3333333),
+"transitions": PackedFloat32Array(3.3635814, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 250)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hearts/Heart3:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(3.3635814, 1),
+"update": 0,
+"values": [Vector2(250, 0), Vector2(250, 250)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hearts/Heart1:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Hearts/Heart2:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hearts/Heart3:rotation")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [0.0, 6.283185307179586]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nl514"]
@@ -100,11 +285,11 @@ game_list = Array[PackedScene]([ExtResource("2_to5xg"), ExtResource("3_to5xg")])
 microgame_parent = NodePath("MicrogameContainer")
 
 [node name="Label" type="Label" parent="." unique_id=1009039504]
-visible = false
 offset_left = 560.0
 offset_top = 501.0
 offset_right = 1061.0
 offset_bottom = 689.0
+theme_override_constants/outline_size = 46
 theme_override_font_sizes/font_size = 128
 text = "[ AÇÃO ]"
 metadata/_edit_use_anchors_ = true
@@ -115,19 +300,52 @@ one_shot = true
 
 [node name="MicrogameContainer" type="Node2D" parent="." unique_id=1276752174]
 
+[node name="GameEndTimerDisplay" type="Label" parent="." unique_id=1718456006]
+offset_left = 779.0
+offset_right = 819.0
+offset_bottom = 166.0
+theme_override_font_sizes/font_size = 100
+metadata/_edit_use_anchors_ = true
+
 [node name="TransitionVisuals" type="Node2D" parent="." unique_id=935402483]
 
 [node name="Transition" type="CanvasGroup" parent="TransitionVisuals" unique_id=1643440304]
 
-[node name="LeftDoor" type="Sprite2D" parent="TransitionVisuals/Transition" unique_id=687663436]
-position = Vector2(85.00001, 608)
-scale = Vector2(1.40625, 1.4204068)
+[node name="Doors" type="Node2D" parent="TransitionVisuals/Transition" unique_id=1732989931]
+position = Vector2(800, 600)
+
+[node name="LeftDoor" type="Sprite2D" parent="TransitionVisuals/Transition/Doors" unique_id=687663436]
+position = Vector2(-800, 0)
+scale = Vector2(1.5625001, 1.5781255)
 texture = ExtResource("4_oilwc")
 
-[node name="LeftDoor2" type="Sprite2D" parent="TransitionVisuals/Transition" unique_id=1223763251]
-position = Vector2(1518.9999, 608)
-scale = Vector2(1.40625, 1.4204068)
+[node name="RightDoor" type="Sprite2D" parent="TransitionVisuals/Transition/Doors" unique_id=1223763251]
+position = Vector2(800, 0)
+scale = Vector2(1.5625, 1.5781254)
 texture = ExtResource("3_oilwc")
+
+[node name="Hearts" type="Node2D" parent="TransitionVisuals/Transition" unique_id=1567376117]
+position = Vector2(800, 1100)
+script = ExtResource("6_1605l")
+full_texture = ExtResource("7_1605l")
+broken_texture = ExtResource("8_5jl82")
+
+[node name="Heart1" type="Sprite2D" parent="TransitionVisuals/Transition/Hearts" unique_id=1160832858]
+position = Vector2(-250, 0)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_1605l")
+script = ExtResource("9_5jl82")
+
+[node name="Heart2" type="Sprite2D" parent="TransitionVisuals/Transition/Hearts" unique_id=556158717]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_1605l")
+script = ExtResource("9_5jl82")
+
+[node name="Heart3" type="Sprite2D" parent="TransitionVisuals/Transition/Hearts" unique_id=1666742178]
+position = Vector2(250, 0)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_1605l")
+script = ExtResource("9_5jl82")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionVisuals/Transition" unique_id=957542050]
 libraries/ = SubResource("AnimationLibrary_nl514")
@@ -138,6 +356,7 @@ offset_left = 656.0
 offset_top = 522.0
 offset_right = 948.0
 offset_bottom = 688.0
+theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 121
 text = "Win!!"
 metadata/_edit_use_anchors_ = true
@@ -148,17 +367,7 @@ offset_left = 579.0
 offset_top = 516.0
 offset_right = 996.0
 offset_bottom = 673.0
+theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 115
 text = "lose... :("
-metadata/_edit_use_anchors_ = true
-
-[node name="Hud" type="CanvasGroup" parent="." unique_id=1921520872]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Hud" unique_id=393611598]
-
-[node name="GameEndTimerDisplay" type="Label" parent="Hud/CanvasLayer" unique_id=1718456006]
-offset_left = 779.0
-offset_right = 819.0
-offset_bottom = 166.0
-theme_override_font_sizes/font_size = 100
 metadata/_edit_use_anchors_ = true

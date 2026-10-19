@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://djruyenv3lubg" path="res://Scenes/Microgames/SampleMicrogame/sample_microgame.gd" id="1_0ic3k"]
 [ext_resource type="Texture2D" uid="uid://dukine88ffubf" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Dark/texture_08.png" id="2_fgcia"]
-[ext_resource type="Texture2D" uid="uid://rfdhlvcp7ql7" path="res://foot_tracking/circ.png" id="2_shixa"]
-[ext_resource type="Texture2D" uid="uid://cd3j2aseai3op" path="res://foot_tracking/circ2.png" id="3_fgcia"]
+[ext_resource type="Texture2D" uid="uid://rfdhlvcp7ql7" path="res://foot_tracking/Assets/circ.png" id="2_shixa"]
+[ext_resource type="Texture2D" uid="uid://cd3j2aseai3op" path="res://foot_tracking/Assets/circ2.png" id="3_fgcia"]
 [ext_resource type="PackedScene" uid="uid://bd5oq233uoheb" path="res://Scenes/FunctionNodes/MouseDrag/MouseClickDrag.tscn" id="5_fgcia"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]

@@ -31,15 +31,19 @@ window/stretch/mode="viewport"
 [file_customization]
 
 folder_colors={
-"res://Assets/": "blue",
-"res://Scenes/": "orange",
+"res://Assets/": "red",
+"res://Scenes/": "teal",
 "res://Scenes/FunctionNodes/": "green",
-"res://Scenes/Game/": "red",
-"res://Scenes/Microgames/": "red",
-"res://Scenes/Title/": "red",
-"res://Scripts/": "purple",
-"res://TTEA/": "pink",
-"res://foot_tracking/": "pink"
+"res://Scenes/Game/": "teal",
+"res://Scenes/Microgames/": "teal",
+"res://Scenes/Title/": "teal",
+"res://Scripts/": "orange",
+"res://TTEA/": "green",
+"res://TTEA/assets/": "red",
+"res://foot_tracking/": "blue",
+"res://foot_tracking/Assets/": "red",
+"res://foot_tracking/Calibration/": "green",
+"res://foot_tracking/FootTrackingDebug/": "gray"
 }
 
 [input]

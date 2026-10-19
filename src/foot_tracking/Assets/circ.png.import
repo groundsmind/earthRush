@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rfdhlvcp7ql7"
-path="res://.godot/imported/circ.png-45210b6b237c6e678a359234f7ed435c.ctex"
+path="res://.godot/imported/circ.png-da68e83d943d89fd97688a9e645a608c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://foot_tracking/circ.png"
-dest_files=["res://.godot/imported/circ.png-45210b6b237c6e678a359234f7ed435c.ctex"]
+source_file="res://foot_tracking/Assets/circ.png"
+dest_files=["res://.godot/imported/circ.png-da68e83d943d89fd97688a9e645a608c.ctex"]
 
 [params]
 

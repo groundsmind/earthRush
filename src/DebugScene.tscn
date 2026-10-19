@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cn67gecooprai"]
 
-[ext_resource type="Texture2D" uid="uid://du0cghd16hlim" path="res://icon.svg" id="1_pfeqe"]
-[ext_resource type="PackedScene" uid="uid://c1pp1kel30348" path="res://foot_tracking/foot_controller.tscn" id="2_47f4b"]
+[ext_resource type="Texture2D" path="res://icon.svg" id="1_pfeqe"]
+[ext_resource type="PackedScene" uid="uid://c1pp1kel30348" path="res://foot_tracking/SampleFootController/foot_controller.tscn" id="2_47f4b"]
 
 [sub_resource type="GDScript" id="GDScript_lti8b"]
 resource_name = "wawa"

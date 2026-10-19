@@ -1,6 +1,17 @@
 [gd_scene format=3 uid="uid://cal3gy6gs6ymk"]
 
+[ext_resource type="Texture2D" uid="uid://dukine88ffubf" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Dark/texture_08.png" id="1_ddlbn"]
+
 [node name="TitleScreen" type="Node2D" unique_id=288353752]
+
+[node name="ScrollingBG" type="Parallax2D" parent="." unique_id=1788296517]
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(80, 80)
+repeat_times = 3
+
+[node name="BG Sprite" type="Sprite2D" parent="ScrollingBG" unique_id=1929285016]
+texture = ExtResource("1_ddlbn")
+offset = Vector2(512, 512)
 
 [node name="Label" type="Label" parent="." unique_id=1009098578]
 offset_left = 446.0

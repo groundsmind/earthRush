@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd3j2aseai3op"
-path="res://.godot/imported/circ2.png-8409bc39537e64aed84f98bbf6765fe0.ctex"
+uid="uid://ph4fwqaias0l"
+path="res://.godot/imported/heart_full.png-4b16df57801040873682e2742d1b5762.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://foot_tracking/circ2.png"
-dest_files=["res://.godot/imported/circ2.png-8409bc39537e64aed84f98bbf6765fe0.ctex"]
+source_file="res://Assets/Sprites/UI/heart_full.png"
+dest_files=["res://.godot/imported/heart_full.png-4b16df57801040873682e2742d1b5762.ctex"]
 
 [params]
 

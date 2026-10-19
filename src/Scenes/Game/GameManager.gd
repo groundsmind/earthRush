@@ -11,16 +11,21 @@ extends Node2D
 @onready var transition_animation_player = $TransitionVisuals/Transition/AnimationPlayer
 @onready var victory_label = $TransitionVisuals/Transition/VictoryLabel
 @onready var defeat_label = $TransitionVisuals/Transition/DefeatLabel
-@onready var game_end_timer_display = $Hud/CanvasLayer/GameEndTimerDisplay
+@onready var game_end_timer_display = $GameEndTimerDisplay
+
+var total_hp: int = 3
+@onready var current_hp = total_hp
 
 var current_game : MicroGame
 var transitioning : bool = false
 
-func _ready():
+signal hp_change
+
+func _ready() -> void:
 	transition_timer.timeout.connect(start_transition)
 	transition_timer.start()
 
-func start_transition():
+func start_transition() -> void:
 	print_debug("starting transition...")
 	if game_list.is_empty():
 		print("Game Over! No more microgames left.")
@@ -41,15 +46,16 @@ func start_transition():
 	current_game.lost.connect(game_lost)
 	transition_animation_player.play("open")
 	
-func game_won(scene):
+func game_won(scene) -> void:
 	print_debug("received game won!")
 	end_microgame(scene, victory_label)
 
-func game_lost(scene):
+func game_lost(scene) -> void:
 	print_debug("received game lost!")
 	end_microgame(scene, defeat_label)
+	decrease_health()
 
-func end_microgame(scene, result_label: Label):
+func end_microgame(scene, result_label: Label) -> void:
 	if transitioning: return
 	transitioning = true
 	transition_animation_player.play("close")
@@ -65,7 +71,11 @@ func cleanup_microgame(scene):
 		scene.queue_free()
 	current_game = null
 
-func _process(_delta):
+func decrease_health() -> void:
+	current_hp -= 1
+	hp_change.emit()
+
+func _process(_delta) -> void:
 	if is_instance_valid(current_game) and current_game.game_end_timer:
 		game_end_timer_display.text = str(int(current_game.game_end_timer.time_left))
 	else:
