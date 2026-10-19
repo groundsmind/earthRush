@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cal3gy6gs6ymk"]
 
 [ext_resource type="Texture2D" uid="uid://dukine88ffubf" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Dark/texture_08.png" id="1_ddlbn"]
-[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/swing_sprite.gd" id="2_7kha8"]
+[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/juice/node2d_swing.gd" id="2_7kha8"]
 
 [node name="TitleScreen" type="Node2D" unique_id=288353752]
 

@@ -13,8 +13,12 @@ extends Node2D
 @onready var defeat_label = $TransitionVisuals/Transition/DefeatLabel
 @onready var game_end_timer_display = $GameEndTimerDisplay
 
+# game variables #
 var total_hp: int = 3
 @onready var current_hp = total_hp
+
+var games_played: int = 0 
+var games_won: int = 0
 
 var current_game : MicroGame
 var transitioning : bool = false
@@ -28,8 +32,10 @@ func _ready() -> void:
 func start_transition() -> void:
 	print_debug("starting transition...")
 	if game_list.is_empty():
-		print("Game Over! No more microgames left.")
-		return # Or trigger a game-over screen here
+		print("No more microgames left.")
+		return
+	if current_hp == 0:
+		start_game_over_sequence()
 	
 	transitioning = false 
 	var next_game : PackedScene
@@ -45,10 +51,14 @@ func start_transition() -> void:
 	current_game.won.connect(game_won)
 	current_game.lost.connect(game_lost)
 	transition_animation_player.play("open")
-	
+
+func start_game_over_sequence() -> void:
+	pass
+
 func game_won(scene) -> void:
 	print_debug("received game won!")
 	end_microgame(scene, victory_label)
+	games_won += 1
 
 func game_lost(scene) -> void:
 	print_debug("received game lost!")
@@ -62,6 +72,7 @@ func end_microgame(scene, result_label: Label) -> void:
 	result_label.visible = true
 	await transition_animation_player.animation_finished
 	cleanup_microgame(scene)
+	games_played += 1
 
 	await get_tree().create_timer(2).timeout
 	start_transition()

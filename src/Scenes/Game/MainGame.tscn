@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://cxfsk5bchlypt" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Orange/texture_04.png" id="3_oilwc"]
 [ext_resource type="PackedScene" uid="uid://tx0g7s1e571g" path="res://Scenes/Microgames/Maze/maze.tscn" id="3_to5xg"]
 [ext_resource type="Texture2D" uid="uid://dtmgg7ptua8iq" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Purple/texture_02.png" id="4_oilwc"]
-[ext_resource type="Script" uid="uid://dmd63p8wyuv04" path="res://Scenes/Game/hearts.gd" id="6_1605l"]
+[ext_resource type="Script" uid="uid://dmd63p8wyuv04" path="res://Scenes/Game/heart_display.gd" id="6_1605l"]
 [ext_resource type="Texture2D" uid="uid://ph4fwqaias0l" path="res://Assets/Sprites/UI/heart_full.png" id="7_1605l"]
 [ext_resource type="Texture2D" uid="uid://cyvi4ymsjpvxp" path="res://Assets/Sprites/UI/heart_break.png" id="8_5jl82"]
-[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/swing_sprite.gd" id="9_5jl82"]
+[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/juice/node2d_swing.gd" id="9_5jl82"]
 
 [sub_resource type="Animation" id="Animation_oilwc"]
 length = 0.001
@@ -347,9 +347,6 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_1605l")
 script = ExtResource("9_5jl82")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionVisuals/Transition" unique_id=957542050]
-libraries/ = SubResource("AnimationLibrary_nl514")
-
 [node name="VictoryLabel" type="Label" parent="TransitionVisuals/Transition" unique_id=665863663]
 visible = false
 offset_left = 656.0
@@ -371,3 +368,6 @@ theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 115
 text = "lose... :("
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionVisuals/Transition" unique_id=957542050]
+libraries/ = SubResource("AnimationLibrary_nl514")

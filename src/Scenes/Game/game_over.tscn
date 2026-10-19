@@ -1,0 +1,366 @@
+[gd_scene format=3 uid="uid://5ldncy3ye0ow"]
+
+[ext_resource type="Script" uid="uid://c322tvaty0uy" path="res://Scenes/Game/game_over.gd" id="1_ok6i5"]
+[ext_resource type="Texture2D" uid="uid://diml067yew64w" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Red/texture_05.png" id="2_pda5h"]
+[ext_resource type="Script" uid="uid://xfxipoxftyrq" path="res://Scripts/juice/button_hover_bump.gd" id="3_4p3hf"]
+
+[sub_resource type="Animation" id="Animation_ok6i5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(35, 35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("title:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(41, 390)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HBoxContainer:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HBoxContainer:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Node2D/Button:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Node2D/Button2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Node2D/Button3:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pda5h"]
+resource_name = "enter"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(-800, 195), Vector2(35, 195)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("title:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.46666667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer2:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 1.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(-757, 390), Vector2(40, 390)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer2:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.49722824, 1.1949642),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HBoxContainer:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5132558, 1.4046999),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0.001, 0.001), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HBoxContainer:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.52406114, 1.4101026),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [12.566371, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Node2D/Button:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.9491261, 1.9),
+"transitions": PackedFloat32Array(4, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Node2D/Button2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.0661374, 2.032804),
+"transitions": PackedFloat32Array(4, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Node2D/Button3:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.2328041, 2.1836782),
+"transitions": PackedFloat32Array(4, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4p3hf"]
+_data = {
+&"RESET": SubResource("Animation_ok6i5"),
+&"enter": SubResource("Animation_pda5h")
+}
+
+[node name="GameOver" type="CanvasGroup" unique_id=1027146577]
+script = ExtResource("1_ok6i5")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=2026305026]
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(-80, 80)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=491981996]
+modulate = Color(0.24313726, 0.24313726, 0.24313726, 1)
+texture = ExtResource("2_pda5h")
+offset = Vector2(1024, 1024)
+
+[node name="title" type="Label" parent="." unique_id=568784481]
+offset_left = 35.0
+offset_top = 35.0
+offset_right = 779.0
+offset_bottom = 210.0
+theme_override_font_sizes/font_size = 128
+text = "Fim de jogo!"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1909983813]
+offset_left = 41.0
+offset_top = 390.0
+offset_right = 768.0
+offset_bottom = 478.0
+theme_override_constants/separation = 252
+
+[node name="score" type="Label" parent="HBoxContainer2" unique_id=1971787959]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Pontuação: "
+
+[node name="score_value" type="Label" parent="HBoxContainer2" unique_id=819231519]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "000"
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=631947262]
+custom_minimum_size = Vector2(800, 0)
+offset_left = 40.0
+offset_top = 791.0
+offset_right = 840.0
+offset_bottom = 983.0
+pivot_offset = Vector2(441.27158, 102.062805)
+theme_override_constants/separation = 313
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=274832932]
+layout_mode = 2
+
+[node name="games_won" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1907827557]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Minigames vencidos"
+vertical_alignment = 1
+
+[node name="games_played" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1429171223]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Minigames jogados"
+horizontal_alignment = 2
+
+[node name="tot_time" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=482904627]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Tempo total"
+horizontal_alignment = 2
+
+[node name="avg_time" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1439405867]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Tempo médio"
+horizontal_alignment = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=1613862997]
+layout_mode = 2
+
+[node name="games_won_val" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1197436256]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "999"
+vertical_alignment = 1
+
+[node name="games_played_val" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1015005320]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "999"
+
+[node name="tot_time_val" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1447042264]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "999"
+
+[node name="avg_time_val" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1948317359]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "999"
+
+[node name="Node2D" type="Node2D" parent="." unique_id=276078124]
+
+[node name="Button" type="Button" parent="Node2D" unique_id=2088078025]
+offset_left = 994.0
+offset_top = 350.0
+offset_right = 1494.0
+offset_bottom = 427.0
+pivot_offset = Vector2(7.015, 0)
+theme_override_font_sizes/font_size = 50
+text = "Jogar de novo"
+script = ExtResource("3_4p3hf")
+
+[node name="Button2" type="Button" parent="Node2D" unique_id=1769122439]
+offset_left = 994.0
+offset_top = 555.0
+offset_right = 1494.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 50
+text = "Recalibrar"
+script = ExtResource("3_4p3hf")
+
+[node name="Button3" type="Button" parent="Node2D" unique_id=1576054163]
+offset_left = 994.0
+offset_top = 760.0
+offset_right = 1494.0
+offset_bottom = 837.0
+theme_override_font_sizes/font_size = 50
+text = "Voltar ao menu"
+script = ExtResource("3_4p3hf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=616064751]
+libraries/ = SubResource("AnimationLibrary_4p3hf")
