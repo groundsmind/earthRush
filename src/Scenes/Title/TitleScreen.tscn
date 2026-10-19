@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cal3gy6gs6ymk"]
 
 [ext_resource type="Texture2D" uid="uid://dukine88ffubf" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Dark/texture_08.png" id="1_ddlbn"]
+[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/swing_sprite.gd" id="2_7kha8"]
 
 [node name="TitleScreen" type="Node2D" unique_id=288353752]
 
@@ -13,13 +14,18 @@ repeat_times = 3
 texture = ExtResource("1_ddlbn")
 offset = Vector2(512, 512)
 
-[node name="Label" type="Label" parent="." unique_id=1009098578]
-offset_left = 446.0
-offset_top = 226.0
-offset_right = 1163.0
-offset_bottom = 363.0
+[node name="Node2D" type="Node2D" parent="." unique_id=1851498996]
+position = Vector2(794, 305)
+script = ExtResource("2_7kha8")
+
+[node name="Label" type="Label" parent="Node2D" unique_id=1009098578]
+offset_left = -352.0
+offset_top = -74.0
+offset_right = 365.0
+offset_bottom = 63.0
 theme_override_font_sizes/font_size = 100
 text = "jogo da egj26 :)"
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="." unique_id=724268205]
 offset_left = 643.0

@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 
 var time: float = 0.0
 @export var speed: float = 2.0
