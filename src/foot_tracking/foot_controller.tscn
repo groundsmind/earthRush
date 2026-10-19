@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1pp1kel30348"]
 
-[ext_resource type="Script" uid="uid://2w8odxwlo8ae" path="res://foot_tracking/foot_controller.gd" id="1_rwjbm"]
+[ext_resource type="Script" uid="uid://2w8odxwlo8ae" path="res://foot_tracking/FeetTracking.gd" id="1_rwjbm"]
 
 [sub_resource type="Gradient" id="Gradient_5x15e"]
 interpolation_mode = 2

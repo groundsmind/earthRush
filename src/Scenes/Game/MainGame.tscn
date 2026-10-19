@@ -1,14 +1,164 @@
 [gd_scene format=3 uid="uid://410fcehxgsmi"]
 
-[node name="MainGame" type="Node2D" unique_id=336676652]
+[ext_resource type="Script" uid="uid://bg0pe2s81uycd" path="res://Scenes/Game/GameManager.gd" id="1_u6ljv"]
+[ext_resource type="PackedScene" uid="uid://c3448k3go3ern" path="res://Scenes/Microgames/SampleMicrogame/SampleMicrogame.tscn" id="2_to5xg"]
+[ext_resource type="Texture2D" uid="uid://cxfsk5bchlypt" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Orange/texture_04.png" id="3_oilwc"]
+[ext_resource type="PackedScene" uid="uid://tx0g7s1e571g" path="res://Scenes/Microgames/Maze/maze.tscn" id="3_to5xg"]
+[ext_resource type="Texture2D" uid="uid://dtmgg7ptua8iq" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Purple/texture_02.png" id="4_oilwc"]
+
+[sub_resource type="Animation" id="Animation_oilwc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftDoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(85.00001, 608)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftDoor2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1518.9999, 608)]
+}
+
+[sub_resource type="Animation" id="Animation_u6ljv"]
+resource_name = "Close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftDoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(5.6568513, 5.6568513),
+"update": 0,
+"values": [Vector2(-761.99994, 608), Vector2(97, 608)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftDoor2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9333334),
+"transitions": PackedFloat32Array(5.6568513, 5.6568513),
+"update": 0,
+"values": [Vector2(2366, 608), Vector2(1536, 608)]
+}
+
+[sub_resource type="Animation" id="Animation_to5xg"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftDoor:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(0.3298776, 0.3298776),
+"update": 0,
+"values": [Vector2(85.00001, 608), Vector2(-761.99994, 608)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftDoor2:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(0.3298776, 0.3298776),
+"update": 0,
+"values": [Vector2(1518.9999, 608), Vector2(2366, 608)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nl514"]
+_data = {
+&"RESET": SubResource("Animation_oilwc"),
+&"close": SubResource("Animation_u6ljv"),
+&"open": SubResource("Animation_to5xg")
+}
+
+[node name="GameMgr" type="Node2D" unique_id=336676652 node_paths=PackedStringArray("microgame_parent")]
+script = ExtResource("1_u6ljv")
+game_list = Array[PackedScene]([ExtResource("2_to5xg"), ExtResource("3_to5xg")])
+microgame_parent = NodePath("MicrogameContainer")
 
 [node name="Label" type="Label" parent="." unique_id=1009039504]
+visible = false
 offset_left = 560.0
 offset_top = 501.0
 offset_right = 1061.0
 offset_bottom = 689.0
 theme_override_font_sizes/font_size = 128
 text = "[ AÇÃO ]"
+metadata/_edit_use_anchors_ = true
 
-[node name="Timer" type="Timer" parent="." unique_id=59972649]
+[node name="TransitionTimer" type="Timer" parent="." unique_id=59972649]
 wait_time = 3.0
+one_shot = true
+
+[node name="MicrogameContainer" type="Node2D" parent="." unique_id=1276752174]
+
+[node name="TransitionVisuals" type="Node2D" parent="." unique_id=935402483]
+
+[node name="Transition" type="CanvasGroup" parent="TransitionVisuals" unique_id=1643440304]
+
+[node name="LeftDoor" type="Sprite2D" parent="TransitionVisuals/Transition" unique_id=687663436]
+position = Vector2(85.00001, 608)
+scale = Vector2(1.40625, 1.4204068)
+texture = ExtResource("4_oilwc")
+
+[node name="LeftDoor2" type="Sprite2D" parent="TransitionVisuals/Transition" unique_id=1223763251]
+position = Vector2(1518.9999, 608)
+scale = Vector2(1.40625, 1.4204068)
+texture = ExtResource("3_oilwc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionVisuals/Transition" unique_id=957542050]
+libraries/ = SubResource("AnimationLibrary_nl514")
+
+[node name="VictoryLabel" type="Label" parent="TransitionVisuals/Transition" unique_id=665863663]
+visible = false
+offset_left = 656.0
+offset_top = 522.0
+offset_right = 948.0
+offset_bottom = 688.0
+theme_override_font_sizes/font_size = 121
+text = "Win!!"
+metadata/_edit_use_anchors_ = true
+
+[node name="DefeatLabel" type="Label" parent="TransitionVisuals/Transition" unique_id=2016846676]
+visible = false
+offset_left = 579.0
+offset_top = 516.0
+offset_right = 996.0
+offset_bottom = 673.0
+theme_override_font_sizes/font_size = 115
+text = "lose... :("
+metadata/_edit_use_anchors_ = true
+
+[node name="Hud" type="CanvasGroup" parent="." unique_id=1921520872]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Hud" unique_id=393611598]
+
+[node name="GameEndTimerDisplay" type="Label" parent="Hud/CanvasLayer" unique_id=1718456006]
+offset_left = 779.0
+offset_right = 819.0
+offset_bottom = 166.0
+theme_override_font_sizes/font_size = 100
+metadata/_edit_use_anchors_ = true

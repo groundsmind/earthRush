@@ -19,14 +19,42 @@ config/icon="uid://80876face0o4"
 
 Server="*uid://85c5ckx3cda7"
 SceneSwitch="*uid://dmba3lmopdfp8"
+FeetTracking="*uid://c1pp1kel30348"
 
 [display]
 
 window/size/viewport_width=1600
 window/size/viewport_height=1200
-window/size/mode=3
 window/size/initial_position_type=3
 window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "blue",
+"res://Scenes/": "orange",
+"res://Scenes/FunctionNodes/": "green",
+"res://Scenes/Game/": "red",
+"res://Scenes/Microgames/": "red",
+"res://Scenes/Title/": "red",
+"res://Scripts/": "purple",
+"res://TTEA/": "pink",
+"res://foot_tracking/": "pink"
+}
+
+[input]
+
+left_click={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(132, 7),"global_position":Vector2(141, 55),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Goal"
+2d_physics/layer_3="Collectible"
 
 [physics]
 

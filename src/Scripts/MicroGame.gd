@@ -1,33 +1,32 @@
 # Thanks KevinStirling for the sample microgame code. #
-#   https://github.com/KevinStirling/GodotMicroKit    # 
+#   https://github.com/KevinStirling/GodotMicroKit    #
 
 extends Node2D
 class_name MicroGame
 
-@export var time_limit = 5.0
 @export var game_end_timer : Timer
-@export var countdown_length : float = 3.0
+@export var VerbHint: String = "Agir"
 
-var game_start_countdown = Timer.new()
+var is_active : bool = false
 
 signal won(scene)
 signal lost(scene)
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	start_game()
 	
 func start_game():
-#	3 second countdown to start game
-	await get_tree().create_timer(countdown_length).timeout
-	print("starting")
+	print_debug("starting")
+	is_active = true
 	game_end_timer.timeout.connect(game_lost)
-	add_child(game_end_timer)
 	game_end_timer.start()
 
-
 func game_won():
+	if not is_active: return
+	print_debug("game won!! emmitting...")
 	won.emit(self)
 	
 func game_lost():
+	if not is_active: return
+	print_debug("game lost!! emmitting...")
 	lost.emit(self)

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c4sqbacbnpjul"]
+
+[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/FollowFoot/follow_foot.gd" id="1_4rsk8"]
+
+[node name="FollowFoot" type="Node2D" unique_id=1039548952]
+script = ExtResource("1_4rsk8")

@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://c3448k3go3ern"]
 
 [ext_resource type="Script" uid="uid://djruyenv3lubg" path="res://Scenes/Microgames/SampleMicrogame/sample_microgame.gd" id="1_0ic3k"]
+[ext_resource type="Texture2D" uid="uid://dukine88ffubf" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Dark/texture_08.png" id="2_fgcia"]
 [ext_resource type="Texture2D" uid="uid://rfdhlvcp7ql7" path="res://foot_tracking/circ.png" id="2_shixa"]
 [ext_resource type="Texture2D" uid="uid://cd3j2aseai3op" path="res://foot_tracking/circ2.png" id="3_fgcia"]
+[ext_resource type="PackedScene" uid="uid://bd5oq233uoheb" path="res://Scenes/FunctionNodes/MouseDrag/MouseClickDrag.tscn" id="5_fgcia"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 92.00543
@@ -10,11 +12,25 @@ radius = 92.00543
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 45.39824
 
-[node name="SampleMicrogame" type="Node2D" unique_id=878860999]
+[node name="SampleMicrogame" type="Node2D" unique_id=878860999 node_paths=PackedStringArray("goal", "player", "game_end_timer")]
 script = ExtResource("1_0ic3k")
+goal = NodePath("Goal")
+player = NodePath("Player")
+game_end_timer = NodePath("Timer")
+
+[node name="ScrollingBG" type="Parallax2D" parent="." unique_id=2049941988]
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(80, 80)
+repeat_times = 3
+
+[node name="BG Sprite" type="Sprite2D" parent="ScrollingBG" unique_id=1545715504]
+texture = ExtResource("2_fgcia")
+offset = Vector2(512, 512)
 
 [node name="Goal" type="Area2D" parent="." unique_id=273571428]
 position = Vector2(1412, 156)
+collision_layer = 2
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal" unique_id=357067251]
 shape = SubResource("CircleShape2D_g4v7s")
@@ -25,6 +41,8 @@ texture = ExtResource("2_shixa")
 
 [node name="Player" type="Area2D" parent="." unique_id=951937979]
 position = Vector2(183, 1048)
+collision_mask = 6
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1927763141]
 shape = SubResource("CircleShape2D_yf5fn")
@@ -32,3 +50,14 @@ shape = SubResource("CircleShape2D_yf5fn")
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=344015355]
 scale = Vector2(0.16000004, 0.16000004)
 texture = ExtResource("3_fgcia")
+
+[node name="MouseClickDrag" parent="Player" unique_id=1039548952 instance=ExtResource("5_fgcia")]
+
+[node name="ClickArea" type="Area2D" parent="Player/MouseClickDrag" unique_id=792995923]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/MouseClickDrag/ClickArea" unique_id=1841923399]
+shape = SubResource("CircleShape2D_yf5fn")
+
+[node name="Timer" type="Timer" parent="." unique_id=979584517]
+wait_time = 10.0
+one_shot = true
