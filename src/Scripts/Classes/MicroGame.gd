@@ -9,7 +9,7 @@ class_name MicroGame
 @export var player_start: Node2D
 @export var time_limit: float = 10.0
 
-@onready var game_end_timer : Timer
+@onready var game_end_timer: Timer
 
 var is_active : bool = false
 
@@ -31,7 +31,6 @@ func _process(_delta: float) -> void:
 	total_time = time_passed_ms / 1000.0
 
 func start_game():
-	print_debug("starting")
 	is_active = true
 	game_end_timer.timeout.connect(game_lost)
 	game_end_timer.start()

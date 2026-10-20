@@ -1,3 +1,4 @@
+@icon("res://addons/at-icons/node/person_body.svg")
 extends Node
 
 var left: Vector2 = Vector2.ZERO

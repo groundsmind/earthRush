@@ -1,3 +1,4 @@
+@icon("res://addons/at-icons/node/info.svg")
 extends Node
 
 var current_game: Dictionary = {
