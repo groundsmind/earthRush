@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bd5oq233uoheb"]
+
+[ext_resource type="Script" uid="uid://b7pdqb0kidte6" path="res://Scenes/FunctionNodes/MicrogameFunctions/mouse/MouseDrag/mouse_click_drag.gd" id="1_ckyxk"]
+
+[node name="MouseClickDrag" type="Node2D" unique_id=1039548952]
+script = ExtResource("1_ckyxk")

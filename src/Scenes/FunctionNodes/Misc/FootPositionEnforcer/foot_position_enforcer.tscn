@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://deh2qbl2c07rf"]
+
+[ext_resource type="Script" uid="uid://cqac13f6j6lpn" path="res://Scenes/Game/foot_position_enforcer.gd" id="1_d1le7"]
+[ext_resource type="Texture2D" uid="uid://fmejduc8edkb" path="res://Assets/Sprites/UI/kenney_Crosshair.png" id="2_85xh4"]
+[ext_resource type="Texture2D" uid="uid://ba5hfxladccvm" path="res://Assets/Sprites/UI/progress.png" id="2_nbf22"]
+[ext_resource type="Texture2D" uid="uid://cd3j2aseai3op" path="res://foot_tracking/Assets/circ2.png" id="3_nbf22"]
+
+[sub_resource type="GDScript" id="GDScript_ednfq"]
+resource_name = "Spinny"
+script/source = "extends Area2D
+
+var colliding: bool = false
+var des_progbar_value: float = 0.0
+@onready var timer: Timer = $\"../Timer\"
+@onready var progbar: TextureProgressBar = $TextureProgressBar
+
+func _process(delta: float) -> void:
+	if colliding:
+		var time_elapsed = timer.wait_time - timer.time_left
+		des_progbar_value = time_elapsed
+	progbar.value = lerp(progbar.value, des_progbar_value, delta*5.0)
+
+func _on_area_entered(_area: Area2D) -> void:
+	var _modulate = create_tween().tween_property(self, \"modulate\", Color.GREEN, 0.25)
+	progbar.max_value = timer.wait_time
+	colliding = true
+
+func _on_area_exited(_area: Area2D) -> void:
+	var _modulate = create_tween().tween_property(self, \"modulate\", Color.WHITE, 0.25)
+	des_progbar_value = 0.0
+	colliding = false
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x4otc"]
+radius = 131.74597
+
+[sub_resource type="GDScript" id="GDScript_g4v7s"]
+script/source = "extends Area2D
+
+@export var vertical_offset: float = 50.0
+
+func _process(_delta: float) -> void:
+	if FootPosition and FootPosition.midpoint != null:
+		global_position = FootPosition.midpoint
+		global_position.y += vertical_offset
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f5t76"]
+radius = 56.0803
+
+[node name="FootPositionEnforcer" type="Node2D" unique_id=272862829]
+position = Vector2(874, 568)
+script = ExtResource("1_d1le7")
+
+[node name="Target" type="Area2D" parent="." unique_id=380845274]
+collision_layer = 16
+collision_mask = 8
+script = SubResource("GDScript_ednfq")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Target" unique_id=1167489281]
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+scale = Vector2(0.48, 0.48)
+pivot_offset = Vector2(250, 250)
+step = 0.001
+fill_mode = 4
+texture_progress = ExtResource("2_nbf22")
+metadata/_edit_use_anchors_ = true
+
+[node name="Crosshair" type="Sprite2D" parent="Target" unique_id=920668081]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_85xh4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target" unique_id=760087051]
+shape = SubResource("CircleShape2D_x4otc")
+
+[node name="CurrMidpoint" type="Area2D" parent="." unique_id=2083683472]
+position = Vector2(250, 0)
+collision_layer = 8
+collision_mask = 16
+script = SubResource("GDScript_g4v7s")
+vertical_offset = -50.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CurrMidpoint" unique_id=878980030]
+shape = SubResource("CircleShape2D_f5t76")
+
+[node name="Sprite2D" type="Sprite2D" parent="CurrMidpoint" unique_id=724580440]
+scale = Vector2(0.212, 0.212)
+texture = ExtResource("3_nbf22")
+
+[node name="Timer" type="Timer" parent="." unique_id=768199308]
+wait_time = 3.0
+
+[connection signal="area_entered" from="Target" to="." method="_on_target_area_entered"]
+[connection signal="area_entered" from="Target" to="Target" method="_on_area_entered"]
+[connection signal="area_exited" from="Target" to="." method="_on_target_area_exited"]
+[connection signal="area_exited" from="Target" to="Target" method="_on_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

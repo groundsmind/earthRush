@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c322tvaty0uy" path="res://Scenes/GameOver/game_over.gd" id="1_apf3g"]
 [ext_resource type="Texture2D" uid="uid://diml067yew64w" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Red/texture_05.png" id="2_als7q"]
 [ext_resource type="Script" uid="uid://xfxipoxftyrq" path="res://Scripts/juice/button_hover_bump.gd" id="3_fdts5"]
-[ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/SceneTransitionFade/scene_transition_rect.tscn" id="4_owf3c"]
+[ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="4_owf3c"]
 
 [sub_resource type="GDScript" id="GDScript_5t1aa"]
 resource_name = "ScoreSetter"
@@ -25,7 +25,7 @@ script/source = "extends VBoxContainer
 @onready var avg_time_val: Label = $avg_time_val
 
 func _ready() -> void:
-	games_won_val.text = str(GameInfo.current_game.get(\"games won\"))
+	games_won_val.text = str(GameInfo.current_game.get(\"games played\")-3)
 	games_played_val.text = str(GameInfo.current_game.get(\"games played\"))
 	tot_time_val.text = \"%.2f\" % GameInfo.current_game.get(\"total time\")
 	avg_time_val.text = \"%.2f\" % GameInfo.current_game.get(\"average time\")
@@ -276,7 +276,7 @@ _data = {
 &"enter": SubResource("Animation_pda5h")
 }
 
-[node name="GameOver" type="CanvasGroup" unique_id=1027146577]
+[node name="GameOver" type="Node2D" unique_id=139975463]
 script = ExtResource("1_apf3g")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=2026305026]

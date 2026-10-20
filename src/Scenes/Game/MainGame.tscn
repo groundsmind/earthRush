@@ -8,8 +8,27 @@
 [ext_resource type="Script" uid="uid://dmd63p8wyuv04" path="res://Scenes/Game/heart_display.gd" id="6_1605l"]
 [ext_resource type="Texture2D" uid="uid://ph4fwqaias0l" path="res://Assets/Sprites/UI/heart_full.png" id="7_1605l"]
 [ext_resource type="Texture2D" uid="uid://cyvi4ymsjpvxp" path="res://Assets/Sprites/UI/heart_break.png" id="8_5jl82"]
-[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/swing_sprite.gd" id="9_5jl82"]
-[ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/SceneTransitionFade/scene_transition_rect.tscn" id="10_wn6li"]
+[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/juice/swing_sprite.gd" id="9_5jl82"]
+[ext_resource type="PackedScene" uid="uid://deh2qbl2c07rf" path="res://Scenes/FunctionNodes/Misc/FootPositionEnforcer/foot_position_enforcer.tscn" id="10_5t1aa"]
+[ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="10_wn6li"]
+
+[sub_resource type="GDScript" id="GDScript_yf5fn"]
+resource_name = "FootPositionEnfPositioner"
+script/source = "extends Node2D
+
+@onready var game_mgr: Node2D = $\"../../../..\"
+@onready var fpe: FootPositionEnforcer = $\"..\"
+
+func _ready() -> void:
+	game_mgr.game_change.connect(_on_game_change)
+
+func _on_game_change(game: PackedScene) -> void:
+	print(\"hello enforcing the enforcer\")
+	var game_scene: Node = game.instantiate()
+	var enforcer_pos: Vector2 = game_scene.player_start.global_position
+	var _fpe_pos_tween = create_tween().tween_property(fpe, \"global_position\", enforcer_pos, 0.25).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+	game_scene.queue_free()
+"
 
 [sub_resource type="Animation" id="Animation_oilwc"]
 length = 0.001
@@ -145,6 +164,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [6.2831855]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("FootPositionEnforcer:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_u6ljv"]
 resource_name = "Close"
@@ -244,6 +275,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(0.5, 0.5),
 "update": 0,
 "values": [3.141592653589793, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("FootPositionEnforcer:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_to5xg"]
@@ -380,6 +423,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("FootPositionEnforcer:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.3211189),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nl514"]
 _data = {
@@ -391,7 +446,6 @@ _data = {
 [node name="GameMgr" type="Node2D" unique_id=336676652 node_paths=PackedStringArray("microgame_parent")]
 script = ExtResource("1_u6ljv")
 game_list = Array[PackedScene]([ExtResource("2_to5xg"), ExtResource("3_to5xg")])
-randomize_game_order = null
 microgame_parent = NodePath("MicrogameContainer")
 
 [node name="TransitionTimer" type="Timer" parent="." unique_id=59972649]
@@ -447,11 +501,17 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_1605l")
 script = ExtResource("9_5jl82")
 
+[node name="FootPositionEnforcer" parent="TransitionVisuals/Transition" unique_id=272862829 instance=ExtResource("10_5t1aa")]
+position = Vector2(796, 887)
+
+[node name="FPEPositioner" type="Node2D" parent="TransitionVisuals/Transition/FootPositionEnforcer" unique_id=255231195]
+script = SubResource("GDScript_yf5fn")
+
 [node name="ResultLabel" type="Label" parent="TransitionVisuals/Transition" unique_id=665863663]
 offset_left = 160.0
 offset_top = 336.0
 offset_right = 1460.0
-offset_bottom = 865.99536
+offset_bottom = 865.9945
 rotation = 6.2831855
 pivot_offset = Vector2(650, 265)
 theme_override_constants/outline_size = 32

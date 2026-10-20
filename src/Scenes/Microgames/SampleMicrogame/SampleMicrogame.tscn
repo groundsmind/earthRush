@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dukine88ffubf" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Dark/texture_08.png" id="2_fgcia"]
 [ext_resource type="Texture2D" uid="uid://rfdhlvcp7ql7" path="res://foot_tracking/Assets/circ.png" id="2_shixa"]
 [ext_resource type="Texture2D" uid="uid://cd3j2aseai3op" path="res://foot_tracking/Assets/circ2.png" id="3_fgcia"]
-[ext_resource type="PackedScene" uid="uid://bd5oq233uoheb" path="res://Scenes/FunctionNodes/MouseDrag/MouseClickDrag.tscn" id="5_fgcia"]
+[ext_resource type="PackedScene" uid="uid://c4sqbacbnpjul" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/FollowFoot.tscn" id="5_fgcia"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 92.00543
@@ -12,12 +12,13 @@ radius = 92.00543
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 45.39824
 
-[node name="SampleMicrogame" type="Node2D" unique_id=878860999 node_paths=PackedStringArray("goal", "player", "game_end_timer")]
+[node name="SampleMicrogame" type="Node2D" unique_id=878860999 node_paths=PackedStringArray("goal", "player", "game_end_timer", "player_start")]
 script = ExtResource("1_0ic3k")
 goal = NodePath("Goal")
 player = NodePath("Player")
 game_end_timer = NodePath("Timer")
 VerbHint = "Linha reta!"
+player_start = NodePath("Marker2D")
 
 [node name="ScrollingBG" type="Parallax2D" parent="." unique_id=2049941988]
 repeat_size = Vector2(1024, 1024)
@@ -52,13 +53,12 @@ shape = SubResource("CircleShape2D_yf5fn")
 scale = Vector2(0.16000004, 0.16000004)
 texture = ExtResource("3_fgcia")
 
-[node name="MouseClickDrag" parent="Player" unique_id=1039548952 instance=ExtResource("5_fgcia")]
-
-[node name="ClickArea" type="Area2D" parent="Player/MouseClickDrag" unique_id=792995923]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/MouseClickDrag/ClickArea" unique_id=1841923399]
-shape = SubResource("CircleShape2D_yf5fn")
+[node name="FollowFoot" parent="Player" unique_id=1039548952 instance=ExtResource("5_fgcia")]
 
 [node name="Timer" type="Timer" parent="." unique_id=979584517]
 wait_time = 10.0
 one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1904978878]
+position = Vector2(235, 209)
+gizmo_extents = 96.0

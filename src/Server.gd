@@ -24,7 +24,7 @@ func _process(_delta) -> void:
 	if server.is_connection_available():
 		client = server.take_connection()
 		var packet = client.get_packet()
-		print(packet)
+		#print_debug(packet)
 		if packet:
 			data = JSON.parse_string(packet.get_string_from_utf8())
 			print("Accepted peer: %s:%s" % [client.get_packet_ip(), client.get_packet_port()])
@@ -54,6 +54,7 @@ func _notification(what):
 		if python_pid > 0:
 			print("Terminating Python process...")
 			OS.kill(python_pid)
+		get_tree().quit()
 
 func stop() -> void:
 	get_tree().quit()

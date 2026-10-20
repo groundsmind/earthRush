@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c36wp41p0o85"]
 
 [ext_resource type="Texture2D" uid="uid://b3hgq6ln7sqo6" path="res://TTEA/assets/calibrar.png" id="1_hw0jf"]
-[ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/SceneTransitionFade/scene_transition_rect.tscn" id="2_j6hxc"]
+[ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="2_j6hxc"]
 
 [sub_resource type="GDScript" id="GDScript_ffumr"]
 resource_name = "Calibration"
@@ -22,7 +22,7 @@ func _ready() -> void:
 	sprite.texture = sprites[state]
 	Server.data_received.connect(_on_server_data_received)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	match state:
 		\"avisos\":
 			if Input.is_key_pressed(KEY_C):

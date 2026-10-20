@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://jsq26covv7p6"]
+
+[ext_resource type="Script" uid="uid://c5p0gmcwunpja" path="res://Scenes/FunctionNodes/MicrogameFunctions/mouse/FollowMouse/follow_mouse.gd" id="1_eyvgn"]
+
+[node name="FollowMouse" type="Node2D" unique_id=1039548952]
+script = ExtResource("1_eyvgn")

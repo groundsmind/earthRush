@@ -6,6 +6,7 @@ class_name MicroGame
 
 @export var game_end_timer : Timer
 @export var VerbHint: String = "Agir"
+@export var player_start: Node2D
 
 var is_active : bool = false
 

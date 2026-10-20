@@ -13,13 +13,14 @@ extends Node2D
 @onready var result_label: Label = $TransitionVisuals/Transition/ResultLabel
 @onready var scene_transition_rect: ColorRect = $SceneTransitionRect
 
+@onready var foot_position_enforcer: Node2D = $TransitionVisuals/Transition/FootPositionEnforcer
+
 # game variables #
 var total_hp: int = 3
 @onready var current_hp = total_hp
 
 var game_stats: Dictionary = {
 	"score": 0,
-	"games won": 0,
 	"games played": 0,
 	"total time": 0,
 	"average time": 0
@@ -29,12 +30,20 @@ var current_game : MicroGame
 var transitioning : bool = false
 
 signal hp_change
+signal game_change(scene)
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_pressed("quit"):
+		scene_transition_rect.transition_to("res://Scenes/Title/TitleScreen.tscn")
 
 func _ready() -> void:
-	var next_game = pick_game()
-	set_action_word(next_game)
-	transition_timer.timeout.connect(start_transition.bind(next_game))
-	transition_timer.start()
+	game_setup()
+
+func _process(_delta) -> void:
+	if is_instance_valid(current_game) and current_game.game_end_timer:
+		game_end_timer_display.text = str(int(current_game.game_end_timer.time_left))
+	else:
+		game_end_timer_display.text = ""
 
 func start_transition(next_game: PackedScene) -> void:
 	print_debug("starting transition...")	
@@ -44,6 +53,8 @@ func start_transition(next_game: PackedScene) -> void:
 	microgame_parent.add_child(current_game)
 	current_game.won.connect(game_won)
 	current_game.lost.connect(game_lost)
+	foot_position_enforcer.on_area.disconnect(start_transition)
+	foot_position_enforcer.set_monitoring(false)
 	transition_animation_player.play("open")
 
 func pick_game() -> PackedScene:
@@ -63,12 +74,12 @@ func game_won(scene) -> void:
 	print_debug("received game won!")
 	game_stats["total time"] += scene.total_time
 	game_stats["score"] += 5
-	game_stats["games won"] += 1
 	game_stats["games played"] += 1
 	end_microgame(scene)
 
 func game_lost(scene) -> void:
 	print_debug("received game lost!")
+	game_stats["total time"] += scene.total_time
 	game_stats["score"] -= 2
 	game_stats["games played"] += 1
 	decrease_health()
@@ -78,14 +89,18 @@ func end_microgame(scene) -> void:
 	check_game_over()
 	if transitioning: return
 	transitioning = true
+	game_setup(scene)
+
+func game_setup(scene: Node2D = Node2D.new(), is_first: bool = false) -> void:
 	var next_game = pick_game()
 	set_action_word(next_game)
-	transition_animation_player.play("close")
+	if not is_first:
+		transition_animation_player.play("close")
 	await transition_animation_player.animation_finished
 	cleanup_microgame(scene)
-
-	await get_tree().create_timer(4).timeout
-	start_transition(next_game)
+	game_change.emit(next_game)
+	foot_position_enforcer.set_monitoring(true)
+	foot_position_enforcer.on_area.connect(start_transition.bind(next_game))
 
 func check_game_over() -> void:
 	if current_hp <= 0:
@@ -104,9 +119,3 @@ func cleanup_microgame(scene):
 func decrease_health() -> void:
 	current_hp -= 1
 	hp_change.emit()
-
-func _process(_delta) -> void:
-	if is_instance_valid(current_game) and current_game.game_end_timer:
-		game_end_timer_display.text = str(int(current_game.game_end_timer.time_left))
-	else:
-		game_end_timer_display.text = ""

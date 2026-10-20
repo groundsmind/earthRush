@@ -2,27 +2,23 @@
 
 [ext_resource type="Texture2D" uid="uid://80876face0o4" path="res://icon.png" id="1_pfeqe"]
 [ext_resource type="PackedScene" uid="uid://c1pp1kel30348" path="res://foot_tracking/SampleFootController/foot_controller.tscn" id="2_47f4b"]
+[ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="3_ednfq"]
 
 [sub_resource type="GDScript" id="GDScript_lti8b"]
 resource_name = "wawa"
 script/source = "extends Node2D
 
 @onready var label: Label = $Label
+@onready var scene_transition_rect: ColorRect = $SceneTransitionRect
+@onready var calibrate: Button = $MenuButtons/calibrate
 
 func _process(_delta: float) -> void:
 	if Server.data is Dictionary:
 		label.text = str(Server.data['pos']) + \"\\n @\" + str(Server.delay_ms) + \"ms\"
-"
-
-[sub_resource type="GDScript" id="GDScript_vsb4k"]
-resource_name = "MenuButtons"
-script/source = "extends HBoxContainer
-
-@onready var calibrate: Button = $calibrate
 
 func _on_calibrate_pressed() -> void:
 	calibrate.disabled = true
-	SceneSwitch.switch_scene(\"res://calibrate.tscn\")
+	scene_transition_rect.transition_to(\"res://Scenes/Calibration/calibration.tscn\")
 
 func _on_exit_pressed() -> void:
 	Server.send_data(\"EXT\")
@@ -65,7 +61,6 @@ offset_right = 813.0
 offset_bottom = 111.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_vsb4k")
 
 [node name="calibrate" type="Button" parent="MenuButtons" unique_id=544874297]
 custom_minimum_size = Vector2(400, 0)
@@ -87,6 +82,7 @@ scale = Vector2(1.6323246, 1.6861377)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1607427401]
+scale = Vector2(3.6374512, 3.6374512)
 texture = ExtResource("1_pfeqe")
 
 [node name="footController" parent="." unique_id=20383955 instance=ExtResource("2_47f4b")]
@@ -95,5 +91,12 @@ offset_threshold = 10.0
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1375520766]
 anchor_mode = 0
 
-[connection signal="pressed" from="MenuButtons/calibrate" to="MenuButtons" method="_on_calibrate_pressed"]
-[connection signal="pressed" from="MenuButtons/exit" to="MenuButtons" method="_on_exit_pressed"]
+[node name="SceneTransitionRect" parent="." unique_id=861179771 instance=ExtResource("3_ednfq")]
+visible = false
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 1613.0
+offset_bottom = 1205.0
+
+[connection signal="pressed" from="MenuButtons/calibrate" to="." method="_on_calibrate_pressed"]
+[connection signal="pressed" from="MenuButtons/exit" to="." method="_on_exit_pressed"]
