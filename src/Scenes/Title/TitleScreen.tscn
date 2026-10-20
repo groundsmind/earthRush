@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cal3gy6gs6ymk"]
 
-[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/juice/swing_sprite.gd" id="2_7kha8"]
+[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/Juice/swing_sprite.gd" id="2_7kha8"]
 [ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="3_cb5jd"]
-[ext_resource type="Script" uid="uid://xfxipoxftyrq" path="res://Scripts/juice/button_hover_bump.gd" id="3_rb55s"]
+[ext_resource type="Script" uid="uid://xfxipoxftyrq" path="res://Scripts/Juice/button_hover_bump.gd" id="3_rb55s"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rb55s"]
 load_path = "res://.godot/imported/texture_08.png-33d2ed76ea35e9bac4807c523205dcdb.ctex"

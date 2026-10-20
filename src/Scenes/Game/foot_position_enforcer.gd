@@ -1,3 +1,4 @@
+@icon("res://addons/at-icons/node2d/reticle.svg")
 class_name FootPositionEnforcer
 extends Node2D
 

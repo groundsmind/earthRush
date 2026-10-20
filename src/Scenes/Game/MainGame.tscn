@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dmd63p8wyuv04" path="res://Scenes/Game/heart_display.gd" id="6_1605l"]
 [ext_resource type="Texture2D" uid="uid://ph4fwqaias0l" path="res://Assets/Sprites/UI/heart_full.png" id="7_1605l"]
 [ext_resource type="Texture2D" uid="uid://cyvi4ymsjpvxp" path="res://Assets/Sprites/UI/heart_break.png" id="8_5jl82"]
-[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/juice/swing_sprite.gd" id="9_5jl82"]
+[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/Juice/swing_sprite.gd" id="9_5jl82"]
 [ext_resource type="PackedScene" uid="uid://deh2qbl2c07rf" path="res://Scenes/FunctionNodes/Misc/FootPositionEnforcer/foot_position_enforcer.tscn" id="10_5t1aa"]
 [ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="10_wn6li"]
 

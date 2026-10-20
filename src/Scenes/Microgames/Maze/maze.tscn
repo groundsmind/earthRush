@@ -16,11 +16,10 @@ size = Vector2(159, 780)
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 45.39824
 
-[node name="MazeMicrogame" type="Node2D" unique_id=878860999 node_paths=PackedStringArray("goal", "obstacle", "game_end_timer", "player_start")]
+[node name="MazeMicrogame" type="Node2D" unique_id=878860999 node_paths=PackedStringArray("goal", "obstacle", "player_start")]
 script = ExtResource("1_lbbp5")
 goal = NodePath("Goal")
 obstacle = NodePath("Obstacle")
-game_end_timer = NodePath("Timer")
 VerbHint = "Labirinto!"
 player_start = NodePath("Player")
 

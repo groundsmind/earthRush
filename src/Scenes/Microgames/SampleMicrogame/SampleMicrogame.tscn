@@ -12,13 +12,12 @@ radius = 92.00543
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 45.39824
 
-[node name="SampleMicrogame" type="Node2D" unique_id=878860999 node_paths=PackedStringArray("goal", "player", "game_end_timer", "player_start")]
+[node name="SampleMicrogame" type="Node2D" unique_id=878860999 node_paths=PackedStringArray("goal", "player", "player_start")]
 script = ExtResource("1_0ic3k")
 goal = NodePath("Goal")
 player = NodePath("Player")
-game_end_timer = NodePath("Timer")
 VerbHint = "Linha reta!"
-player_start = NodePath("Marker2D")
+player_start = NodePath(".")
 
 [node name="ScrollingBG" type="Parallax2D" parent="." unique_id=2049941988]
 repeat_size = Vector2(1024, 1024)
@@ -30,7 +29,7 @@ texture = ExtResource("2_fgcia")
 offset = Vector2(512, 512)
 
 [node name="Goal" type="Area2D" parent="." unique_id=273571428]
-position = Vector2(1412, 156)
+position = Vector2(806, 124)
 collision_layer = 2
 monitoring = false
 
@@ -42,7 +41,7 @@ scale = Vector2(0.348, 0.348)
 texture = ExtResource("2_shixa")
 
 [node name="Player" type="Area2D" parent="." unique_id=951937979]
-position = Vector2(183, 1048)
+position = Vector2(814, 1022)
 collision_mask = 6
 monitorable = false
 
@@ -54,11 +53,3 @@ scale = Vector2(0.16000004, 0.16000004)
 texture = ExtResource("3_fgcia")
 
 [node name="FollowFoot" parent="Player" unique_id=1039548952 instance=ExtResource("5_fgcia")]
-
-[node name="Timer" type="Timer" parent="." unique_id=979584517]
-wait_time = 10.0
-one_shot = true
-
-[node name="Marker2D" type="Marker2D" parent="." unique_id=1904978878]
-position = Vector2(235, 209)
-gizmo_extents = 96.0
