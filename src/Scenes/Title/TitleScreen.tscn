@@ -16,9 +16,11 @@ script/source = "extends Node2D
 func _on_exit_pressed() -> void:
 	scene_transition_rect.transition_to(\"res://Scenes/Title/Exit.tscn\")
 
-
 func _on_start_pressed() -> void:
 	scene_transition_rect.transition_to(\"res://Scenes/Game/MainGame.tscn\")
+
+func _on_cal_pressed() -> void:
+	scene_transition_rect.transition_to(\"res://Scenes/Calibration/calibration.tscn\")
 "
 
 [node name="TitleScreen" type="Node2D" unique_id=288353752]
@@ -83,4 +85,5 @@ offset_right = 1613.0
 offset_bottom = 1205.0
 
 [connection signal="pressed" from="ButtonMgr/Start" to="ButtonMgr" method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonMgr/Cal" to="ButtonMgr" method="_on_cal_pressed"]
 [connection signal="pressed" from="ButtonMgr/Exit" to="ButtonMgr" method="_on_exit_pressed"]

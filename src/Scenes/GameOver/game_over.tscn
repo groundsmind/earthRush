@@ -37,8 +37,14 @@ script/source = "extends Node2D
 
 @onready var scene_transition_rect: ColorRect = $\"../SceneTransitionRect\"
 
+func _on_replay_pressed() -> void:
+	scene_transition_rect.transition_to(\"res://Scenes/Game/MainGame.tscn\")
+
+func _on_recal_pressed() -> void:
+	scene_transition_rect.transition_to(\"res://Scenes/Calibration/calibration.tscn\")
+
 func _on_back_2_menu_pressed() -> void:
-	scene_transition_rect.transition_to(\"res://Scenes/Title/TitleScreen.tscn\") #scene
+	scene_transition_rect.transition_to(\"res://Scenes/Title/TitleScreen.tscn\")
 "
 
 [sub_resource type="Animation" id="Animation_ok6i5"]
@@ -317,7 +323,7 @@ offset_top = 791.0
 offset_right = 840.0
 offset_bottom = 983.0
 pivot_offset = Vector2(441.27158, 102.062805)
-theme_override_constants/separation = 313
+theme_override_constants/separation = 200
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=274832932]
 layout_mode = 2
@@ -326,6 +332,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Minigames vencidos"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="games_played" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1429171223]
@@ -343,7 +350,7 @@ horizontal_alignment = 2
 [node name="avg_time" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1439405867]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Tempo médio"
+text = "Tempo médio por minigame"
 horizontal_alignment = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=1613862997]
@@ -412,4 +419,6 @@ offset_top = -10.0
 offset_right = 1613.0
 offset_bottom = 1205.0
 
+[connection signal="pressed" from="ButtonMgr/Replay" to="ButtonMgr" method="_on_replay_pressed"]
+[connection signal="pressed" from="ButtonMgr/Recal" to="ButtonMgr" method="_on_recal_pressed"]
 [connection signal="pressed" from="ButtonMgr/Back2Menu" to="ButtonMgr" method="_on_back_2_menu_pressed"]
