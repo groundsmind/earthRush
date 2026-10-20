@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c322tvaty0uy" path="res://Scenes/GameOver/game_over.gd" id="1_apf3g"]
 [ext_resource type="Texture2D" uid="uid://diml067yew64w" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Red/texture_05.png" id="2_als7q"]
-[ext_resource type="Script" uid="uid://xfxipoxftyrq" path="res://Scripts/juice/button_hover_bump.gd" id="3_fdts5"]
+[ext_resource type="Script" uid="uid://xfxipoxftyrq" path="res://Scripts/Juice/button_hover_bump.gd" id="3_fdts5"]
 [ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="4_owf3c"]
 
 [sub_resource type="GDScript" id="GDScript_5t1aa"]
