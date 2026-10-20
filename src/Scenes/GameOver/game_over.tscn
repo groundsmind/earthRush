@@ -5,6 +5,32 @@
 [ext_resource type="Script" uid="uid://xfxipoxftyrq" path="res://Scripts/juice/button_hover_bump.gd" id="3_fdts5"]
 [ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/SceneTransitionFade/scene_transition_rect.tscn" id="4_owf3c"]
 
+[sub_resource type="GDScript" id="GDScript_5t1aa"]
+resource_name = "ScoreSetter"
+script/source = "extends HBoxContainer
+
+@onready var score_value: Label = $score_value
+
+func _ready() -> void:
+	score_value.text = str(GameInfo.current_game.get(\"score\"))
+"
+
+[sub_resource type="GDScript" id="GDScript_wn6li"]
+resource_name = "StatsDisplay"
+script/source = "extends VBoxContainer
+
+@onready var games_won_val: Label = $games_won_val
+@onready var games_played_val: Label = $games_played_val
+@onready var tot_time_val: Label = $tot_time_val
+@onready var avg_time_val: Label = $avg_time_val
+
+func _ready() -> void:
+	games_won_val.text = str(GameInfo.current_game.get(\"games won\"))
+	games_played_val.text = str(GameInfo.current_game.get(\"games played\"))
+	tot_time_val.text = \"%.2f\" % GameInfo.current_game.get(\"total time\")
+	avg_time_val.text = \"%.2f\" % GameInfo.current_game.get(\"average time\")
+"
+
 [sub_resource type="GDScript" id="GDScript_4p3hf"]
 resource_name = "ButtonMgr"
 script/source = "extends Node2D
@@ -271,6 +297,7 @@ offset_top = 390.0
 offset_right = 768.0
 offset_bottom = 478.0
 theme_override_constants/separation = 252
+script = SubResource("GDScript_5t1aa")
 
 [node name="score" type="Label" parent="HBoxContainer2" unique_id=1971787959]
 layout_mode = 2
@@ -321,6 +348,7 @@ horizontal_alignment = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=1613862997]
 layout_mode = 2
+script = SubResource("GDScript_wn6li")
 
 [node name="games_won_val" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1197436256]
 layout_mode = 2

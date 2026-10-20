@@ -9,12 +9,21 @@ class_name MicroGame
 
 var is_active : bool = false
 
+var start_time: int
+var total_time: float
+
 signal won(scene)
 signal lost(scene)
 
 func _ready():
+	start_time = Time.get_ticks_msec()
 	start_game()
-	
+
+func _process(_delta: float) -> void:
+	var current_time: int = Time.get_ticks_msec()
+	var time_passed_ms: int = current_time - start_time
+	total_time = time_passed_ms / 1000.0
+
 func start_game():
 	print_debug("starting")
 	is_active = true

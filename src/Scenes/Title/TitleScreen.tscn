@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cal3gy6gs6ymk"]
 
-[ext_resource type="Texture2D" uid="uid://dukine88ffubf" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Dark/texture_08.png" id="1_ddlbn"]
 [ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/swing_sprite.gd" id="2_7kha8"]
 [ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/SceneTransitionFade/scene_transition_rect.tscn" id="3_cb5jd"]
 [ext_resource type="Script" uid="uid://xfxipoxftyrq" path="res://Scripts/juice/button_hover_bump.gd" id="3_rb55s"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rb55s"]
+load_path = "res://.godot/imported/texture_08.png-33d2ed76ea35e9bac4807c523205dcdb.ctex"
 
 [sub_resource type="GDScript" id="GDScript_g4v7s"]
 resource_name = "ButtonMgr"
@@ -27,7 +29,7 @@ autoscroll = Vector2(80, 80)
 repeat_times = 3
 
 [node name="BG Sprite" type="Sprite2D" parent="ScrollingBG" unique_id=1929285016]
-texture = ExtResource("1_ddlbn")
+texture = SubResource("CompressedTexture2D_rb55s")
 offset = Vector2(512, 512)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1851498996]

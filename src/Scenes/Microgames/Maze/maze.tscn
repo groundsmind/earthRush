@@ -21,10 +21,11 @@ script = ExtResource("1_lbbp5")
 goal = NodePath("Goal")
 obstacle = NodePath("Obstacle")
 game_end_timer = NodePath("Timer")
+VerbHint = "Labirinto!"
 
 [node name="ScrollingBG" type="Parallax2D" parent="." unique_id=2049941988]
 repeat_size = Vector2(1024, 1024)
-autoscroll = Vector2(80, 80)
+autoscroll = Vector2(80, 0)
 repeat_times = 3
 
 [node name="BG Sprite" type="Sprite2D" parent="ScrollingBG" unique_id=1545715504]

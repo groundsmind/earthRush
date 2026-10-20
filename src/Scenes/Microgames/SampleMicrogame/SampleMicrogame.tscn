@@ -17,6 +17,7 @@ script = ExtResource("1_0ic3k")
 goal = NodePath("Goal")
 player = NodePath("Player")
 game_end_timer = NodePath("Timer")
+VerbHint = "Linha reta!"
 
 [node name="ScrollingBG" type="Parallax2D" parent="." unique_id=2049941988]
 repeat_size = Vector2(1024, 1024)

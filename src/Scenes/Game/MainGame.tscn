@@ -131,7 +131,19 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(656, 522)]
+"values": [Vector2(160, 336)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ResultLabel:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.2831855]
 }
 
 [sub_resource type="Animation" id="Animation_u6ljv"]
@@ -171,7 +183,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.20000008),
 "transitions": PackedFloat32Array(1, -0.5),
 "update": 0,
-"values": [Vector2(-250, 250), Vector2(-250, 0)]
+"values": [Vector2(-250, -250), Vector2(-250, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -183,7 +195,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, -0.5),
 "update": 0,
-"values": [Vector2(0, 250), Vector2(0, 0)]
+"values": [Vector2(0, -250), Vector2(0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -195,7 +207,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.40000007),
 "transitions": PackedFloat32Array(1, -0.5),
 "update": 0,
-"values": [Vector2(250, 250), Vector2(250, 0)]
+"values": [Vector2(250, -250), Vector2(250, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -216,10 +228,22 @@ tracks/6/path = NodePath("ResultLabel:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(656, 522), Vector2(656, 522)]
+"values": [Vector2(151, 336)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ResultLabel:rotation")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.033333335, 0.33333334),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [3.141592653589793, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_to5xg"]
@@ -258,7 +282,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(5.9604645e-08, 0.23333333),
 "transitions": PackedFloat32Array(3.3635814, 1),
 "update": 0,
-"values": [Vector2(-250, 0), Vector2(-250, 250)]
+"values": [Vector2(-250, 0), Vector2(-250, -250)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -270,7 +294,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.3333333),
 "transitions": PackedFloat32Array(3.3635814, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 250)]
+"values": [Vector2(0, 0), Vector2(0, -250)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -282,7 +306,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.43333334),
 "transitions": PackedFloat32Array(3.3635814, 1),
 "update": 0,
-"values": [Vector2(250, 0), Vector2(250, 250)]
+"values": [Vector2(250, 0), Vector2(250, -250)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -327,10 +351,34 @@ tracks/8/path = NodePath("ResultLabel:position")
 tracks/8/interp = 2
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.36666667),
-"transitions": PackedFloat32Array(-2, -2),
+"times": PackedFloat32Array(0, 0.8333333),
+"transitions": PackedFloat32Array(-2, 1),
 "update": 0,
-"values": [Vector2(656, 522), Vector2(656, -305)]
+"values": [Vector2(160, 336), Vector2(165.265, 1092)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ResultLabel:rotation")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.25881636, 1),
+"update": 0,
+"values": [0.0, 6.501351463678877]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ResultLabel:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nl514"]
@@ -343,17 +391,8 @@ _data = {
 [node name="GameMgr" type="Node2D" unique_id=336676652 node_paths=PackedStringArray("microgame_parent")]
 script = ExtResource("1_u6ljv")
 game_list = Array[PackedScene]([ExtResource("2_to5xg"), ExtResource("3_to5xg")])
+randomize_game_order = null
 microgame_parent = NodePath("MicrogameContainer")
-
-[node name="Label" type="Label" parent="." unique_id=1009039504]
-offset_left = 560.0
-offset_top = 501.0
-offset_right = 1061.0
-offset_bottom = 689.0
-theme_override_constants/outline_size = 46
-theme_override_font_sizes/font_size = 128
-text = "[ AÇÃO ]"
-metadata/_edit_use_anchors_ = true
 
 [node name="TransitionTimer" type="Timer" parent="." unique_id=59972649]
 wait_time = 3.0
@@ -386,7 +425,7 @@ scale = Vector2(1.5625, 1.5781254)
 texture = ExtResource("3_oilwc")
 
 [node name="Hearts" type="Node2D" parent="TransitionVisuals/Transition" unique_id=1567376117]
-position = Vector2(800, 1100)
+position = Vector2(800, 100)
 script = ExtResource("6_1605l")
 full_texture = ExtResource("7_1605l")
 broken_texture = ExtResource("8_5jl82")
@@ -409,17 +448,17 @@ texture = ExtResource("7_1605l")
 script = ExtResource("9_5jl82")
 
 [node name="ResultLabel" type="Label" parent="TransitionVisuals/Transition" unique_id=665863663]
-offset_left = 656.0
-offset_top = 522.0
-offset_right = 956.0
-offset_bottom = 691.99994
-pivot_offset = Vector2(150, 85)
+offset_left = 160.0
+offset_top = 336.0
+offset_right = 1460.0
+offset_bottom = 865.99536
+rotation = 6.2831855
+pivot_offset = Vector2(650, 265)
 theme_override_constants/outline_size = 32
 theme_override_font_sizes/font_size = 121
-text = "Win!!"
+text = "Labirinto!"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionVisuals/Transition" unique_id=957542050]
 libraries/ = SubResource("AnimationLibrary_nl514")
