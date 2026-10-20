@@ -66,20 +66,17 @@ func pick_game() -> PackedScene:
 	return next_game
 
 func start_game_over_sequence() -> void:
-	game_stats["average time"] = game_stats.get("total time")/game_stats.get("games played")
 	GameInfo.current_game = game_stats
 	scene_transition_rect.transition_to("res://Scenes/GameOver/game_over.tscn")
 
 func game_won(scene) -> void:
 	print_debug("received game won!")
-	game_stats["total time"] += scene.total_time
 	game_stats["score"] += 5
 	game_stats["games played"] += 1
 	end_microgame(scene)
 
 func game_lost(scene) -> void:
 	print_debug("received game lost!")
-	game_stats["total time"] += scene.total_time
 	game_stats["score"] -= 2
 	game_stats["games played"] += 1
 	decrease_health()

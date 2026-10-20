@@ -25,10 +25,7 @@ script/source = "extends VBoxContainer
 @onready var avg_time_val: Label = $avg_time_val
 
 func _ready() -> void:
-	games_won_val.text = str(GameInfo.current_game.get(\"games played\")-3)
 	games_played_val.text = str(GameInfo.current_game.get(\"games played\"))
-	tot_time_val.text = \"%.2f\" % GameInfo.current_game.get(\"total time\")
-	avg_time_val.text = \"%.2f\" % GameInfo.current_game.get(\"average time\")
 "
 
 [sub_resource type="GDScript" id="GDScript_4p3hf"]
@@ -308,7 +305,7 @@ script = SubResource("GDScript_5t1aa")
 [node name="score" type="Label" parent="HBoxContainer2" unique_id=1971787959]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "Pontuação: "
+text = "Pontuação  "
 
 [node name="score_value" type="Label" parent="HBoxContainer2" unique_id=819231519]
 layout_mode = 2
@@ -318,22 +315,15 @@ horizontal_alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=631947262]
 custom_minimum_size = Vector2(800, 0)
-offset_left = 40.0
-offset_top = 791.0
-offset_right = 840.0
-offset_bottom = 983.0
+offset_left = 51.0
+offset_top = 900.0
+offset_right = 851.0
+offset_bottom = 1092.0
 pivot_offset = Vector2(441.27158, 102.062805)
-theme_override_constants/separation = 200
+theme_override_constants/separation = 323
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=274832932]
 layout_mode = 2
-
-[node name="games_won" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1907827557]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Minigames vencidos"
-horizontal_alignment = 2
-vertical_alignment = 1
 
 [node name="games_played" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1429171223]
 layout_mode = 2
@@ -341,39 +331,11 @@ theme_override_font_sizes/font_size = 32
 text = "Minigames jogados"
 horizontal_alignment = 2
 
-[node name="tot_time" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=482904627]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Tempo total"
-horizontal_alignment = 2
-
-[node name="avg_time" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1439405867]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Tempo médio por minigame"
-horizontal_alignment = 2
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=1613862997]
 layout_mode = 2
 script = SubResource("GDScript_wn6li")
 
-[node name="games_won_val" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1197436256]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "999"
-vertical_alignment = 1
-
 [node name="games_played_val" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1015005320]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "999"
-
-[node name="tot_time_val" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1447042264]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "999"
-
-[node name="avg_time_val" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=1948317359]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "999"
