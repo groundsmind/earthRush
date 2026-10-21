@@ -67,12 +67,11 @@ metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
 wait_time = 5.0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1008985146]
-visible = false
 offset_left = -62.0
 offset_top = -32.0
 offset_right = 1708.0
 offset_bottom = 1253.0
-color = Color(1, 1, 1, 0.5882353)
+color = Color(1, 1, 1, 0.80784315)
 
 [connection signal="timeout" from="Dynamic/Parallax/frog/MoveTimer" to="Dynamic/Parallax/frog" method="_on_move_timer_timeout"]
 [connection signal="area_entered" from="Dynamic/playerCamera" to="." method="_on_player_camera_area_entered"]
