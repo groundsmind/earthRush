@@ -9,7 +9,7 @@ class_name MicroGame
 @export var player_start: Node2D
 @export var time_limit: float = 10.0
 
-@onready var game_end_timer: Timer
+var game_end_timer: Timer = Timer.new()
 
 var is_active : bool = false
 
@@ -20,8 +20,8 @@ signal won(scene)
 signal lost(scene)
 
 func _ready():
-	game_end_timer = Timer.new()
 	game_end_timer.wait_time = time_limit
+	add_child(game_end_timer)
 	start_time = Time.get_ticks_msec()
 	start_game()
 

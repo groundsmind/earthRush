@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://bf3d6uk3eilj7"]
+
+[ext_resource type="Script" uid="uid://c4d66r5ome4a" path="res://Scenes/Microgames/RegaFlores/rega_flores.gd" id="1_ccisx"]
+[ext_resource type="Texture2D" uid="uid://6evjgrbvr3ts" path="res://Assets/Sprites/Microgames/RegandoPlanta/background.png" id="2_e8qgi"]
+[ext_resource type="Texture2D" uid="uid://lkbyxj8tlxf3" path="res://Assets/Sprites/Microgames/RegandoPlanta/cloud_1.png" id="2_m18uq"]
+[ext_resource type="Texture2D" uid="uid://dkpsk5c32iju7" path="res://Assets/Sprites/Microgames/RegandoPlanta/cloud_2.png" id="3_e8qgi"]
+[ext_resource type="Texture2D" uid="uid://dfgesgmjaq7sf" path="res://Assets/Sprites/Microgames/RegandoPlanta/arvre.png" id="5_moj7t"]
+[ext_resource type="Texture2D" uid="uid://cjykdcicy2182" path="res://Assets/Sprites/Microgames/RegandoPlanta/sol.png" id="5_y8dth"]
+[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/Juice/swing_sprite.gd" id="6_bdsvy"]
+[ext_resource type="PackedScene" uid="uid://lme1p266f55r" path="res://Scenes/Microgames/RegaFlores/flower.tscn" id="8_ccisx"]
+[ext_resource type="Texture2D" uid="uid://cr7of334518ok" path="res://Assets/Sprites/Microgames/RegandoPlanta/regador.png" id="11_wuugj"]
+[ext_resource type="PackedScene" uid="uid://c4sqbacbnpjul" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/FollowFoot.tscn" id="12_gtpgk"]
+[ext_resource type="Texture2D" uid="uid://ch0rjbg03aly1" path="res://Assets/Sprites/Microgames/RegandoPlanta/gota.png" id="13_rvq83"]
+
+[sub_resource type="GDScript" id="GDScript_gtpgk"]
+script/source = "extends Sprite2D
+
+@onready var ray_cast_2d: RayCast2D = $RayCast2D
+@onready var droplets: GPUParticles2D = $droplets
+@onready var timer: Timer = $Timer
+
+var water_cycles: int = 0
+signal flower_state_change
+signal finished_watering
+
+func _ready() -> void:
+	timer.timeout.connect(_change_flower_state)
+
+func _process(_delta: float) -> void:
+	ray_cast_2d.rotation = -rotation
+	
+	var mouse_pos_y: float = get_viewport().get_mouse_position().y
+	var distance: float = -(position.y - mouse_pos_y)
+	distance = clampf(distance, 100, 520)
+	var angle = remap(distance, 100, 520, 0, 40)
+	rotation = deg_to_rad(angle)
+	if angle > 35:
+		droplets.emitting = true
+		if ray_cast_2d.is_colliding():
+			if timer.paused:
+				timer.paused = false
+			if timer.is_stopped():
+				timer.start()
+	else:
+		timer.paused = true
+		droplets.emitting = false
+
+func _change_flower_state() -> void:
+	flower_state_change.emit()
+	if ray_cast_2d.get_collider():
+		ray_cast_2d.get_collider().call(\"flower_state_change\")
+	water_cycles += 1
+	if water_cycles == 2:
+		finished_watering.emit()
+		water_cycles = 0
+"
+
+[sub_resource type="Curve" id="Curve_wuugj"]
+_data = [Vector2(0.5340909, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g4v7s"]
+curve = SubResource("Curve_wuugj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g4v7s"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(35.105, 13.61, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 200, 0)
+scale_min = 0.25
+scale_curve = SubResource("CurveTexture_g4v7s")
+color = Color(1, 1, 1, 0.7176471)
+
+[node name="RegaFlores" type="Node2D" unique_id=899581939 node_paths=PackedStringArray("player_start")]
+script = ExtResource("1_ccisx")
+VerbHint = "Regue!"
+player_start = NodePath("Dynamic/regador")
+time_limit = 20.0
+metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
+
+[node name="Static" type="Node2D" parent="." unique_id=1064519354]
+
+[node name="BG" type="Sprite2D" parent="Static" unique_id=1244172770]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_e8qgi")
+offset = Vector2(400, 300)
+
+[node name="Sol" type="Sprite2D" parent="Static" unique_id=662349063]
+position = Vector2(1432, 151)
+texture = ExtResource("5_y8dth")
+script = ExtResource("6_bdsvy")
+
+[node name="ParallaxClouds" type="Node2D" parent="Static" unique_id=120648340]
+
+[node name="Parallax2D1" type="Parallax2D" parent="Static/ParallaxClouds" unique_id=513112295]
+scroll_offset = Vector2(0, 150)
+repeat_size = Vector2(1700, 0)
+autoscroll = Vector2(80, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Static/ParallaxClouds/Parallax2D1" unique_id=597022680]
+modulate = Color(1, 1, 1, 0.70980394)
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_m18uq")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Static/ParallaxClouds" unique_id=1365009671]
+scroll_offset = Vector2(1000, 300)
+repeat_size = Vector2(1700, 0)
+autoscroll = Vector2(60, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Static/ParallaxClouds/Parallax2D2" unique_id=1408421325]
+modulate = Color(1, 1, 1, 0.59607846)
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_e8qgi")
+
+[node name="Arvre" type="Sprite2D" parent="Static" unique_id=1040862261]
+position = Vector2(0, -151)
+scale = Vector2(2, 2)
+texture = ExtResource("5_moj7t")
+offset = Vector2(400, 300)
+
+[node name="Dynamic" type="Node2D" parent="." unique_id=1442324562]
+
+[node name="Flower" parent="Dynamic" unique_id=2138755621 node_paths=PackedStringArray("regador") instance=ExtResource("8_ccisx")]
+position = Vector2(805, 939)
+collision_layer = 4
+regador = NodePath("../regador")
+
+[node name="Flower2" parent="Dynamic" unique_id=811443290 node_paths=PackedStringArray("regador") instance=ExtResource("8_ccisx")]
+position = Vector2(299, 853)
+collision_layer = 4
+regador = NodePath("../regador")
+
+[node name="Flower3" parent="Dynamic" unique_id=1639246401 node_paths=PackedStringArray("regador") instance=ExtResource("8_ccisx")]
+position = Vector2(1305, 817)
+collision_layer = 4
+regador = NodePath("../regador")
+
+[node name="regador" type="Sprite2D" parent="Dynamic" unique_id=1688681919]
+position = Vector2(299, 617)
+texture = ExtResource("11_wuugj")
+script = SubResource("GDScript_gtpgk")
+
+[node name="FollowFoot" parent="Dynamic/regador" unique_id=1039548952 node_paths=PackedStringArray("parent_node") instance=ExtResource("12_gtpgk")]
+parent_node = NodePath("..")
+track_y = false
+debug_mouse_pos = true
+
+[node name="Timer" type="Timer" parent="Dynamic/regador" unique_id=426243001]
+
+[node name="droplets" type="GPUParticles2D" parent="Dynamic/regador" unique_id=1367040798]
+position = Vector2(250, 0)
+emitting = false
+texture = ExtResource("13_rvq83")
+lifetime = 2.0
+preprocess = 2.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_g4v7s")
+
+[node name="RayCast2D" type="RayCast2D" parent="Dynamic/regador" unique_id=1017013956]
+position = Vector2(211, -14)
+target_position = Vector2(0, 400)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[connection signal="finished_watering" from="Dynamic/regador" to="." method="_on_regador_finished_watering"]

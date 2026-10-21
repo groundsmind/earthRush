@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://lme1p266f55r"]
+
+[ext_resource type="Texture2D" uid="uid://bpyap4o5twvuk" path="res://Assets/Sprites/Microgames/RegandoPlanta/flor_1.png" id="1_4ohbt"]
+[ext_resource type="Texture2D" uid="uid://6s0iiuo7gbhf" path="res://Assets/Sprites/Microgames/RegandoPlanta/flor_2.png" id="2_t16ui"]
+[ext_resource type="Texture2D" uid="uid://b83q08nwxgtu1" path="res://Assets/Sprites/Microgames/RegandoPlanta/flor_3.png" id="3_2nswu"]
+
+[sub_resource type="GDScript" id="GDScript_ccisx"]
+resource_name = "FlowerScript"
+script/source = "extends Area2D
+
+@export var regador: Node2D
+
+@onready var flowersprite: AnimatedSprite2D = $flowersprite
+var flower_state = 0
+
+func flower_state_change():
+	flowersprite.frame += 1 if flowersprite.frame < 2 else 0
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4ohbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_t16ui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2nswu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(180, 213)
+
+[node name="Flower" type="Area2D" unique_id=2138755621]
+script = SubResource("GDScript_ccisx")
+
+[node name="flowersprite" type="AnimatedSprite2D" parent="." unique_id=166935030]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=26697217]
+position = Vector2(4, 96.5)
+shape = SubResource("RectangleShape2D_g4v7s")

@@ -6,6 +6,7 @@ extends Node2D
 @export var game_list : Array[PackedScene]  
 @export var randomize_game_order : bool = true
 @export var microgame_parent: Node2D
+@export var debug_mode: bool = false
 
 @onready var transition_timer = $TransitionTimer
 @onready var transition_animation_player = $TransitionVisuals/Transition/AnimationPlayer
@@ -98,6 +99,9 @@ func game_setup(scene: Node2D = Node2D.new(), is_first: bool = false) -> void:
 	game_change.emit(next_game)
 	foot_position_enforcer.set_monitoring(true)
 	foot_position_enforcer.on_area.connect(start_transition.bind(next_game))
+	if debug_mode:
+		transition_timer.timeout.connect(start_transition.bind(next_game))
+		transition_timer.start()
 
 func check_game_over() -> void:
 	if current_hp <= 0:
