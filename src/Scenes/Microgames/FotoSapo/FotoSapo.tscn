@@ -16,8 +16,8 @@ size = Vector2(466, 358)
 
 [node name="FotoSapo" type="Node2D" unique_id=755445720 node_paths=PackedStringArray("player_start")]
 script = ExtResource("1_0erab")
+VerbHint = "Fotografe"
 player_start = NodePath("Dynamic/playerCamera")
-time_limit = 15.0
 metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
 
 [node name="Dynamic" type="Node2D" parent="." unique_id=1954777497]
@@ -28,8 +28,9 @@ scale = Vector2(3.5, 3.5)
 script = ExtResource("3_jvv44")
 
 [node name="BG" type="Sprite2D" parent="Dynamic/Parallax" unique_id=1533520808]
-modulate = Color(0.61211705, 0.6546305, 0.4047214, 1)
+modulate = Color(0.99999994, 0.70284784, 0.31552652, 1)
 texture_filter = 2
+scale = Vector2(0.869281, 0.92997205)
 texture = ExtResource("2_xoay1")
 
 [node name="frog" type="Area2D" parent="Dynamic/Parallax" unique_id=1032712162]
@@ -62,4 +63,18 @@ script = ExtResource("5_j6t38")
 debug_mouse_pos = true
 metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
 
+[node name="FrogInFrameTimer" type="Timer" parent="Dynamic/playerCamera" unique_id=417028256]
+wait_time = 5.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1008985146]
+visible = false
+offset_left = -62.0
+offset_top = -32.0
+offset_right = 1708.0
+offset_bottom = 1253.0
+color = Color(1, 1, 1, 0.5882353)
+
 [connection signal="timeout" from="Dynamic/Parallax/frog/MoveTimer" to="Dynamic/Parallax/frog" method="_on_move_timer_timeout"]
+[connection signal="area_entered" from="Dynamic/playerCamera" to="." method="_on_player_camera_area_entered"]
+[connection signal="area_exited" from="Dynamic/playerCamera" to="." method="_on_player_camera_area_exited"]
+[connection signal="timeout" from="Dynamic/playerCamera/FrogInFrameTimer" to="." method="_on_frog_in_frame_timer_timeout"]

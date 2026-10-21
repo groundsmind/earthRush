@@ -11,7 +11,6 @@ radius = 168.58232
 script = ExtResource("1_tifcp")
 VerbHint = "AAAAAAAAAAA"
 player_start = NodePath("Marker2D")
-debug_mode = true
 metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1135929357]

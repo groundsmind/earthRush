@@ -27,6 +27,8 @@ var game_stats: Dictionary = {
 }
 
 var current_game : MicroGame
+var game_queue: Array[PackedScene] = []
+var last_picked: PackedScene
 var transitioning : bool = false
 
 signal hp_change
@@ -57,18 +59,28 @@ func start_transition(next_game: PackedScene) -> void:
 	microgame_parent.add_child(current_game)
 	current_game.won.connect(game_won)
 	current_game.lost.connect(game_lost)
-	foot_position_enforcer.on_area.disconnect(start_transition)
+	if foot_position_enforcer.on_area.is_connected(start_transition):
+		foot_position_enforcer.on_area.disconnect(start_transition)
 	foot_position_enforcer.set_monitoring(false)
 	game_end_progress_bar.max_value = current_game.game_end_timer.wait_time
 	transition_animation_player.play("open")
 
-func pick_game() -> PackedScene:
-	var next_game : PackedScene
+func refill_queue() -> void:
+	game_queue = game_list.duplicate()
 	if randomize_game_order:
-		next_game = game_list.pick_random()
-	else:
-		next_game = game_list.pop_front()
-	return next_game
+		game_queue.shuffle()
+		# avoid the same game appearing twice in a row across a refill
+		if game_queue.size() > 1 and game_queue[0] == last_picked:
+			var swap_idx := randi_range(1, game_queue.size() - 1)
+			var tmp = game_queue[0]
+			game_queue[0] = game_queue[swap_idx]
+			game_queue[swap_idx] = tmp
+
+func pick_game() -> PackedScene:
+	if game_queue.is_empty():
+		refill_queue()
+	last_picked = game_queue.pop_front()
+	return last_picked
 
 func start_game_over_sequence() -> void:
 	GameInfo.current_game = game_stats
