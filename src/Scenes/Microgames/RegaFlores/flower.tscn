@@ -15,6 +15,9 @@ var flower_state = 0
 
 func flower_state_change():
 	flowersprite.frame += 1 if flowersprite.frame < 2 else 0
+	flower_state += 1
+	if flower_state >= 2:
+		set_collision_layer_value(3, false)
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]

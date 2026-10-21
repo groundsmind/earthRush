@@ -3,6 +3,7 @@ class_name FootPositionEnforcer
 extends Node2D
 
 @export var hold_time: float = 4.0
+@export var debug_mode: bool = false
 
 @onready var target: Area2D = $Target
 @onready var crosshair: Sprite2D = $Target/Crosshair
@@ -36,4 +37,5 @@ func _on_target_area_exited(_area: Area2D) -> void:
 	timer.stop()
 
 func _on_timer_timeout() -> void:
+	print("Hi")
 	on_area.emit()

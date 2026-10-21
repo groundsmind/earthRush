@@ -8,6 +8,7 @@ class_name MicroGame
 @export var VerbHint: String = "Agir"
 @export var player_start: Node2D
 @export var time_limit: float = 10.0
+@export var debug_mode: bool = false
 
 var game_end_timer: Timer = Timer.new()
 
@@ -32,7 +33,8 @@ func _process(_delta: float) -> void:
 
 func start_game():
 	is_active = true
-	game_end_timer.timeout.connect(game_lost)
+	if not game_end_timer.timeout.is_connected(game_lost):
+		game_end_timer.timeout.connect(game_lost)
 	game_end_timer.start()
 
 func game_won():

@@ -76,7 +76,7 @@ color = Color(1, 1, 1, 0.7176471)
 script = ExtResource("1_ccisx")
 VerbHint = "Regue!"
 player_start = NodePath("Dynamic/regador")
-time_limit = 20.0
+time_limit = 15.0
 metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
 
 [node name="Static" type="Node2D" parent="." unique_id=1064519354]

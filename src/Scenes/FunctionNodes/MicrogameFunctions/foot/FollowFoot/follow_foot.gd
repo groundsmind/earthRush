@@ -1,3 +1,4 @@
+class_name FollowFoot
 extends BodyMovementComponent
 
 @export var parent_node: Node2D

@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dllqd3ujxxkpa"]
+
+[ext_resource type="Script" uid="uid://oryneknyvjou" path="res://Scenes/Microgames/FotoSapo/foto_sapo.gd" id="1_0erab"]
+[ext_resource type="Texture2D" uid="uid://chn2yw43fjy7c" path="res://Assets/Sprites/Microgames/FotoSapo/istockphoto-506692747-612x612.jpg" id="2_xoay1"]
+[ext_resource type="Script" uid="uid://b0nm3irrq4gco" path="res://Scripts/Juice/parallax_background.gd" id="3_jvv44"]
+[ext_resource type="Script" uid="uid://dfra1sbo4wvvw" path="res://Scenes/Microgames/FotoSapo/frog.gd" id="4_j6t38"]
+[ext_resource type="Texture2D" uid="uid://c0htohi28ihx1" path="res://Assets/Sprites/Microgames/FotoSapo/camera_overlay.png" id="4_scj1r"]
+[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/follow_foot.gd" id="5_j6t38"]
+[ext_resource type="Texture2D" uid="uid://cfli8p4te4vaq" path="res://Assets/Sprites/Microgames/FotoSapo/frog.png" id="5_wnfyo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 38.557663
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(466, 358)
+
+[node name="FotoSapo" type="Node2D" unique_id=755445720 node_paths=PackedStringArray("player_start")]
+script = ExtResource("1_0erab")
+player_start = NodePath("Dynamic/playerCamera")
+time_limit = 15.0
+metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
+
+[node name="Dynamic" type="Node2D" parent="." unique_id=1954777497]
+position = Vector2(800, 600)
+
+[node name="Parallax" type="Node2D" parent="Dynamic" unique_id=2049666068]
+scale = Vector2(3.5, 3.5)
+script = ExtResource("3_jvv44")
+
+[node name="BG" type="Sprite2D" parent="Dynamic/Parallax" unique_id=1533520808]
+modulate = Color(0.61211705, 0.6546305, 0.4047214, 1)
+texture_filter = 2
+texture = ExtResource("2_xoay1")
+
+[node name="frog" type="Area2D" parent="Dynamic/Parallax" unique_id=1032712162]
+position = Vector2(0, -100)
+script = ExtResource("4_j6t38")
+move_duration = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/Parallax/frog" unique_id=2110523715]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dynamic/Parallax/frog" unique_id=654968274]
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("5_wnfyo")
+
+[node name="MoveTimer" type="Timer" parent="Dynamic/Parallax/frog" unique_id=289152351]
+wait_time = 3.0
+autostart = true
+
+[node name="playerCamera" type="Area2D" parent="Dynamic" unique_id=1842414038]
+position = Vector2(0, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/playerCamera" unique_id=1927568631]
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dynamic/playerCamera" unique_id=494452232]
+texture = ExtResource("4_scj1r")
+
+[node name="FollowFoot" type="Node" parent="Dynamic/playerCamera" unique_id=433816664]
+script = ExtResource("5_j6t38")
+debug_mouse_pos = true
+metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
+
+[connection signal="timeout" from="Dynamic/Parallax/frog/MoveTimer" to="Dynamic/Parallax/frog" method="_on_move_timer_timeout"]

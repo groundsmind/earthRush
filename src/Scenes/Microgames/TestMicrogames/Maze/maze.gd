@@ -6,6 +6,7 @@ extends MicroGame
 var game_ended: bool = false
 
 func _ready():
+	super._ready()
 	goal.set_deferred("monitoring", true)
 	obstacle.set_deferred("monitoring", true)
 	goal.area_entered.connect(_on_goal_entered)

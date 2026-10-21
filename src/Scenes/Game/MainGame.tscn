@@ -1,16 +1,24 @@
 [gd_scene format=3 uid="uid://410fcehxgsmi"]
 
 [ext_resource type="Script" uid="uid://bg0pe2s81uycd" path="res://Scenes/Game/GameManager.gd" id="1_u6ljv"]
-[ext_resource type="PackedScene" uid="uid://c3448k3go3ern" path="res://Scenes/Microgames/TestMicrogames/SampleMicrogame/SampleMicrogame.tscn" id="2_to5xg"]
-[ext_resource type="Texture2D" uid="uid://cxfsk5bchlypt" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Orange/texture_04.png" id="3_oilwc"]
-[ext_resource type="PackedScene" uid="uid://tx0g7s1e571g" path="res://Scenes/Microgames/TestMicrogames/Maze/maze.tscn" id="3_to5xg"]
-[ext_resource type="Texture2D" uid="uid://dtmgg7ptua8iq" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Purple/texture_02.png" id="4_oilwc"]
+[ext_resource type="PackedScene" uid="uid://dyvrq8iu3orlc" path="res://Scenes/Microgames/test_game/micro_game.tscn" id="2_wn6li"]
+[ext_resource type="Texture2D" uid="uid://cj13o3uke6rpk" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Light/texture_03.png" id="3_wn6li"]
 [ext_resource type="Script" uid="uid://dmd63p8wyuv04" path="res://Scenes/Game/heart_display.gd" id="6_1605l"]
 [ext_resource type="Texture2D" uid="uid://ph4fwqaias0l" path="res://Assets/Sprites/UI/heart_full.png" id="7_1605l"]
 [ext_resource type="Texture2D" uid="uid://cyvi4ymsjpvxp" path="res://Assets/Sprites/UI/heart_break.png" id="8_5jl82"]
 [ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/Juice/swing_sprite.gd" id="9_5jl82"]
+[ext_resource type="FontFile" uid="uid://b2guvml832oyi" path="res://Assets/Fonts/Speedy.ttf" id="9_5t1aa"]
 [ext_resource type="PackedScene" uid="uid://deh2qbl2c07rf" path="res://Scenes/FunctionNodes/Misc/FootPositionEnforcer/foot_position_enforcer.tscn" id="10_5t1aa"]
 [ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="10_wn6li"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wn6li"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5t1aa"]
+bg_color = Color(0.53999996, 1, 0.6933334, 1)
+skew = Vector2(0.5, 0)
+border_width_left = 5
+border_width_right = 5
+corner_detail = 1
 
 [sub_resource type="GDScript" id="GDScript_yf5fn"]
 resource_name = "FootPositionEnfPositioner"
@@ -35,26 +43,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Doors/LeftDoor:position")
+tracks/0/path = NodePath("Doors/RightDoor:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0.3298776),
+"times": PackedFloat32Array(0, 0.0009999999),
+"transitions": PackedFloat32Array(0.3298776, 1),
 "update": 0,
-"values": [Vector2(-800, 0)]
+"values": [Vector2(400, 0), Vector2(1200, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Doors/RightDoor:position")
+tracks/1/path = NodePath("Doors/LeftDoor:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0.3298776),
+"times": PackedFloat32Array(0, 0.0009999999),
+"transitions": PackedFloat32Array(0.3298776, 1),
 "update": 0,
-"values": [Vector2(800, 0)]
+"values": [Vector2(-400, 0), Vector2(-1200, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -183,26 +191,26 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Doors/LeftDoor:position")
+tracks/0/path = NodePath("Doors/RightDoor:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.5, 5),
+"transitions": PackedFloat32Array(0.2, 5),
 "update": 0,
-"values": [Vector2(-1600, 0), Vector2(-800, 0)]
+"values": [Vector2(1400, 0), Vector2(600, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Doors/RightDoor:position")
+tracks/1/path = NodePath("Doors/LeftDoor:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.5, 5),
+"transitions": PackedFloat32Array(0.2, 5),
 "update": 0,
-"values": [Vector2(1600, 0), Vector2(800, 0)]
+"values": [Vector2(-1400, 0), Vector2(-600, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -294,26 +302,26 @@ resource_name = "Open"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Doors/LeftDoor:position")
+tracks/0/path = NodePath("Doors/RightDoor:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.3298776, 0.5),
+"times": PackedFloat32Array(0, 0.76666665),
+"transitions": PackedFloat32Array(5, 0.5),
 "update": 0,
-"values": [Vector2(-800, 0), Vector2(-1600, 0)]
+"values": [Vector2(600, 0), Vector2(1400, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Doors/RightDoor:position")
+tracks/1/path = NodePath("Doors/LeftDoor:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.3298776, 0.5),
+"times": PackedFloat32Array(0, 0.76666665),
+"transitions": PackedFloat32Array(5, 0.5),
 "update": 0,
-"values": [Vector2(800, 0), Vector2(1600, 0)]
+"values": [Vector2(-600, 0), Vector2(-1400, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -445,22 +453,24 @@ _data = {
 
 [node name="GameMgr" type="Node2D" unique_id=336676652 node_paths=PackedStringArray("microgame_parent")]
 script = ExtResource("1_u6ljv")
-game_list = Array[PackedScene]([ExtResource("2_to5xg"), ExtResource("3_to5xg")])
+game_list = Array[PackedScene]([ExtResource("2_wn6li")])
 microgame_parent = NodePath("MicrogameContainer")
-debug_mode = true
 
 [node name="TransitionTimer" type="Timer" parent="." unique_id=59972649]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [node name="MicrogameContainer" type="Node2D" parent="." unique_id=1276752174]
 
-[node name="GameEndTimerDisplay" type="Label" parent="." unique_id=1718456006]
-offset_left = 779.0
-offset_right = 819.0
-offset_bottom = 166.0
-theme_override_font_sizes/font_size = 100
-metadata/_edit_use_anchors_ = true
+[node name="GameEndProgressBar" type="ProgressBar" parent="." unique_id=1135027643]
+offset_left = 175.0
+offset_top = 1155.0
+offset_right = 1491.0
+offset_bottom = 1198.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_wn6li")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5t1aa")
+value = 11.57
+show_percentage = false
 
 [node name="TransitionVisuals" type="Node2D" parent="." unique_id=935402483]
 
@@ -470,14 +480,14 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(800, 600)
 
 [node name="LeftDoor" type="Sprite2D" parent="TransitionVisuals/Transition/Doors" unique_id=687663436]
-position = Vector2(-800, 0)
-scale = Vector2(1.5625001, 1.5781255)
-texture = ExtResource("4_oilwc")
+position = Vector2(-400, 0)
+scale = Vector2(1.175, 1.175)
+texture = ExtResource("3_wn6li")
 
 [node name="RightDoor" type="Sprite2D" parent="TransitionVisuals/Transition/Doors" unique_id=1223763251]
-position = Vector2(800, 0)
-scale = Vector2(1.5625, 1.5781254)
-texture = ExtResource("3_oilwc")
+position = Vector2(400, 0)
+scale = Vector2(1.175, 1.175)
+texture = ExtResource("3_wn6li")
 
 [node name="Hearts" type="Node2D" parent="TransitionVisuals/Transition" unique_id=1567376117]
 position = Vector2(800, 100)
@@ -487,23 +497,24 @@ broken_texture = ExtResource("8_5jl82")
 
 [node name="Heart1" type="Sprite2D" parent="TransitionVisuals/Transition/Hearts" unique_id=1160832858]
 position = Vector2(-250, 0)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("7_1605l")
 script = ExtResource("9_5jl82")
 
 [node name="Heart2" type="Sprite2D" parent="TransitionVisuals/Transition/Hearts" unique_id=556158717]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("7_1605l")
 script = ExtResource("9_5jl82")
 
 [node name="Heart3" type="Sprite2D" parent="TransitionVisuals/Transition/Hearts" unique_id=1666742178]
 position = Vector2(250, 0)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("7_1605l")
 script = ExtResource("9_5jl82")
 
 [node name="FootPositionEnforcer" parent="TransitionVisuals/Transition" unique_id=272862829 instance=ExtResource("10_5t1aa")]
 position = Vector2(796, 887)
+debug_mode = true
 
 [node name="FPEPositioner" type="Node2D" parent="TransitionVisuals/Transition/FootPositionEnforcer" unique_id=255231195]
 script = SubResource("GDScript_yf5fn")
@@ -512,10 +523,13 @@ script = SubResource("GDScript_yf5fn")
 offset_left = 160.0
 offset_top = 336.0
 offset_right = 1460.0
-offset_bottom = 865.9945
+offset_bottom = 865.9951
 rotation = 6.2831855
 pivot_offset = Vector2(650, 265)
-theme_override_constants/outline_size = 32
+theme_override_colors/font_shadow_color = Color(3.8023293e-06, 0.67517054, 0.28349027, 0.5019608)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_outline_size = 18
+theme_override_fonts/font = ExtResource("9_5t1aa")
 theme_override_font_sizes/font_size = 121
 text = "Labirinto!"
 horizontal_alignment = 1
