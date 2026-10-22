@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://410fcehxgsmi"]
 
 [ext_resource type="Script" uid="uid://bg0pe2s81uycd" path="res://Scenes/Game/GameManager.gd" id="1_u6ljv"]
+[ext_resource type="Script" uid="uid://erdfmyhgnl4y" path="res://Scenes/Game/song_mgr.gd" id="3_5t1aa"]
 [ext_resource type="Texture2D" uid="uid://cj13o3uke6rpk" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Light/texture_03.png" id="3_wn6li"]
 [ext_resource type="PackedScene" uid="uid://bf3d6uk3eilj7" path="res://Scenes/Microgames/RegaFlores/RegaFlores.tscn" id="4_f5t76"]
 [ext_resource type="Script" uid="uid://dmd63p8wyuv04" path="res://Scenes/Game/heart_display.gd" id="6_1605l"]
@@ -456,6 +457,9 @@ script = ExtResource("1_u6ljv")
 game_list = Array[PackedScene]([ExtResource("4_f5t76")])
 microgame_parent = NodePath("MicrogameContainer")
 
+[node name="SongMgr" type="Node2D" parent="." unique_id=1964847865]
+script = ExtResource("3_5t1aa")
+
 [node name="TransitionTimer" type="Timer" parent="." unique_id=59972649]
 wait_time = 2.0
 one_shot = true
@@ -544,3 +548,5 @@ offset_left = -10.0
 offset_top = -10.0
 offset_right = 1613.0
 offset_bottom = 1205.0
+
+[connection signal="animation_started" from="TransitionVisuals/Transition/AnimationPlayer" to="SongMgr" method="_on_animation_player_animation_started"]

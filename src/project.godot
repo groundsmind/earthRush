@@ -23,6 +23,7 @@ Server="*uid://85c5ckx3cda7"
 FootPosition="*uid://dmba3lmopdfp8"
 GameInfo="*uid://ekvmk8lyyu8u"
 SoundManager="*uid://bfcmc5egoecfs"
+MusicGetter="*uid://b0xvf4orktdq3"
 
 [display]
 

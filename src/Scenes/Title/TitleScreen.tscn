@@ -101,5 +101,5 @@ offset_bottom = 1205.0
 [connection signal="pressed" from="ButtonMgr/Start" to="ButtonMgr" method="_on_start_pressed"]
 [connection signal="pressed" from="ButtonMgr/Cal" to="ButtonMgr" method="_on_cal_pressed"]
 [connection signal="pressed" from="ButtonMgr/Exit" to="ButtonMgr" method="_on_exit_pressed"]
-[connection signal="pressed" from="ButtonMgr/Debug" to="ButtonMgr" method="_on_debug_pressed"]
 [connection signal="pressed" from="ButtonMgr/Debug" to="ButtonMgr" method="_on_exit_pressed"]
+[connection signal="pressed" from="ButtonMgr/Debug" to="ButtonMgr" method="_on_debug_pressed"]
