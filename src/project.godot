@@ -22,15 +22,21 @@ config/icon="uid://80876face0o4"
 Server="*uid://85c5ckx3cda7"
 FootPosition="*uid://dmba3lmopdfp8"
 GameInfo="*uid://ekvmk8lyyu8u"
+SoundManager="*uid://bfcmc5egoecfs"
 
 [display]
 
 window/size/viewport_width=1600
 window/size/viewport_height=1200
+window/size/mode=3
 window/size/initial_position_type=3
 window/size/initial_screen=1
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg")
 
 [file_customization]
 

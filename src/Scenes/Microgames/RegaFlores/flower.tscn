@@ -8,16 +8,25 @@
 resource_name = "FlowerScript"
 script/source = "extends Area2D
 
-@export var regador: Node2D
-
+@onready var timer: Timer = $Timer
 @onready var flowersprite: AnimatedSprite2D = $flowersprite
-var flower_state = 0
 
-func flower_state_change():
+var flower_state: int = 0
+signal finished
+var is_finished: bool = false
+
+func _on_timer_timeout() -> void:
+	if is_finished:
+		return
+		
 	flowersprite.frame += 1 if flowersprite.frame < 2 else 0
 	flower_state += 1
+	
 	if flower_state >= 2:
+		is_finished = true
+		timer.stop()
 		set_collision_layer_value(3, false)
+		finished.emit()
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
@@ -49,3 +58,7 @@ sprite_frames = SubResource("SpriteFrames_g4v7s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=26697217]
 position = Vector2(4, 96.5)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Timer" type="Timer" parent="." unique_id=277641526]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

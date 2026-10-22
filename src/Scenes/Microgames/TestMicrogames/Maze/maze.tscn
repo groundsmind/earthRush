@@ -78,7 +78,6 @@ scale = Vector2(0.16000004, 0.16000004)
 texture = ExtResource("4_qjy00")
 
 [node name="FollowFoot" parent="Player" unique_id=1039548952 instance=ExtResource("6_nrmlb")]
-debug_mouse_pos = true
 
 [node name="Timer" type="Timer" parent="." unique_id=979584517]
 wait_time = 10.0

@@ -15,6 +15,7 @@ func _ready() -> void:
 		parent_node.monitorable = can_interact
 
 func _process(_delta):
+	super(_delta) 
 	if parent_node:
 		var foot_pos: Vector2
 		if not debug_mouse_pos:
@@ -24,5 +25,4 @@ func _process(_delta):
 		if track_x:
 			parent_node.global_position.x = foot_pos.x
 		if track_y:
-			parent_node.global_position.y = foot_pos.y
-			parent_node.position.y -= vertical_offset
+			parent_node.global_position.y = foot_pos.y-vertical_offset

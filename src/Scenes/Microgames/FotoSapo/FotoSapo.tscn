@@ -30,7 +30,7 @@ script = ExtResource("3_jvv44")
 [node name="BG" type="Sprite2D" parent="Dynamic/Parallax" unique_id=1533520808]
 modulate = Color(0.99999994, 0.70284784, 0.31552652, 1)
 texture_filter = 2
-scale = Vector2(0.869281, 0.92997205)
+scale = Vector2(1.1802052, 1.3207282)
 texture = ExtResource("2_xoay1")
 
 [node name="frog" type="Area2D" parent="Dynamic/Parallax" unique_id=1032712162]
@@ -58,15 +58,17 @@ shape = SubResource("RectangleShape2D_yf5fn")
 [node name="Sprite2D" type="Sprite2D" parent="Dynamic/playerCamera" unique_id=494452232]
 texture = ExtResource("4_scj1r")
 
-[node name="FollowFoot" type="Node" parent="Dynamic/playerCamera" unique_id=433816664]
-script = ExtResource("5_j6t38")
-debug_mouse_pos = true
-metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
-
 [node name="FrogInFrameTimer" type="Timer" parent="Dynamic/playerCamera" unique_id=417028256]
 wait_time = 5.0
 
+[node name="FollowFoot" type="Node2D" parent="Dynamic/playerCamera" unique_id=947301424 node_paths=PackedStringArray("parent_node")]
+script = ExtResource("5_j6t38")
+parent_node = NodePath("..")
+vertical_offset = 75.0
+metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1008985146]
+visible = false
 offset_left = -62.0
 offset_top = -32.0
 offset_right = 1708.0

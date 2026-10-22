@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://410fcehxgsmi"]
 
 [ext_resource type="Script" uid="uid://bg0pe2s81uycd" path="res://Scenes/Game/GameManager.gd" id="1_u6ljv"]
-[ext_resource type="PackedScene" uid="uid://bf3d6uk3eilj7" path="res://Scenes/Microgames/RegaFlores/RegaFlores.tscn" id="2_wn6li"]
-[ext_resource type="PackedScene" uid="uid://dllqd3ujxxkpa" path="res://Scenes/Microgames/FotoSapo/FotoSapo.tscn" id="3_5t1aa"]
 [ext_resource type="Texture2D" uid="uid://cj13o3uke6rpk" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Light/texture_03.png" id="3_wn6li"]
+[ext_resource type="PackedScene" uid="uid://bf3d6uk3eilj7" path="res://Scenes/Microgames/RegaFlores/RegaFlores.tscn" id="4_f5t76"]
 [ext_resource type="Script" uid="uid://dmd63p8wyuv04" path="res://Scenes/Game/heart_display.gd" id="6_1605l"]
 [ext_resource type="Texture2D" uid="uid://ph4fwqaias0l" path="res://Assets/Sprites/UI/heart_full.png" id="7_1605l"]
 [ext_resource type="Texture2D" uid="uid://cyvi4ymsjpvxp" path="res://Assets/Sprites/UI/heart_break.png" id="8_5jl82"]
-[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/juice/swing_sprite.gd" id="9_5jl82"]
+[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/Juice/swing_sprite.gd" id="9_5jl82"]
 [ext_resource type="FontFile" uid="uid://b2guvml832oyi" path="res://Assets/Fonts/Speedy.ttf" id="9_5t1aa"]
 [ext_resource type="PackedScene" uid="uid://deh2qbl2c07rf" path="res://Scenes/FunctionNodes/Misc/FootPositionEnforcer/foot_position_enforcer.tscn" id="10_5t1aa"]
 [ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="10_wn6li"]
@@ -310,7 +309,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.76666665),
 "transitions": PackedFloat32Array(5, 0.5),
 "update": 0,
-"values": [Vector2(600, 0), Vector2(1400, 0)]
+"values": [Vector2(600, 0), Vector2(1500, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -322,7 +321,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.76666665),
 "transitions": PackedFloat32Array(5, 0.5),
 "update": 0,
-"values": [Vector2(-600, 0), Vector2(-1400, 0)]
+"values": [Vector2(-600, 0), Vector2(-1500, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -454,7 +453,7 @@ _data = {
 
 [node name="GameMgr" type="Node2D" unique_id=336676652 node_paths=PackedStringArray("microgame_parent")]
 script = ExtResource("1_u6ljv")
-game_list = Array[PackedScene]([ExtResource("2_wn6li"), ExtResource("3_5t1aa")])
+game_list = Array[PackedScene]([ExtResource("4_f5t76")])
 microgame_parent = NodePath("MicrogameContainer")
 
 [node name="TransitionTimer" type="Timer" parent="." unique_id=59972649]
@@ -464,10 +463,10 @@ one_shot = true
 [node name="MicrogameContainer" type="Node2D" parent="." unique_id=1276752174]
 
 [node name="GameEndProgressBar" type="ProgressBar" parent="." unique_id=1135027643]
-offset_left = 175.0
-offset_top = 1155.0
-offset_right = 1491.0
-offset_bottom = 1198.0
+offset_left = -25.0
+offset_top = 29.0
+offset_right = 1291.0
+offset_bottom = 93.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_wn6li")
 theme_override_styles/fill = SubResource("StyleBoxFlat_5t1aa")
 value = 11.57
@@ -515,7 +514,7 @@ script = ExtResource("9_5jl82")
 
 [node name="FootPositionEnforcer" parent="TransitionVisuals/Transition" unique_id=272862829 instance=ExtResource("10_5t1aa")]
 position = Vector2(796, 887)
-debug_mode = true
+hold_time = 2.0
 
 [node name="FPEPositioner" type="Node2D" parent="TransitionVisuals/Transition/FootPositionEnforcer" unique_id=255231195]
 script = SubResource("GDScript_yf5fn")

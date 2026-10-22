@@ -19,10 +19,7 @@ func _ready() -> void:
 resource_name = "StatsDisplay"
 script/source = "extends VBoxContainer
 
-@onready var games_won_val: Label = $games_won_val
 @onready var games_played_val: Label = $games_played_val
-@onready var tot_time_val: Label = $tot_time_val
-@onready var avg_time_val: Label = $avg_time_val
 
 func _ready() -> void:
 	games_played_val.text = str(GameInfo.current_game.get(\"games played\"))

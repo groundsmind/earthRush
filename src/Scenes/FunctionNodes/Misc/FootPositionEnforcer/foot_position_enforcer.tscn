@@ -105,7 +105,8 @@ vertical_offset = -50.0
 shape = SubResource("CircleShape2D_f5t76")
 
 [node name="Sprite2D" type="Sprite2D" parent="CurrMidpoint" unique_id=724580440]
-scale = Vector2(0.4296875, 0.4296875)
+visible = false
+scale = Vector2(0.9101562, 0.9101562)
 texture = SubResource("GradientTexture2D_wn6li")
 
 [node name="Timer" type="Timer" parent="." unique_id=768199308]
