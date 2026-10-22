@@ -94,7 +94,7 @@ func game_won(scene) -> void:
 
 func game_lost(scene) -> void:
 	print_debug("received game lost!")
-	game_stats["score"] -= 2
+	game_stats["score"] += 1
 	game_stats["games played"] += 1
 	decrease_health()
 	end_microgame(scene)
