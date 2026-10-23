@@ -2,6 +2,7 @@ class_name FollowFoot
 extends BodyMovementComponent
 
 @export var parent_node: Node2D
+@export_enum("Midpoint", "Left foot", "Right foot") var tracking: String = "Midpoint"
 @export var track_x: bool = true
 @export var track_y: bool = true
 @export var vertical_offset: float = 50
@@ -19,7 +20,13 @@ func _process(_delta):
 	if parent_node:
 		var foot_pos: Vector2
 		if not debug_mouse_pos:
-			foot_pos = feet_midpoint if feet_midpoint else Vector2.ZERO
+			match tracking:
+				"Midpoint":
+					foot_pos = feet_midpoint if feet_midpoint else Vector2.ZERO
+				"Left foot":
+					foot_pos = left_foot if left_foot else Vector2.ZERO
+				"Right foot":
+					foot_pos = right_foot if right_foot else Vector2.ZERO
 		else:
 			foot_pos = get_viewport().get_mouse_position()
 		if track_x:
