@@ -91,7 +91,7 @@ func start_game_over_sequence(has_won: bool = false) -> void:
 
 func game_won(scene) -> void:
 	print_debug("received game won!")
-	game_stats["score"] += 5
+	game_stats["score"] += 5 * scene.game_end_timer.time_left
 	game_stats["games played"] += 1
 	end_microgame(scene)
 

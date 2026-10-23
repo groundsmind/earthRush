@@ -59,12 +59,12 @@ shape = SubResource("RectangleShape2D_yf5fn")
 texture = ExtResource("4_scj1r")
 
 [node name="FrogInFrameTimer" type="Timer" parent="Dynamic/playerCamera" unique_id=417028256]
-wait_time = 5.0
+wait_time = 3.0
 
 [node name="FollowFoot" type="Node2D" parent="Dynamic/playerCamera" unique_id=947301424 node_paths=PackedStringArray("parent_node")]
 script = ExtResource("5_j6t38")
 parent_node = NodePath("..")
-vertical_offset = 75.0
+vertical_offset = 150.0
 metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1008985146]

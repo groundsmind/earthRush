@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cfb1n253cwyvy"
+path="res://.godot/imported/The ting goes jenny sparks remix - FULL SONG.mp3-ae7e1082d70de5c1fb5e7d49dc28015f.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Music/Game/The ting goes jenny sparks remix - FULL SONG.mp3"
+dest_files=["res://.godot/imported/The ting goes jenny sparks remix - FULL SONG.mp3-ae7e1082d70de5c1fb5e7d49dc28015f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

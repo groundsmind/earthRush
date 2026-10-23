@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://wjoo0kefxy8b"]
+
+[ext_resource type="Texture2D" uid="uid://vqaspcuorbta" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Purple/texture_05.png" id="1_dwcgt"]
+[ext_resource type="Script" uid="uid://xfxipoxftyrq" path="res://Scripts/Juice/button_hover_bump.gd" id="2_bfgls"]
+[ext_resource type="Texture2D" uid="uid://1luga517568q" path="res://Assets/larva.png" id="2_x673x"]
+[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/Juice/swing_sprite.gd" id="3_irlun"]
+[ext_resource type="Texture2D" uid="uid://dh2afo0hbipcm" path="res://Assets/udesc.png" id="4_bfgls"]
+[ext_resource type="Texture2D" uid="uid://disj51fxjd3lm" path="res://Assets/navi.png" id="5_irlun"]
+[ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="7_460j7"]
+
+[sub_resource type="GDScript" id="GDScript_irlun"]
+script/source = "extends Node2D
+
+@onready var scene_transition_rect: SceneTransitionRect = $SceneTransitionRect
+const SND_EXT = preload(\"uid://c7m4bpckw6cgk\")
+const ELEVATORSTUCK = preload(\"uid://yn1efphcov3e\")
+
+func _ready() -> void:
+	SoundManager.play_music(ELEVATORSTUCK)
+
+func _on_back_pressed() -> void:
+	scene_transition_rect.transition_to(\"res://Scenes/Title/TitleScreen.tscn\")
+	SoundManager.play_sound(SND_EXT)
+	SoundManager.stop_music(1)
+"
+
+[node name="Credits" type="Node2D" unique_id=1603527233]
+script = SubResource("GDScript_irlun")
+
+[node name="ScrollingBG" type="Parallax2D" parent="." unique_id=1987435756]
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(80, 80)
+repeat_times = 3
+
+[node name="BG Sprite" type="Sprite2D" parent="ScrollingBG" unique_id=761634340]
+modulate = Color(0.36282948, 0.36282942, 0.3628296, 1)
+texture = ExtResource("1_dwcgt")
+offset = Vector2(512, 512)
+
+[node name="Label" type="Label" parent="." unique_id=1219267535]
+offset_left = 60.0
+offset_top = 35.0
+offset_right = 1522.0
+offset_bottom = 979.0
+theme_override_font_sizes/font_size = 32
+text = "earthRush!
+Guilherme Gamaliel Lima // Marco Antonio Reche Rigon // Pedro Henrique dos Santos
+3ª ExerGamejam LARVA
+
+Assets:
+Kenney prototype textures
+Kenney interface sounds
+Imagens stock diversas
+
+Músicas: ([título] :: [artista] @ [álbum])
+
+Elevatorstuck :: Tensei @  Homestuck Vol. 6: Heir Transparent
+Le délire des négations :: NoisyRejects @  OST::'corru.observer';'VOL 4'::SIDE C 
+Black ::  Toby \"Radiation\" Fox @ Homestuck Vol. 1-4
+Sanctuary 9 :: Dusqk @ Sanctuary OS
+It's Raining Now :: AQUASINE @ WATCHTIME
+Update or Die :: slowerpace 音楽 @ BSOD
+The ting goes jenny sparks remix :: Jack Sena"
+
+[node name="back" type="Button" parent="." unique_id=2101984374]
+offset_left = 1253.0
+offset_top = 1081.0
+offset_right = 1543.0
+offset_bottom = 1160.0
+theme_override_font_sizes/font_size = 50
+text = "Voltar"
+script = ExtResource("2_bfgls")
+
+[node name="Larva" type="Sprite2D" parent="." unique_id=955808760]
+position = Vector2(153, 1093)
+scale = Vector2(0.3778626, 0.3778626)
+texture = ExtResource("2_x673x")
+script = ExtResource("3_irlun")
+
+[node name="Udesc" type="Sprite2D" parent="." unique_id=1473763775]
+position = Vector2(363.2131, 1085)
+scale = Vector2(0.30737704, 0.30737704)
+texture = ExtResource("4_bfgls")
+script = ExtResource("3_irlun")
+
+[node name="Navi" type="Sprite2D" parent="." unique_id=389070701]
+position = Vector2(587, 1092)
+scale = Vector2(0.11733699, 0.11012082)
+texture = ExtResource("5_irlun")
+script = ExtResource("3_irlun")
+
+[node name="SceneTransitionRect" parent="." unique_id=861179771 instance=ExtResource("7_460j7")]
+visible = false
+offset_left = -13.0
+offset_top = -15.0
+offset_right = 1627.0
+offset_bottom = 1220.0
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

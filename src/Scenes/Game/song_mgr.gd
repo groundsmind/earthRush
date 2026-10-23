@@ -13,7 +13,7 @@ var active_tween: Tween
 func _ready() -> void:
 	scene_transition_rect.scene_change.connect(_on_scene_change)
 	SoundManager.set_default_music_bus("Music") 
-	var song_pool: Array[AudioStream] = MusicGetter.get_audio_streams_in_folder("res://Assets/Sounds/Music/")
+	var song_pool: Array[AudioStream] = MusicGetter.get_audio_streams_in_folder("res://Assets/Sounds/Music/Game")
 	var random_song = song_pool.pick_random()
 	var playing = SoundManager.play_music(random_song)
 	playing.finished.connect(_on_music_end)

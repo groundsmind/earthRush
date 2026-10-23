@@ -6,6 +6,7 @@ script/source = "extends Node2D
 
 func _on_timer_timeout() -> void:
 	get_tree().quit()
+	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 "
 
 [node name="Exit" type="Node2D" unique_id=2110007502]
