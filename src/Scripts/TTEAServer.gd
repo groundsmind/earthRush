@@ -58,6 +58,7 @@ func kill_python() -> void:
 	if python_pid > 0:
 		print("Terminating Python process...")
 		OS.kill(python_pid)
+	get_tree().quit()
 
 func stop() -> void:
 	get_tree().quit()
