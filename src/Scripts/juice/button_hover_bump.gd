@@ -2,6 +2,7 @@ extends Button
 
 @export var max_scale: float = 1.25
 @onready var base_scale = scale.x
+const SND_CLICK = preload("uid://c61nebcq6fqdf")
 
 func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
@@ -10,6 +11,7 @@ func _ready() -> void:
 	pivot_offset = Vector2(size.x/2, size.y/2)
 
 func _on_mouse_entered() -> void:
+	SoundManager.play_sound_with_pitch(SND_CLICK, randf_range(0.8,1.0))
 	zoom_hover(max_scale)
 
 func _on_mouse_exited() -> void:

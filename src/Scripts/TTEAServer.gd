@@ -50,12 +50,14 @@ func _process(_delta) -> void:
 					avg_delay_ms = lerp(avg_delay_ms, float(delay_ms), 0.1)
 
 
-func _notification(what):
+func _notification(what) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		if python_pid > 0:
-			print("Terminating Python process...")
-			OS.kill(python_pid)
-		get_tree().quit()
+		kill_python()
+
+func kill_python() -> void:
+	if python_pid > 0:
+		print("Terminating Python process...")
+		OS.kill(python_pid)
 
 func stop() -> void:
 	get_tree().quit()

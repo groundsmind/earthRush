@@ -1,29 +1,34 @@
 [gd_scene format=3 uid="uid://cal3gy6gs6ymk"]
 
+[ext_resource type="Texture2D" uid="uid://b5m1w5c7kqamq" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Light/texture_07.png" id="1_rb55s"]
 [ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/Juice/swing_sprite.gd" id="2_7kha8"]
 [ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="3_cb5jd"]
 [ext_resource type="Script" uid="uid://xfxipoxftyrq" path="res://Scripts/Juice/button_hover_bump.gd" id="3_rb55s"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rb55s"]
-load_path = "res://.godot/imported/texture_08.png-33d2ed76ea35e9bac4807c523205dcdb.ctex"
 
 [sub_resource type="GDScript" id="GDScript_g4v7s"]
 resource_name = "ButtonMgr"
 script/source = "extends Node2D
 
 @onready var scene_transition_rect: ColorRect = $\"../SceneTransitionRect\"
+const SND_CONFIRM = preload(\"uid://c7im588he86p1\")
+const SND_EXT = preload(\"uid://c7m4bpckw6cgk\")
+const SND_CAL = preload(\"uid://dibowit1if7u5\")
 
 func _on_exit_pressed() -> void:
 	scene_transition_rect.transition_to(\"res://Scenes/Title/Exit.tscn\")
+	SoundManager.play_sound(SND_EXT)
 
 func _on_start_pressed() -> void:
 	scene_transition_rect.transition_to(\"res://Scenes/Game/MainGame.tscn\")
+	SoundManager.play_sound(SND_CONFIRM)
 
 func _on_cal_pressed() -> void:
 	scene_transition_rect.transition_to(\"res://Scenes/Calibration/calibration.tscn\")
+	SoundManager.play_sound(SND_CAL)
 
 func _on_debug_pressed() -> void:
 	scene_transition_rect.transition_to(\"res://foot_tracking/FootTrackingDebug/DebugScene.tscn\")
+	SoundManager.play_sound(SND_CAL)
 "
 
 [node name="TitleScreen" type="Node2D" unique_id=288353752]
@@ -34,7 +39,7 @@ autoscroll = Vector2(80, 80)
 repeat_times = 3
 
 [node name="BG Sprite" type="Sprite2D" parent="ScrollingBG" unique_id=1929285016]
-texture = SubResource("CompressedTexture2D_rb55s")
+texture = ExtResource("1_rb55s")
 offset = Vector2(512, 512)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1851498996]
@@ -46,8 +51,10 @@ offset_left = -352.0
 offset_top = -74.0
 offset_right = 365.0
 offset_bottom = 63.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
-text = "jogo da egj26 :)"
+text = "earthRush!"
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonMgr" type="Node2D" parent="." unique_id=174553260]
@@ -101,5 +108,5 @@ offset_bottom = 1205.0
 [connection signal="pressed" from="ButtonMgr/Start" to="ButtonMgr" method="_on_start_pressed"]
 [connection signal="pressed" from="ButtonMgr/Cal" to="ButtonMgr" method="_on_cal_pressed"]
 [connection signal="pressed" from="ButtonMgr/Exit" to="ButtonMgr" method="_on_exit_pressed"]
-[connection signal="pressed" from="ButtonMgr/Debug" to="ButtonMgr" method="_on_exit_pressed"]
 [connection signal="pressed" from="ButtonMgr/Debug" to="ButtonMgr" method="_on_debug_pressed"]
+[connection signal="pressed" from="ButtonMgr/Debug" to="ButtonMgr" method="_on_exit_pressed"]

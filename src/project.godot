@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Jogo EGJ26"
+config/name="earthRush!"
 run/main_scene="uid://cal3gy6gs6ymk"
 config/auto_accept_quit=false
 config/features=PackedStringArray("4.7", "Forward Plus")
