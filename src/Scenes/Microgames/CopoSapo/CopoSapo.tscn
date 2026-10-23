@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://w5vye5yru86a" path="res://Scenes/Microgames/CopoSapo/copo_sapo.gd" id="1_0fvg8"]
 [ext_resource type="Script" uid="uid://cn8b2tl557fas" path="res://Scenes/Microgames/CopoSapo/ShuffleScript.gd" id="2_7aheb"]
 [ext_resource type="Texture2D" uid="uid://dukine88ffubf" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Dark/texture_08.png" id="2_8p3cg"]
-[ext_resource type="Texture2D" uid="uid://c12y0k6uahbkp" path="res://Assets/Sprites/Microgames/CopoSapo/cup.png" id="3_fw1hq"]
-[ext_resource type="Texture2D" uid="uid://p230x5grjq6h" path="res://Assets/Sprites/Microgames/CopoSapo/frog.png" id="4_fw1hq"]
+[ext_resource type="Texture2D" uid="uid://c12y0k6uahbkp" path="res://Scenes/Microgames/CopoSapo/Assets/cup.png" id="3_fw1hq"]
+[ext_resource type="Texture2D" uid="uid://p230x5grjq6h" path="res://Scenes/Microgames/CopoSapo/Assets/frog.png" id="4_fw1hq"]
 [ext_resource type="Script" uid="uid://coqb6ytrawj83" path="res://Scenes/Microgames/CopoSapo/player.gd" id="6_0fvg8"]
 [ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/follow_foot.gd" id="7_rsntp"]
 

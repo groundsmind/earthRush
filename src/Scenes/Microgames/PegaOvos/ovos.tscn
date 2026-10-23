@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cbr2dueg57ypk"]
 
 [ext_resource type="Script" uid="uid://bncc8oq36qisr" path="res://Scenes/Microgames/PegaOvos/ovos.gd" id="1_8jqtg"]
-[ext_resource type="Texture2D" uid="uid://78hs1cyjnfa7" path="res://Assets/Sprites/Microgames/PegaOvos/ovo 2.png" id="1_gy5a4"]
-[ext_resource type="Texture2D" uid="uid://bspiskptc4vew" path="res://Assets/Sprites/Microgames/PegaOvos/ovo.png" id="2_8jqtg"]
+[ext_resource type="Texture2D" uid="uid://78hs1cyjnfa7" path="res://Scenes/Microgames/PegaOvos/Assets/ovo 2.png" id="1_gy5a4"]
+[ext_resource type="Texture2D" uid="uid://bspiskptc4vew" path="res://Scenes/Microgames/PegaOvos/Assets/ovo.png" id="2_8jqtg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p70tr"]
 animations = [{

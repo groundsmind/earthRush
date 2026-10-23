@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dyvrq8iu3orlc"]
+
+[ext_resource type="Script" uid="uid://di48umma243aj" path="res://test_game.gd" id="1_tifcp"]
+[ext_resource type="Texture2D" uid="uid://cfli8p4te4vaq" path="res://Scenes/Microgames/FotoSapo/Assets/frog.png" id="2_o0uyi"]
+[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/follow_foot.gd" id="3_cpu21"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 168.58232
+
+[node name="MicroGame" type="Node2D" unique_id=1567729285 node_paths=PackedStringArray("player_start")]
+script = ExtResource("1_tifcp")
+VerbHint = "AAAAAAAAAAA"
+player_start = NodePath("Marker2D")
+metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1135929357]
+position = Vector2(1293, 866)
+gizmo_extents = 110.0
+
+[node name="Player" type="Area2D" parent="." unique_id=968492575]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=339138415]
+texture = ExtResource("2_o0uyi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1327267265]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="FollowFoot" type="Node" parent="Player" unique_id=189770820]
+script = ExtResource("3_cpu21")
+debug_mouse_pos = true
+metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
+
+[node name="Goal" type="Area2D" parent="." unique_id=317227331]
+position = Vector2(1378, 174)
+
+[node name="Sprite2D" type="Sprite2D" parent="Goal" unique_id=1454631935]
+modulate = Color(0.9736951, 0, 0.4219241, 1)
+texture = ExtResource("2_o0uyi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal" unique_id=2092408814]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="obstacle" type="Area2D" parent="." unique_id=840306839]
+position = Vector2(220, 303)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle" unique_id=1736755334]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="obstacle" unique_id=1300716847]
+modulate = Color(0.2652069, 0.19312668, 0, 1)
+texture = ExtResource("2_o0uyi")
+
+[connection signal="area_entered" from="Player" to="." method="_on_player_area_entered"]

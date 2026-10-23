@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://dllqd3ujxxkpa"]
 
 [ext_resource type="Script" uid="uid://oryneknyvjou" path="res://Scenes/Microgames/FotoSapo/foto_sapo.gd" id="1_0erab"]
-[ext_resource type="Texture2D" uid="uid://chn2yw43fjy7c" path="res://Assets/Sprites/Microgames/FotoSapo/istockphoto-506692747-612x612.jpg" id="2_xoay1"]
+[ext_resource type="Texture2D" uid="uid://chn2yw43fjy7c" path="res://Scenes/Microgames/FotoSapo/Assets/istockphoto-506692747-612x612.jpg" id="2_xoay1"]
 [ext_resource type="Script" uid="uid://b0nm3irrq4gco" path="res://Scripts/Juice/parallax_background.gd" id="3_jvv44"]
 [ext_resource type="Script" uid="uid://dfra1sbo4wvvw" path="res://Scenes/Microgames/FotoSapo/frog.gd" id="4_j6t38"]
-[ext_resource type="Texture2D" uid="uid://c0htohi28ihx1" path="res://Assets/Sprites/Microgames/FotoSapo/camera_overlay.png" id="4_scj1r"]
+[ext_resource type="Texture2D" uid="uid://c0htohi28ihx1" path="res://Scenes/Microgames/FotoSapo/Assets/camera_overlay.png" id="4_scj1r"]
 [ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/follow_foot.gd" id="5_j6t38"]
-[ext_resource type="Texture2D" uid="uid://cfli8p4te4vaq" path="res://Assets/Sprites/Microgames/FotoSapo/frog.png" id="5_wnfyo"]
+[ext_resource type="Texture2D" uid="uid://cfli8p4te4vaq" path="res://Scenes/Microgames/FotoSapo/Assets/frog.png" id="5_wnfyo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 38.557663

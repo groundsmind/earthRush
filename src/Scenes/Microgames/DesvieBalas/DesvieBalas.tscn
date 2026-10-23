@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://sqa27tp1oxyb"]
+
+[ext_resource type="Script" uid="uid://8l3yocu5fyux" path="res://Scenes/Microgames/DesvieBalas/desvie_balas.gd" id="1_utb84"]
+[ext_resource type="Texture2D" uid="uid://786s4xxocj2k" path="res://Scenes/Microgames/DesvieBalas/Assets/hand-drawn-flat-design-forest-landscape_23-2149157285.jpg" id="2_jspt3"]
+[ext_resource type="Texture2D" uid="uid://be1bhnmlwgjc4" path="res://Scenes/Microgames/DesvieBalas/Assets/corpo_corpo.svg" id="2_q3utj"]
+[ext_resource type="Script" uid="uid://b0nm3irrq4gco" path="res://Scripts/Juice/parallax_background.gd" id="2_sua80"]
+[ext_resource type="Texture2D" uid="uid://wq3roht3e246" path="res://Scenes/Microgames/DesvieBalas/Assets/corpo_Rosto.svg" id="3_jspt3"]
+[ext_resource type="Texture2D" uid="uid://cy4tuwpe83soc" path="res://Scenes/Microgames/DesvieBalas/Assets/arma.svg" id="4_tarsf"]
+[ext_resource type="Script" uid="uid://c6tajnu2k8ln5" path="res://Scenes/Microgames/DesvieBalas/arma.gd" id="6_15tpj"]
+[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/follow_foot.gd" id="7_sua80"]
+[ext_resource type="PackedScene" uid="uid://onbnfwhlm5nt" path="res://Scenes/Microgames/DesvieBalas/Bullet.tscn" id="8_0flw2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
+normal = Vector2(0, 0.998)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 82.1523
+
+[node name="DesvieBalas" type="Node2D" unique_id=2000297179]
+script = ExtResource("1_utb84")
+metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
+
+[node name="Static" type="Node2D" parent="." unique_id=724792370]
+
+[node name="parallax" type="Node2D" parent="Static" unique_id=112589674 node_paths=PackedStringArray("player")]
+script = ExtResource("2_sua80")
+player = NodePath("../../Dynamic/Player")
+
+[node name="HandDrawnFlatDesignForestLandscape232149157285" type="Sprite2D" parent="Static/parallax" unique_id=2127680052]
+position = Vector2(808, 611)
+scale = Vector2(2.2472973, 2.6095335)
+texture = ExtResource("2_jspt3")
+
+[node name="CorpoCorpo" type="Sprite2D" parent="Static" unique_id=173586441]
+position = Vector2(1494.0844, 250.13321)
+rotation = -1.0297443
+scale = Vector2(0.4604744, 0.4313981)
+texture = ExtResource("2_q3utj")
+
+[node name="CorpoRosto" type="Sprite2D" parent="Static" unique_id=1848806067]
+position = Vector2(1358.0842, 128.13321)
+rotation = -0.44505897
+scale = Vector2(0.34114915, 0.28681457)
+skew = 0.10471976
+texture = ExtResource("3_jspt3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Static" unique_id=521505230]
+position = Vector2(887, 607)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D" unique_id=470335658]
+shape = SubResource("WorldBoundaryShape2D_g4v7s")
+
+[node name="Dynamic" type="Node2D" parent="." unique_id=1577402256]
+
+[node name="Arma" type="Node2D" parent="Dynamic" unique_id=972473953 node_paths=PackedStringArray("player")]
+position = Vector2(1379, 395)
+script = ExtResource("6_15tpj")
+player = NodePath("../Player")
+
+[node name="sprite" type="Sprite2D" parent="Dynamic/Arma" unique_id=1669450968]
+position = Vector2(0.9999695, 0.9999962)
+rotation = -3.1415925
+scale = Vector2(0.35017845, 0.35017854)
+texture = ExtResource("4_tarsf")
+offset = Vector2(-400, 0)
+
+[node name="Bullet" parent="Dynamic/Arma" unique_id=489709977 instance=ExtResource("8_0flw2")]
+
+[node name="Timer" type="Timer" parent="Dynamic/Arma" unique_id=982083228]
+
+[node name="Player" type="CharacterBody2D" parent="Dynamic" unique_id=989702074]
+position = Vector2(870, 1008)
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/Player" unique_id=82108674]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="FollowFoot" type="Node2D" parent="Dynamic/Player" unique_id=147144567]
+script = ExtResource("7_sua80")
+debug_mouse_pos = true
+metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"

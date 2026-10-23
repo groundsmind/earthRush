@@ -2,6 +2,7 @@ extends Node2D
 
 @export var intensity: float = 2.0
 @export var max_distance: float = 50.0
+@export var player: Node2D
 
 func _process(delta: float) -> void:
-	position += (FootPosition.midpoint*intensity*delta)-position
+	position += (player.position*intensity*delta)-position
