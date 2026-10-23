@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://onbnfwhlm5nt"]
 
 [ext_resource type="Texture2D" uid="uid://bvcob1pklyc" path="res://Scenes/Microgames/DesvieBalas/Assets/cacador.jpeg.svg" id="1_jj5d2"]
+[ext_resource type="Script" uid="uid://bd534vqfbmkie" path="res://Scenes/Microgames/DesvieBalas/bullet.gd" id="1_sr2ft"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sr2ft"]
 radius = 13.0
 height = 58.0
 
 [node name="Bullet" type="Area2D" unique_id=489709977]
+script = ExtResource("1_sr2ft")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=688568363]
-position = Vector2(16, 17)
+position = Vector2(-24.999996, -18)
+rotation = 3.1415927
 scale = Vector2(0.15463917, 0.15463924)
 texture = ExtResource("1_jj5d2")
 

@@ -1,11 +1,22 @@
 extends MicroGame
 
+@onready var game_win_timer: Timer = $GameWinTimer
+@onready var player: CharacterBody2D = $Dynamic/Player
+@onready var bullet_spawn: Marker2D = $Dynamic/Arma/BulletSpawn
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
 
+func _on_arma_player_hit(body) -> void:
+	if body == player:
+		clean_bullets()
+		game_lost()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_game_win_timer_timeout() -> void:
+	clean_bullets()
+	game_won()
+
+func clean_bullets() -> void:
+	for bullet in bullet_spawn.get_children():
+		bullet.queue_free()

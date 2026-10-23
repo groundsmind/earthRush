@@ -8,17 +8,35 @@
 [ext_resource type="Texture2D" uid="uid://cy4tuwpe83soc" path="res://Scenes/Microgames/DesvieBalas/Assets/arma.svg" id="4_tarsf"]
 [ext_resource type="Script" uid="uid://c6tajnu2k8ln5" path="res://Scenes/Microgames/DesvieBalas/arma.gd" id="6_15tpj"]
 [ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/follow_foot.gd" id="7_sua80"]
-[ext_resource type="PackedScene" uid="uid://onbnfwhlm5nt" path="res://Scenes/Microgames/DesvieBalas/Bullet.tscn" id="8_0flw2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
 normal = Vector2(0, 0.998)
 
+[sub_resource type="Gradient" id="Gradient_sua80"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.5567376, 0.9929078)
+colors = PackedColorArray(1, 1, 1, 1, 0, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_sua80")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 82.1523
 
-[node name="DesvieBalas" type="Node2D" unique_id=2000297179]
+[node name="DesvieBalas" type="Node2D" unique_id=2000297179 node_paths=PackedStringArray("player_start")]
 script = ExtResource("1_utb84")
+player_start = NodePath("Dynamic/Player")
+time_limit = 16.0
 metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
+
+[node name="GameWinTimer" type="Timer" parent="." unique_id=1287460934]
+wait_time = 15.0
+autostart = true
 
 [node name="Static" type="Node2D" parent="." unique_id=724792370]
 
@@ -64,18 +82,29 @@ scale = Vector2(0.35017845, 0.35017854)
 texture = ExtResource("4_tarsf")
 offset = Vector2(-400, 0)
 
-[node name="Bullet" parent="Dynamic/Arma" unique_id=489709977 instance=ExtResource("8_0flw2")]
-
 [node name="Timer" type="Timer" parent="Dynamic/Arma" unique_id=982083228]
+autostart = true
+
+[node name="BulletSpawn" type="Marker2D" parent="Dynamic/Arma" unique_id=1245856976]
+position = Vector2(298, -6)
 
 [node name="Player" type="CharacterBody2D" parent="Dynamic" unique_id=989702074]
 position = Vector2(870, 1008)
 motion_mode = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="Dynamic/Player" unique_id=492895578]
+texture = SubResource("GradientTexture2D_g4v7s")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/Player" unique_id=82108674]
 shape = SubResource("CircleShape2D_g4v7s")
 
-[node name="FollowFoot" type="Node2D" parent="Dynamic/Player" unique_id=147144567]
+[node name="FollowFoot" type="Node2D" parent="Dynamic/Player" unique_id=147144567 node_paths=PackedStringArray("parent_node")]
 script = ExtResource("7_sua80")
+parent_node = NodePath("..")
+vertical_offset = 80.0
 debug_mouse_pos = true
 metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
+
+[connection signal="timeout" from="GameWinTimer" to="." method="_on_game_win_timer_timeout"]
+[connection signal="player_hit" from="Dynamic/Arma" to="." method="_on_arma_player_hit"]
+[connection signal="timeout" from="Dynamic/Arma/Timer" to="Dynamic/Arma" method="_on_timer_timeout"]
