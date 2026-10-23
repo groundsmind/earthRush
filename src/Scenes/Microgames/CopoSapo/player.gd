@@ -3,6 +3,9 @@ extends AreaHoldTrigger
 @onready var cup_shuffler: Node2D = $"../CupShuffler"
 @onready var follow_foot: FollowFoot = $FollowFoot
 
+func _ready() -> void:
+	follow_foot.track_x = false
+	follow_foot.track_y = false
 
 func _on_cup_shuffler_finished_shuffling() -> void:
 	follow_foot.track_x = true

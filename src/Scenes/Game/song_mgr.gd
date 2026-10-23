@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var scene_transition_rect: SceneTransitionRect = $"../SceneTransitionRect"
+@onready var game_mgr: Node2D = $".."
 
 @export var bus_name: String = "Music" 
 @export var effect_index: int = 0
@@ -14,7 +15,8 @@ func _ready() -> void:
 	SoundManager.set_default_music_bus("Music") 
 	var song_pool: Array[AudioStream] = MusicGetter.get_audio_streams_in_folder("res://Assets/Sounds/Music/")
 	var random_song = song_pool.pick_random()
-	SoundManager.play_music(random_song)
+	var playing = SoundManager.play_music(random_song)
+	playing.finished.connect(_on_music_end)
 	toggle_muffle(true)
 
 func _on_animation_player_animation_started(anim_name: StringName) -> void:
@@ -40,3 +42,6 @@ func toggle_muffle(muffled: bool) -> void:
 
 func _on_scene_change():
 	SoundManager.stop_music(2)
+
+func _on_music_end():
+	game_mgr.game_end = true

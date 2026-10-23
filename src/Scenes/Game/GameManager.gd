@@ -16,6 +16,7 @@ extends Node2D
 @onready var foot_position_enforcer: Node2D = $TransitionVisuals/Transition/FootPositionEnforcer
 
 # game variables #
+var game_end: bool = false
 var total_hp: int = 3
 @onready var current_hp = total_hp
 
@@ -23,7 +24,8 @@ var game_stats: Dictionary = {
 	"score": 0,
 	"games played": 0,
 	"total time": 0,
-	"average time": 0
+	"average time": 0,
+	"timeout win": false
 }
 
 var current_game : MicroGame
@@ -82,7 +84,8 @@ func pick_game() -> PackedScene:
 	last_picked = game_queue.pop_front()
 	return last_picked
 
-func start_game_over_sequence() -> void:
+func start_game_over_sequence(has_won: bool = false) -> void:
+	game_stats["timeout win"] = has_won
 	GameInfo.current_game = game_stats
 	scene_transition_rect.transition_to("res://Scenes/GameOver/game_over.tscn")
 
@@ -103,6 +106,8 @@ func end_microgame(scene) -> void:
 	check_game_over()
 	if transitioning: return
 	transitioning = true
+	if game_end:
+		start_game_over_sequence()
 	game_setup(scene)
 
 func game_setup(scene: Node2D = Node2D.new(), is_first: bool = false) -> void:

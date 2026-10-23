@@ -6,5 +6,6 @@ var current_game: Dictionary = {
 	"games won": 0,
 	"games played": 0,
 	"total time": 0,
-	"average time": 0
+	"average time": 0,
+	"timeout win": false
 }
