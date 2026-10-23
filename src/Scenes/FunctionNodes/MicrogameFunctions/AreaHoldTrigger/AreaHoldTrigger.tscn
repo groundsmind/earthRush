@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://damsfjaq1fv5r"]
+
+[ext_resource type="Script" uid="uid://dbegiij6be8tw" path="res://Scenes/FunctionNodes/MicrogameFunctions/AreaHoldTrigger/area_hold_trigger.gd" id="1_dhu6y"]
+
+[node name="AreaHoldTrigger" type="Area2D" unique_id=342794090]
+script = ExtResource("1_dhu6y")

@@ -1,0 +1,210 @@
+[gd_scene format=3 uid="uid://bgp5txcmwbsmk"]
+
+[ext_resource type="Script" uid="uid://w5vye5yru86a" path="res://Scenes/Microgames/CopoSapo/copo_sapo.gd" id="1_0fvg8"]
+[ext_resource type="Script" uid="uid://cn8b2tl557fas" path="res://Scenes/Microgames/CopoSapo/ShuffleScript.gd" id="2_7aheb"]
+[ext_resource type="Texture2D" uid="uid://dukine88ffubf" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Dark/texture_08.png" id="2_8p3cg"]
+[ext_resource type="Texture2D" uid="uid://c12y0k6uahbkp" path="res://Assets/Sprites/Microgames/CopoSapo/cup.png" id="3_fw1hq"]
+[ext_resource type="Texture2D" uid="uid://p230x5grjq6h" path="res://Assets/Sprites/Microgames/CopoSapo/frog.png" id="4_fw1hq"]
+[ext_resource type="Script" uid="uid://coqb6ytrawj83" path="res://Scenes/Microgames/CopoSapo/player.gd" id="6_0fvg8"]
+[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/follow_foot.gd" id="7_rsntp"]
+
+[sub_resource type="Gradient" id="Gradient_8p3cg"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.5319149, 1)
+colors = PackedColorArray(0, 0, 0, 0.572, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_8p3cg")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(250, 374)
+
+[sub_resource type="Animation" id="Animation_7aheb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cup1/Cup:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cup2/Cup:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -300)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cup3/Cup:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -300)]
+}
+
+[sub_resource type="Animation" id="Animation_fw1hq"]
+resource_name = "cup_descend"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cup1/Cup:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.1),
+"transitions": PackedFloat32Array(6, 6, 1),
+"update": 0,
+"values": [Vector2(0, -300), Vector2(0, -300), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cup2/Cup:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.96666664, 1.2666667),
+"transitions": PackedFloat32Array(6, 6, 1),
+"update": 0,
+"values": [Vector2(0, -300), Vector2(0, -300), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cup3/Cup:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.1333333, 1.4333334),
+"transitions": PackedFloat32Array(6, 6, 1),
+"update": 0,
+"values": [Vector2(0, -300), Vector2(0, -300), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8p3cg"]
+_data = {
+&"RESET": SubResource("Animation_7aheb"),
+&"cup_descend": SubResource("Animation_fw1hq")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 126.035706
+
+[node name="CopoSapo" type="Node2D" unique_id=1677144053 node_paths=PackedStringArray("player_start")]
+script = ExtResource("1_0fvg8")
+VerbHint = "Encontre!"
+player_start = NodePath("Player")
+time_limit = 15.0
+metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
+
+[node name="ScrollingBG" type="Parallax2D" parent="." unique_id=379434188]
+repeat_size = Vector2(1024, 1024)
+autoscroll = Vector2(20, 20)
+repeat_times = 3
+
+[node name="BG Sprite" type="Sprite2D" parent="ScrollingBG" unique_id=1318601796]
+texture = ExtResource("2_8p3cg")
+offset = Vector2(512, 512)
+
+[node name="CupShuffler" type="Node2D" parent="." unique_id=2131495362]
+position = Vector2(0, -100)
+script = ExtResource("2_7aheb")
+
+[node name="Cup1" type="Area2D" parent="CupShuffler" unique_id=1513328070]
+position = Vector2(420, 600)
+
+[node name="CupShadow" type="Sprite2D" parent="CupShuffler/Cup1" unique_id=575339601]
+position = Vector2(0, 162)
+scale = Vector2(4.8125005, 1.4374993)
+texture = SubResource("GradientTexture2D_g4v7s")
+
+[node name="Cup" type="Sprite2D" parent="CupShuffler/Cup1" unique_id=803241669]
+position = Vector2(0, -300)
+scale = Vector2(2, 2)
+texture = ExtResource("3_fw1hq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CupShuffler/Cup1" unique_id=1066384096]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Cup2" type="Area2D" parent="CupShuffler" unique_id=768797880]
+position = Vector2(800, 600)
+
+[node name="CupShadow" type="Sprite2D" parent="CupShuffler/Cup2" unique_id=907517413]
+position = Vector2(0, 162)
+scale = Vector2(4.8125005, 1.4374993)
+texture = SubResource("GradientTexture2D_g4v7s")
+
+[node name="frog" type="Sprite2D" parent="CupShuffler/Cup2" unique_id=2096974190]
+position = Vector2(0, 110)
+scale = Vector2(0.76250005, 0.7625)
+texture = ExtResource("4_fw1hq")
+
+[node name="Cup" type="Sprite2D" parent="CupShuffler/Cup2" unique_id=680623526]
+position = Vector2(0, -300)
+scale = Vector2(2, 2)
+texture = ExtResource("3_fw1hq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CupShuffler/Cup2" unique_id=46438181]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Cup3" type="Area2D" parent="CupShuffler" unique_id=140431469]
+position = Vector2(1162, 600)
+
+[node name="CupShadow" type="Sprite2D" parent="CupShuffler/Cup3" unique_id=1983593553]
+position = Vector2(0, 162)
+scale = Vector2(4.8125005, 1.4374993)
+texture = SubResource("GradientTexture2D_g4v7s")
+
+[node name="Cup" type="Sprite2D" parent="CupShuffler/Cup3" unique_id=1394849275]
+position = Vector2(0, -300)
+scale = Vector2(2, 2)
+texture = ExtResource("3_fw1hq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CupShuffler/Cup3" unique_id=1018623210]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CupShuffler" unique_id=767587046]
+libraries/ = SubResource("AnimationLibrary_8p3cg")
+
+[node name="Player" type="Area2D" parent="." unique_id=481879678]
+position = Vector2(802, 1030)
+monitoring = false
+script = ExtResource("6_0fvg8")
+hold_time = 0.75
+metadata/_custom_type_script = "uid://dbegiij6be8tw"
+
+[node name="FollowFoot" type="Node2D" parent="Player" unique_id=559096699 node_paths=PackedStringArray("parent_node")]
+script = ExtResource("7_rsntp")
+parent_node = NodePath("..")
+track_x = false
+track_y = false
+debug_mouse_pos = true
+metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=488965847]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[connection signal="correct_cup_picked" from="CupShuffler" to="." method="_on_cup_shuffler_correct_cup_picked"]
+[connection signal="finished_shuffling" from="CupShuffler" to="Player" method="_on_cup_shuffler_finished_shuffling"]
+[connection signal="wrong_cup_picked" from="CupShuffler" to="." method="_on_cup_shuffler_wrong_cup_picked"]
+[connection signal="duration_reached" from="Player" to="Player" method="_on_duration_reached"]

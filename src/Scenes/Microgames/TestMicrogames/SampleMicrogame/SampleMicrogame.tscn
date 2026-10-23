@@ -52,5 +52,5 @@ shape = SubResource("CircleShape2D_yf5fn")
 scale = Vector2(0.16000004, 0.16000004)
 texture = ExtResource("3_fgcia")
 
-[node name="FollowFoot" parent="Player" unique_id=1039548952 instance=ExtResource("5_fgcia")]
-debug_mouse_pos = true
+[node name="FollowFoot" parent="Player" unique_id=1039548952 node_paths=PackedStringArray("parent_node") instance=ExtResource("5_fgcia")]
+parent_node = NodePath("..")

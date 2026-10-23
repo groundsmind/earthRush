@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var scene_transition_rect: SceneTransitionRect = $"../SceneTransitionRect"
+
 @export var bus_name: String = "Music" 
 @export var effect_index: int = 0
 const CUTOFF_NORMAL: float = 20000.0      # unmuffled
@@ -8,6 +10,7 @@ const DURATION: float = 0.5               # transition time
 var active_tween: Tween
 
 func _ready() -> void:
+	scene_transition_rect.scene_change.connect(_on_scene_change)
 	SoundManager.set_default_music_bus("Music") 
 	var song_pool: Array[AudioStream] = MusicGetter.get_audio_streams_in_folder("res://Assets/Sounds/Music/")
 	var random_song = song_pool.pick_random()
@@ -34,3 +37,6 @@ func toggle_muffle(muffled: bool) -> void:
 		
 	active_tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	active_tween.tween_property(lowpass_effect, "cutoff_hz", target_hz, DURATION)
+
+func _on_scene_change():
+	SoundManager.stop_music(2)
