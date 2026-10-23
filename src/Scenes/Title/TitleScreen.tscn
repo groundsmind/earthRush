@@ -5,6 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="3_cb5jd"]
 [ext_resource type="Script" uid="uid://xfxipoxftyrq" path="res://Scripts/Juice/button_hover_bump.gd" id="3_rb55s"]
 
+[sub_resource type="GDScript" id="GDScript_rb55s"]
+script/source = "extends Node2D
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+func _ready() -> void:
+	animation_player.play(\"eter\")
+"
+
 [sub_resource type="GDScript" id="GDScript_g4v7s"]
 resource_name = "ButtonMgr"
 script/source = "extends Node2D
@@ -35,7 +44,140 @@ func _on_credits_pressed() -> void:
 	SoundManager.play_sound(SND_CONFIRM)
 "
 
+[sub_resource type="Animation" id="Animation_rb55s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonMgr/Start:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(150, 655)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonMgr/Cal:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(150, 795)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ButtonMgr/Exit:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(150, 940)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ButtonMgr/credits:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(81.99994, 1051)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node2D/Label:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(47, -76)]
+}
+
+[sub_resource type="Animation" id="Animation_tm67p"]
+resource_name = "eter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonMgr/Start:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-400, 655), Vector2(150, 655)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonMgr/Cal:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.6),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-400, 795), Vector2(150, 795)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ButtonMgr/Exit:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.19999996, 0.7),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-400, 940), Vector2(150, 940)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ButtonMgr/credits:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.29999998, 0.8),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-400, 1051), Vector2(81.99994, 1051)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node2D/Label:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.2871746, 1),
+"update": 0,
+"values": [Vector2(800, -76), Vector2(47, -76)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vksqd"]
+_data = {
+&"RESET": SubResource("Animation_rb55s"),
+&"eter": SubResource("Animation_tm67p")
+}
+
 [node name="TitleScreen" type="Node2D" unique_id=288353752]
+script = SubResource("GDScript_rb55s")
 
 [node name="ScrollingBG" type="Parallax2D" parent="." unique_id=1788296517]
 repeat_size = Vector2(1024, 1024)
@@ -51,10 +193,10 @@ position = Vector2(794, 305)
 script = ExtResource("2_7kha8")
 
 [node name="Label" type="Label" parent="Node2D" unique_id=1009098578]
-offset_left = -352.0
-offset_top = -74.0
-offset_right = 365.0
-offset_bottom = 63.0
+offset_left = 47.0
+offset_top = -76.0
+offset_right = 764.0001
+offset_bottom = 61.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "earthRush!"
@@ -65,19 +207,19 @@ metadata/_edit_use_anchors_ = true
 script = SubResource("GDScript_g4v7s")
 
 [node name="Start" type="Button" parent="ButtonMgr" unique_id=724268205]
-offset_left = 643.0
-offset_top = 654.0
-offset_right = 965.0
-offset_bottom = 771.0
+offset_left = 150.0
+offset_top = 655.0
+offset_right = 472.0
+offset_bottom = 772.0
 pivot_offset = Vector2(161, 58.5)
 theme_override_font_sizes/font_size = 64
 text = "Começar"
 script = ExtResource("3_rb55s")
 
 [node name="Cal" type="Button" parent="ButtonMgr" unique_id=2134512822]
-offset_left = 643.0
+offset_left = 150.0
 offset_top = 795.0
-offset_right = 965.0
+offset_right = 472.0
 offset_bottom = 912.0
 pivot_offset = Vector2(161, 58.5)
 theme_override_font_sizes/font_size = 64
@@ -85,9 +227,9 @@ text = "Calibrar"
 script = ExtResource("3_rb55s")
 
 [node name="Exit" type="Button" parent="ButtonMgr" unique_id=2021947295]
-offset_left = 643.0
+offset_left = 150.0
 offset_top = 940.0
-offset_right = 965.0
+offset_right = 472.0
 offset_bottom = 1042.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_font_sizes/font_size = 64
@@ -95,10 +237,10 @@ text = "Sair"
 script = ExtResource("3_rb55s")
 
 [node name="credits" type="Button" parent="ButtonMgr" unique_id=1687467242]
-offset_left = 623.99994
+offset_left = 81.99994
 offset_top = 1051.0
-offset_right = 993.2308
-offset_bottom = 1131.3419
+offset_right = 451.23077
+offset_bottom = 1131.3413
 scale = Vector2(0.585, 0.585)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_font_sizes/font_size = 46
@@ -112,6 +254,9 @@ offset_left = -10.0
 offset_top = -10.0
 offset_right = 1613.0
 offset_bottom = 1205.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1031133877]
+libraries/ = SubResource("AnimationLibrary_vksqd")
 
 [connection signal="pressed" from="ButtonMgr/Start" to="ButtonMgr" method="_on_start_pressed"]
 [connection signal="pressed" from="ButtonMgr/Cal" to="ButtonMgr" method="_on_cal_pressed"]
