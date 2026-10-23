@@ -36,7 +36,7 @@ size = Vector2(56.630554, 481.4643)
 [node name="RegaFlores" type="Node2D" unique_id=899581939 node_paths=PackedStringArray("player_start")]
 script = ExtResource("1_ccisx")
 VerbHint = "Regue!"
-player_start = NodePath("Dynamic/Regador/sprite")
+player_start = NodePath("Marker2D")
 time_limit = 15.0
 metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
 
@@ -132,6 +132,10 @@ position = Vector2(3, -5)
 rotation = 0.6719518
 parent_node = NodePath("..")
 track_y = false
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=357562665]
+position = Vector2(548, 1094)
+gizmo_extents = 30.0
 
 [connection signal="flower_done" from="Dynamic/Regador" to="." method="_on_regador_flower_done"]
 [connection signal="area_entered" from="Dynamic/Regador/sprite/Area2D" to="Dynamic/Regador" method="_on_area_2d_area_entered"]

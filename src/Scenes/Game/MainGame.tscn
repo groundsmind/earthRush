@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cj13o3uke6rpk" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Light/texture_03.png" id="3_wn6li"]
 [ext_resource type="PackedScene" uid="uid://dllqd3ujxxkpa" path="res://Scenes/Microgames/FotoSapo/FotoSapo.tscn" id="3_x4otc"]
 [ext_resource type="PackedScene" uid="uid://bf3d6uk3eilj7" path="res://Scenes/Microgames/RegaFlores/RegaFlores.tscn" id="4_x4otc"]
+[ext_resource type="PackedScene" uid="uid://bxtcy0fxy8181" path="res://Scenes/Microgames/PegaOvos/PegaOvos.tscn" id="5_fgqmo"]
 [ext_resource type="Script" uid="uid://dmd63p8wyuv04" path="res://Scenes/Game/heart_display.gd" id="6_1605l"]
 [ext_resource type="Texture2D" uid="uid://ph4fwqaias0l" path="res://Assets/Sprites/UI/heart_full.png" id="7_1605l"]
 [ext_resource type="Texture2D" uid="uid://cyvi4ymsjpvxp" path="res://Assets/Sprites/UI/heart_break.png" id="8_5jl82"]
@@ -456,7 +457,7 @@ _data = {
 
 [node name="GameMgr" type="Node2D" unique_id=336676652 node_paths=PackedStringArray("microgame_parent")]
 script = ExtResource("1_u6ljv")
-game_list = Array[PackedScene]([ExtResource("2_5t1aa"), ExtResource("3_x4otc"), ExtResource("4_x4otc")])
+game_list = Array[PackedScene]([ExtResource("2_5t1aa"), ExtResource("3_x4otc"), ExtResource("4_x4otc"), ExtResource("5_fgqmo")])
 microgame_parent = NodePath("MicrogameContainer")
 
 [node name="SongMgr" type="Node2D" parent="." unique_id=1964847865]
