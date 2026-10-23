@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://bxtcy0fxy8181"]
+
+[ext_resource type="Script" uid="uid://xefhv24j4wrr" path="res://Scenes/Microgames/PegaOvos/pega_ovos.gd" id="1_l0pvr"]
+[ext_resource type="Texture2D" uid="uid://pfe0ehlniu6k" path="res://Assets/Sprites/Microgames/PegaOvos/sol feliz 2.png" id="2_c53jb"]
+[ext_resource type="Texture2D" uid="uid://djw2afhxr3o4o" path="res://Assets/Sprites/Microgames/PegaOvos/sol feliz.png" id="3_dwxyi"]
+[ext_resource type="Texture2D" uid="uid://upc2ua1y7kjv" path="res://Assets/Sprites/Microgames/PegaOvos/sol triste 2.png" id="4_6rkq2"]
+[ext_resource type="Texture2D" uid="uid://be7qv24u1hss4" path="res://Assets/Sprites/Microgames/PegaOvos/sol triste.png" id="5_3hebi"]
+[ext_resource type="Texture2D" uid="uid://chwsjyll6u3ee" path="res://Assets/Sprites/Microgames/PegaOvos/cesta 2.png" id="6_kx7gb"]
+[ext_resource type="Texture2D" uid="uid://c4y8kkl3sbb5i" path="res://Assets/Sprites/Microgames/PegaOvos/back.png" id="6_sjqsy"]
+[ext_resource type="Texture2D" uid="uid://dy8xfxanv7rcg" path="res://Assets/Sprites/Microgames/PegaOvos/cloud 2.png" id="6_txn0p"]
+[ext_resource type="Texture2D" uid="uid://calucmd550uss" path="res://Assets/Sprites/Microgames/PegaOvos/cloud.png" id="7_bgslt"]
+[ext_resource type="Texture2D" uid="uid://yiwipdio7pc0" path="res://Assets/Sprites/Microgames/PegaOvos/cesta.png" id="7_sjqsy"]
+[ext_resource type="Texture2D" uid="uid://f36s4bhr61n1" path="res://Assets/Sprites/Microgames/PegaOvos/back 2.png" id="8_ds0sl"]
+[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/follow_foot.gd" id="12_bgslt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p70tr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c53jb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dwxyi")
+}],
+"loop": 1,
+"name": &"feliz",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6rkq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3hebi")
+}],
+"loop": 1,
+"name": &"triste",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohcrh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_txn0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bgslt")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pgmia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ds0sl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sjqsy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p70tr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5e8ib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kx7gb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sjqsy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kx7gb"]
+size = Vector2(19.254341, 11.277138)
+
+[node name="PegaOvos" type="Node2D" unique_id=770963249 node_paths=PackedStringArray("player_start")]
+script = ExtResource("1_l0pvr")
+VerbHint = "Pegue"
+player_start = NodePath("Dynamic/Cesta")
+time_limit = 15.0
+metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
+
+[node name="Static" type="Node2D" parent="." unique_id=1748926867]
+
+[node name="bg" type="ColorRect" parent="Static" unique_id=1020895413]
+offset_left = -62.999996
+offset_top = -48.999996
+offset_right = -22.999996
+offset_bottom = -8.999996
+scale = Vector2(43.080902, 32.375237)
+color = Color(0, 0.6745098, 0.89411765, 1)
+
+[node name="sol" type="AnimatedSprite2D" parent="Static" unique_id=458072120]
+position = Vector2(1380, 219.00002)
+scale = Vector2(0.7362078, 0.7362078)
+sprite_frames = SubResource("SpriteFrames_p70tr")
+animation = &"feliz"
+frame_progress = 0.5880049
+
+[node name="nuvens" type="Node2D" parent="Static" unique_id=614559832]
+position = Vector2(847.99994, 605.99994)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Static/nuvens" unique_id=693407690]
+position = Vector2(-660, -284.99997)
+sprite_frames = SubResource("SpriteFrames_ohcrh")
+frame_progress = 0.46458432
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Static/nuvens" unique_id=1269525423]
+position = Vector2(-363, -32.99997)
+sprite_frames = SubResource("SpriteFrames_ohcrh")
+frame_progress = 0.40555796
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Static/nuvens" unique_id=1234855155]
+position = Vector2(-71, -317.99997)
+sprite_frames = SubResource("SpriteFrames_ohcrh")
+frame_progress = 0.3820585
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Static/nuvens" unique_id=528358642]
+position = Vector2(264.00012, -107.99997)
+sprite_frames = SubResource("SpriteFrames_ohcrh")
+frame_progress = 0.9406074
+
+[node name="montanhas" type="AnimatedSprite2D" parent="Static" unique_id=506126877]
+position = Vector2(794, 605)
+sprite_frames = SubResource("SpriteFrames_pgmia")
+frame_progress = 0.7939186
+
+[node name="chão" type="Area2D" parent="Static" unique_id=1502468928]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/chão" unique_id=1398555556]
+position = Vector2(0, 1196)
+shape = SubResource("WorldBoundaryShape2D_p70tr")
+
+[node name="Dynamic" type="Node2D" parent="." unique_id=1175396486]
+
+[node name="Ovos" type="Node2D" parent="Dynamic" unique_id=633146640]
+
+[node name="ovoTimer" type="Timer" parent="Dynamic" unique_id=265993580]
+autostart = true
+
+[node name="Cesta" type="Area2D" parent="Dynamic" unique_id=468307002]
+
+[node name="sprite" type="AnimatedSprite2D" parent="Dynamic/Cesta" unique_id=378575262]
+position = Vector2(0, 1043)
+scale = Vector2(0.5405642, 0.5405642)
+sprite_frames = SubResource("SpriteFrames_5e8ib")
+frame_progress = 0.1954646
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/Cesta" unique_id=1067250831]
+position = Vector2(0, 1044.359)
+scale = Vector2(24.0002, 11.414061)
+shape = SubResource("RectangleShape2D_kx7gb")
+
+[node name="FollowFoot" type="Node2D" parent="Dynamic/Cesta" unique_id=883308360 node_paths=PackedStringArray("parent_node")]
+script = ExtResource("12_bgslt")
+parent_node = NodePath("..")
+track_y = false
+debug_mouse_pos = true
+metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
+
+[connection signal="area_entered" from="Static/chão" to="." method="_on_chão_area_entered"]
+[connection signal="timeout" from="Dynamic/ovoTimer" to="." method="_on_ovo_timer_timeout"]
+[connection signal="area_entered" from="Dynamic/Cesta" to="." method="_on_cesta_area_entered"]

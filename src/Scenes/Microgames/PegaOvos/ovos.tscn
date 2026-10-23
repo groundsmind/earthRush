@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cbr2dueg57ypk"]
+
+[ext_resource type="Script" uid="uid://bncc8oq36qisr" path="res://Scenes/Microgames/PegaOvos/ovos.gd" id="1_8jqtg"]
+[ext_resource type="Texture2D" uid="uid://78hs1cyjnfa7" path="res://Assets/Sprites/Microgames/PegaOvos/ovo 2.png" id="1_gy5a4"]
+[ext_resource type="Texture2D" uid="uid://bspiskptc4vew" path="res://Assets/Sprites/Microgames/PegaOvos/ovo.png" id="2_8jqtg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p70tr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gy5a4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8jqtg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p70tr"]
+
+[node name="Ovos" type="Area2D" unique_id=1380545313]
+script = ExtResource("1_8jqtg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=398636729]
+scale = Vector2(0.611199, 0.611199)
+sprite_frames = SubResource("SpriteFrames_p70tr")
+frame_progress = 0.12824842
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1954145190]
+scale = Vector2(11.704382, 9.890472)
+shape = SubResource("CapsuleShape2D_p70tr")
