@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dtd0cre4gapye"]
+
+[ext_resource type="Texture2D" uid="uid://bdi23rmt8i3av" path="res://Scenes/Microgames/ContandoFauna/Assets/sapo.png" id="1_8r2n5"]
+[ext_resource type="Script" uid="uid://da1825fjwj5p1" path="res://Scenes/Microgames/ContandoFauna/sapo.gd" id="2_jtl3b"]
+
+[node name="Sapo" type="Sprite2D" unique_id=865800423]
+scale = Vector2(4.005604, 4.005604)
+texture = ExtResource("1_8r2n5")
+script = ExtResource("2_jtl3b")
+
+[node name="Timer" type="Timer" parent="." unique_id=440880760]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
