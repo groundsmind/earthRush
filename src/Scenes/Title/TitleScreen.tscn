@@ -97,18 +97,19 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Node2D/Label:position")
+tracks/4/path = NodePath("Node2D:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(47, -76)]
+"values": [Vector2(1192, 305)]
 }
 
 [sub_resource type="Animation" id="Animation_tm67p"]
 resource_name = "eter"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -116,8 +117,8 @@ tracks/0/path = NodePath("ButtonMgr/Start:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.5, 1),
+"times": PackedFloat32Array(0.6333333, 1.1333333),
+"transitions": PackedFloat32Array(0.29730198, 1),
 "update": 0,
 "values": [Vector2(-400, 655), Vector2(150, 655)]
 }
@@ -128,8 +129,8 @@ tracks/1/path = NodePath("ButtonMgr/Cal:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 0.6),
-"transitions": PackedFloat32Array(0.5, 1),
+"times": PackedFloat32Array(0.73333335, 1.2333333),
+"transitions": PackedFloat32Array(0.29730198, 1),
 "update": 0,
 "values": [Vector2(-400, 795), Vector2(150, 795)]
 }
@@ -140,8 +141,8 @@ tracks/2/path = NodePath("ButtonMgr/Exit:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.19999996, 0.7),
-"transitions": PackedFloat32Array(0.5, 1),
+"times": PackedFloat32Array(0.83333325, 1.3333334),
+"transitions": PackedFloat32Array(0.29730198, 1),
 "update": 0,
 "values": [Vector2(-400, 940), Vector2(150, 940)]
 }
@@ -152,22 +153,22 @@ tracks/3/path = NodePath("ButtonMgr/credits:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.29999998, 0.8),
-"transitions": PackedFloat32Array(0.5, 1),
+"times": PackedFloat32Array(0.9333333, 1.4333333),
+"transitions": PackedFloat32Array(0.29730198, 1),
 "update": 0,
 "values": [Vector2(-400, 1051), Vector2(81.99994, 1051)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Node2D/Label:position")
+tracks/4/path = NodePath("Node2D:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.2871746, 1),
+"times": PackedFloat32Array(0.13333334, 1.1333333),
+"transitions": PackedFloat32Array(0.24148433, 1),
 "update": 0,
-"values": [Vector2(800, -76), Vector2(47, -76)]
+"values": [Vector2(1900, 305), Vector2(1192, 305)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vksqd"]
@@ -189,14 +190,15 @@ texture = ExtResource("1_rb55s")
 offset = Vector2(512, 512)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1851498996]
-position = Vector2(794, 305)
+position = Vector2(1192, 305)
 script = ExtResource("2_7kha8")
 
 [node name="Label" type="Label" parent="Node2D" unique_id=1009098578]
-offset_left = 47.0
-offset_top = -76.0
-offset_right = 764.0001
-offset_bottom = 61.0
+offset_left = -356.0
+offset_top = -67.0
+offset_right = 361.00024
+offset_bottom = 70.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "earthRush!"
