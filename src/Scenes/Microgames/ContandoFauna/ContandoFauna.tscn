@@ -1,0 +1,272 @@
+[gd_scene format=3 uid="uid://enwvsy3ixcki"]
+
+[ext_resource type="Script" uid="uid://ctrde1nhrgh5u" path="res://Scenes/Microgames/ContandoFauna/ContandoFauna.gd" id="1_1koae"]
+[ext_resource type="Texture2D" uid="uid://govdtrmx18dj" path="res://Scenes/Microgames/ContandoFauna/Assets/grass.jpg" id="2_821ce"]
+[ext_resource type="FontFile" uid="uid://b2guvml832oyi" path="res://Assets/Fonts/Speedy.ttf" id="3_vglpq"]
+[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/follow_foot.gd" id="4_821ce"]
+
+[sub_resource type="Gradient" id="Gradient_821ce"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.52409637, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.35949835, 0.6166669, 5.7756904e-07, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p70tr"]
+gradient = SubResource("Gradient_821ce")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p70tr"]
+radius = 11.482479
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p70tr"]
+
+[sub_resource type="Animation" id="Animation_821ce"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dynamic/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666666),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dynamic/opcoes/Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666666),
+"transitions": PackedFloat32Array(0.2588165),
+"update": 0,
+"values": [Vector2(210, -200)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dynamic/opcoes/Botoes/botao1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.03333336),
+"transitions": PackedFloat32Array(0.25000006),
+"update": 0,
+"values": [Vector2(-500, 405)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dynamic/opcoes/Botoes/botao2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.03333336),
+"transitions": PackedFloat32Array(0.25000006),
+"update": 0,
+"values": [Vector2(-500, 405)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dynamic/opcoes/Botoes/botao3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.03333336),
+"transitions": PackedFloat32Array(0.25000006),
+"update": 0,
+"values": [Vector2(-500, 405)]
+}
+
+[sub_resource type="Animation" id="Animation_d680l"]
+resource_name = "answer"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dynamic/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dynamic/opcoes/Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.65),
+"transitions": PackedFloat32Array(0.2588165, 1),
+"update": 0,
+"values": [Vector2(210, -200), Vector2(210, 195)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dynamic/opcoes/Botoes/botao1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.06666666, 0.7),
+"transitions": PackedFloat32Array(0.25000006, 1),
+"update": 0,
+"values": [Vector2(-500, 405), Vector2(197, 405)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dynamic/opcoes/Botoes/botao2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.16666669, 0.8),
+"transitions": PackedFloat32Array(0.25000006, 1),
+"update": 0,
+"values": [Vector2(-500, 405), Vector2(747, 399)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dynamic/opcoes/Botoes/botao3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.93333334),
+"transitions": PackedFloat32Array(0.25000006, 1),
+"update": 0,
+"values": [Vector2(-500, 405), Vector2(1304, 394)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1j4l1"]
+_data = {
+&"RESET": SubResource("Animation_821ce"),
+&"answer": SubResource("Animation_d680l")
+}
+
+[node name="MicroGame" type="Node2D" unique_id=365558061 node_paths=PackedStringArray("player_start")]
+script = ExtResource("1_1koae")
+VerbHint = "Conte"
+player_start = NodePath("Dynamic/Foot/Marker2D")
+time_limit = 20.0
+metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
+
+[node name="Static" type="Node2D" parent="." unique_id=1460834453]
+
+[node name="Sprite2D" type="Sprite2D" parent="Static" unique_id=1350299529]
+modulate = Color(0.73980105, 0.647848, 0, 1)
+position = Vector2(809, 582)
+scale = Vector2(0.83668125, 0.83668125)
+texture = ExtResource("2_821ce")
+
+[node name="Dynamic" type="Node2D" parent="." unique_id=1153041043]
+
+[node name="Sapos" type="Node2D" parent="Dynamic" unique_id=742818845]
+
+[node name="Timer" type="Timer" parent="Dynamic" unique_id=738623467]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="Dynamic" unique_id=1094054996]
+offset_left = -87.0
+offset_top = -184.0
+offset_right = -47.0
+offset_bottom = -144.0
+scale = Vector2(43.84491, 43.84491)
+color = Color(0, 0, 0, 0)
+
+[node name="Foot" type="Area2D" parent="Dynamic" unique_id=639285918]
+position = Vector2(809, 983)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dynamic/Foot" unique_id=459366264]
+texture = SubResource("GradientTexture2D_p70tr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/Foot" unique_id=831903277]
+position = Vector2(0.99999994, 0.99999994)
+scale = Vector2(7.57876, 7.57876)
+shape = SubResource("CircleShape2D_p70tr")
+
+[node name="FollowFoot" type="Node2D" parent="Dynamic/Foot" unique_id=1292949756]
+script = ExtResource("4_821ce")
+vertical_offset = 80.0
+debug_mouse_pos = true
+metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
+
+[node name="Marker2D" type="Marker2D" parent="Dynamic/Foot" unique_id=1713611801]
+gizmo_extents = 1000.0
+
+[node name="opcoes" type="CanvasGroup" parent="Dynamic" unique_id=1058487991]
+
+[node name="Label" type="Label" parent="Dynamic/opcoes" unique_id=1334124379]
+offset_left = 210.0
+offset_top = -200.0
+offset_right = 1408.0
+offset_bottom = -59.99994
+theme_override_fonts/font = ExtResource("3_vglpq")
+theme_override_font_sizes/font_size = 121
+text = "Quantos sapos?"
+
+[node name="Botoes" type="Node2D" parent="Dynamic/opcoes" unique_id=1352038339]
+
+[node name="botao1" type="Area2D" parent="Dynamic/opcoes/Botoes" unique_id=1757663554]
+position = Vector2(-500, 405)
+
+[node name="Label" type="Label" parent="Dynamic/opcoes/Botoes/botao1" unique_id=1975512986]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 110
+text = "1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/opcoes/Botoes/botao1" unique_id=560226562]
+position = Vector2(36, 80)
+scale = Vector2(10.269449, 10.511994)
+shape = SubResource("RectangleShape2D_p70tr")
+disabled = true
+
+[node name="botao2" type="Area2D" parent="Dynamic/opcoes/Botoes" unique_id=341967641]
+position = Vector2(-500, 405)
+
+[node name="Label" type="Label" parent="Dynamic/opcoes/Botoes/botao2" unique_id=804769552]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 110
+text = "2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/opcoes/Botoes/botao2" unique_id=1383519670]
+position = Vector2(36, 80)
+scale = Vector2(10.269449, 10.511994)
+shape = SubResource("RectangleShape2D_p70tr")
+disabled = true
+
+[node name="botao3" type="Area2D" parent="Dynamic/opcoes/Botoes" unique_id=74164804]
+position = Vector2(-500, 405)
+
+[node name="Label" type="Label" parent="Dynamic/opcoes/Botoes/botao3" unique_id=1518688102]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 110
+text = "3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/opcoes/Botoes/botao3" unique_id=446273422]
+position = Vector2(36, 80)
+scale = Vector2(10.269449, 10.511994)
+shape = SubResource("RectangleShape2D_p70tr")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1173493150]
+libraries/ = SubResource("AnimationLibrary_1j4l1")
+
+[connection signal="timeout" from="Dynamic/Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Dynamic/Foot" to="." method="_on_foot_area_entered"]

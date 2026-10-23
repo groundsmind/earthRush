@@ -52,6 +52,7 @@ folder_colors={
 "res://Scenes/Game/": "teal",
 "res://Scenes/GameOver/": "teal",
 "res://Scenes/Microgames/": "teal",
+"res://Scenes/Microgames/ContandoFauna/Assets/": "red",
 "res://Scenes/Microgames/CopoSapo/Assets/": "red",
 "res://Scenes/Microgames/DesvieBalas/Assets/": "red",
 "res://Scenes/Microgames/FotoSapo/Assets/": "red",
