@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cnrfwudy1qawq"]
 
-[ext_resource type="Script" uid="uid://d06bwpt0kyj6h" path="res://Scenes/_DebugGameScene/GameManager.gd" id="1_0rtbi"]
+[ext_resource type="Script" uid="uid://bg0pe2s81uycd" path="res://Scenes/Game/GameManager.gd" id="1_0rtbi"]
 [ext_resource type="PackedScene" uid="uid://brdpopkv45hh5" path="res://Scenes/Microgames/RecicleCerto/RecicleCerto.tscn" id="2_qfdgm"]
-[ext_resource type="Script" uid="uid://c80v703sr8xqv" path="res://Scenes/_DebugGameScene/song_mgr.gd" id="3_5wwgf"]
+[ext_resource type="Script" uid="uid://erdfmyhgnl4y" path="res://Scenes/Game/song_mgr.gd" id="3_5wwgf"]
 [ext_resource type="Texture2D" uid="uid://cj13o3uke6rpk" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Light/texture_03.png" id="4_l5jc4"]
-[ext_resource type="Script" uid="uid://drfmup8al30ji" path="res://Scenes/_DebugGameScene/heart_display.gd" id="5_056ng"]
+[ext_resource type="Script" uid="uid://dmd63p8wyuv04" path="res://Scenes/Game/heart_display.gd" id="5_056ng"]
 [ext_resource type="Texture2D" uid="uid://ph4fwqaias0l" path="res://Assets/Sprites/UI/heart_full.png" id="6_hiao6"]
 [ext_resource type="Texture2D" uid="uid://cyvi4ymsjpvxp" path="res://Assets/Sprites/UI/heart_break.png" id="7_qfgh7"]
 [ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/Juice/swing_sprite.gd" id="8_xkqie"]
