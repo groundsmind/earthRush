@@ -28,7 +28,7 @@ fill_from = Vector2(0.5, 0.5)
 script = ExtResource("1_u21y0")
 VerbHint = "Apague!"
 player_start = NodePath("Dynamic/AreaHoldTrigger/Marker2D")
-time_limit = 50.0
+time_limit = 0.0
 metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
 
 [node name="Static" type="Node2D" parent="." unique_id=1638762647]
@@ -41,7 +41,7 @@ texture = ExtResource("2_6n8g5")
 [node name="Arvores" type="Node2D" parent="Static" unique_id=262413547]
 
 [node name="arvore3" type="Area2D" parent="Static/Arvores" unique_id=1718198246]
-position = Vector2(916, 461)
+position = Vector2(889, 356)
 
 [node name="arvore" type="Sprite2D" parent="Static/Arvores/arvore3" unique_id=667334835]
 texture = ExtResource("4_2a5ra")
@@ -57,7 +57,7 @@ scale = Vector2(20.53706, 13.213235)
 shape = SubResource("RectangleShape2D_p70tr")
 
 [node name="arvore1" type="Area2D" parent="Static/Arvores" unique_id=1348512266]
-position = Vector2(773, 761)
+position = Vector2(805, 780)
 
 [node name="arvore" type="Sprite2D" parent="Static/Arvores/arvore1" unique_id=1333905906]
 texture = ExtResource("4_2a5ra")
@@ -73,7 +73,7 @@ scale = Vector2(20.53706, 13.213235)
 shape = SubResource("RectangleShape2D_p70tr")
 
 [node name="arvore2" type="Area2D" parent="Static/Arvores" unique_id=1324745768]
-position = Vector2(402, 484)
+position = Vector2(315, 410)
 
 [node name="arvore" type="Sprite2D" parent="Static/Arvores/arvore2" unique_id=10566476]
 texture = ExtResource("4_2a5ra")
@@ -89,7 +89,7 @@ scale = Vector2(20.53706, 13.213235)
 shape = SubResource("RectangleShape2D_p70tr")
 
 [node name="arvore6" type="Area2D" parent="Static/Arvores" unique_id=1234626972]
-position = Vector2(1390, 497)
+position = Vector2(1465, 407)
 
 [node name="arvore" type="Sprite2D" parent="Static/Arvores/arvore6" unique_id=1001831024]
 texture = ExtResource("4_2a5ra")
@@ -105,7 +105,7 @@ scale = Vector2(20.53706, 13.213235)
 shape = SubResource("RectangleShape2D_p70tr")
 
 [node name="arvore4" type="Area2D" parent="Static/Arvores" unique_id=870093987]
-position = Vector2(1304, 810)
+position = Vector2(1416, 806)
 
 [node name="arvore" type="Sprite2D" parent="Static/Arvores/arvore4" unique_id=2060341851]
 texture = ExtResource("4_2a5ra")
@@ -121,7 +121,7 @@ scale = Vector2(20.53706, 13.213235)
 shape = SubResource("RectangleShape2D_p70tr")
 
 [node name="arvore5" type="Area2D" parent="Static/Arvores" unique_id=514913986]
-position = Vector2(965, 1115)
+position = Vector2(950, 1188)
 
 [node name="arvore" type="Sprite2D" parent="Static/Arvores/arvore5" unique_id=792384918]
 texture = ExtResource("4_2a5ra")
@@ -175,13 +175,13 @@ shape = SubResource("CircleShape2D_p70tr")
 [node name="Dynamic" type="Node2D" parent="." unique_id=562798766]
 
 [node name="AreaHoldTrigger" type="Area2D" parent="Dynamic" unique_id=184258961]
-position = Vector2(245, 1010)
+position = Vector2(256, 1021)
 script = ExtResource("7_fyvu3")
 hold_time = 1.0
 metadata/_custom_type_script = "uid://dbegiij6be8tw"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/AreaHoldTrigger" unique_id=26390061]
-scale = Vector2(10.322298, 10.322298)
+scale = Vector2(6.239164, 6.239164)
 shape = SubResource("CircleShape2D_5e8ib")
 
 [node name="Sprite2D" type="Sprite2D" parent="Dynamic/AreaHoldTrigger" unique_id=746156570]
