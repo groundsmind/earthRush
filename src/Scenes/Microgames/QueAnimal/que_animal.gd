@@ -36,7 +36,7 @@ func _on_animal_pisado(_pe: Area2D, animal: Area2D) -> void:
 	# Revela o animal do centro e espera um pouco antes de terminar
 	sombra.modulate = Color.WHITE
 	game_end_timer.stop()
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 
 	if animal == correto:
 		SoundManager.play_sound(YAY)

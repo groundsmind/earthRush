@@ -23,7 +23,7 @@
 script = ExtResource("1_u21y0")
 VerbHint = "Apague!"
 player_start = NodePath("Dynamic/AreaHoldTrigger/Marker2D")
-time_limit = 25.0
+time_limit = 30.0
 metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
 
 [node name="Static" type="Node2D" parent="." unique_id=1638762647]
@@ -123,7 +123,7 @@ shape = SubResource("CircleShape2D_p70tr")
 [node name="AreaHoldTrigger" type="Area2D" parent="Dynamic" unique_id=184258961]
 position = Vector2(256, 1021)
 script = ExtResource("7_fyvu3")
-hold_time = 1.0
+hold_time = 0.55
 metadata/_custom_type_script = "uid://dbegiij6be8tw"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/AreaHoldTrigger" unique_id=26390061]
@@ -137,7 +137,6 @@ texture = ExtResource("13_x67un")
 
 [node name="FollowFoot" type="Node2D" parent="Dynamic/AreaHoldTrigger" unique_id=1696271361]
 script = ExtResource("8_v2coq")
-debug_mouse_mode = true
 metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
 
 [node name="Marker2D" type="Marker2D" parent="Dynamic/AreaHoldTrigger" unique_id=1346810120]

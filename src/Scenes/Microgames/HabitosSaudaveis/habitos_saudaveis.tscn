@@ -226,6 +226,7 @@ texture = ExtResource("6_bbfk6")
 [node name="Foot" type="Area2D" parent="Dynamic" unique_id=1824308626]
 position = Vector2(793, 993)
 script = ExtResource("3_w0s3s")
+hold_time = 0.5
 metadata/_custom_type_script = "uid://dbegiij6be8tw"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/Foot" unique_id=800359324]

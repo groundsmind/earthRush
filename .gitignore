@@ -10,3 +10,4 @@ calibracao.csv
 .venv/
 *.tmp
 .export/
+.exports/

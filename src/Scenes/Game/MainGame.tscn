@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://sqa27tp1oxyb" path="res://Scenes/Microgames/DesvieBalas/DesvieBalas.tscn" id="7_qrh8x"]
 [ext_resource type="PackedScene" uid="uid://bgp5txcmwbsmk" path="res://Scenes/Microgames/CopoSapo/CopoSapo.tscn" id="8_5gbaq"]
 [ext_resource type="Texture2D" uid="uid://cyvi4ymsjpvxp" path="res://Assets/Sprites/UI/heart_break.png" id="8_5jl82"]
-[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/Juice/swing_sprite.gd" id="9_5jl82"]
+[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/juice/swing_sprite.gd" id="9_5jl82"]
 [ext_resource type="FontFile" uid="uid://b2guvml832oyi" path="res://Assets/Fonts/Speedy.ttf" id="9_5t1aa"]
 [ext_resource type="PackedScene" uid="uid://enwvsy3ixcki" path="res://Scenes/Microgames/ContandoFauna/ContandoFauna.tscn" id="9_h277f"]
 [ext_resource type="PackedScene" uid="uid://deh2qbl2c07rf" path="res://Scenes/FunctionNodes/Misc/FootPositionEnforcer/foot_position_enforcer.tscn" id="10_5t1aa"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="10_wn6li"]
 [ext_resource type="PackedScene" uid="uid://yiq02ghoo0xe" path="res://Scenes/Microgames/PuleAnimal/PuleAnimal.tscn" id="11_bn85w"]
 [ext_resource type="PackedScene" uid="uid://ktp8775f00r8" path="res://Scenes/Microgames/HabitosSaudaveis/habitos_saudaveis.tscn" id="12_7coxc"]
+[ext_resource type="PackedScene" uid="uid://7n1qrd1o88ak" path="res://Scenes/Microgames/ApagarIncendio/apagando_incendio.tscn" id="13_qrh8x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wn6li"]
 
@@ -464,8 +465,7 @@ _data = {
 
 [node name="GameMgr" type="Node2D" unique_id=336676652 node_paths=PackedStringArray("microgame_parent")]
 script = ExtResource("1_u6ljv")
-debug_mode = true
-game_list = Array[PackedScene]([ExtResource("2_hcjis"), ExtResource("2_5t1aa"), ExtResource("4_aamm6"), ExtResource("5_bn85w"), ExtResource("6_7coxc"), ExtResource("7_qrh8x"), ExtResource("8_5gbaq"), ExtResource("9_h277f"), ExtResource("10_aamm6"), ExtResource("11_bn85w"), ExtResource("12_7coxc")])
+game_list = Array[PackedScene]([ExtResource("2_hcjis"), ExtResource("2_5t1aa"), ExtResource("4_aamm6"), ExtResource("5_bn85w"), ExtResource("6_7coxc"), ExtResource("7_qrh8x"), ExtResource("8_5gbaq"), ExtResource("9_h277f"), ExtResource("10_aamm6"), ExtResource("11_bn85w"), ExtResource("12_7coxc"), ExtResource("13_qrh8x")])
 microgame_parent = NodePath("MicrogameContainer")
 
 [node name="SongMgr" type="Node2D" parent="." unique_id=1964847865]

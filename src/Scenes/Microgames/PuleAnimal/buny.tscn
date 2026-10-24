@@ -12,15 +12,16 @@ func _process(delta: float) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(97, 201)
+size = Vector2(97, 161)
 
 [node name="Buny" type="Area2D" unique_id=397811124]
 script = SubResource("GDScript_g4v7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1986612198]
-scale = Vector2(0.18075801, 0.23906708)
+position = Vector2(2.000001, 28.701174)
+scale = Vector2(0.2594752, 0.18301012)
 texture = ExtResource("1_t40wc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=38562157]
-position = Vector2(-1.5, 4.5)
+position = Vector2(-1.5, 24.5)
 shape = SubResource("RectangleShape2D_g4v7s")
