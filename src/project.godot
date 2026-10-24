@@ -60,6 +60,7 @@ folder_colors={
 "res://Scenes/Microgames/RecicleCerto/Assets/": "red",
 "res://Scenes/Microgames/RegaFlores/Assets/": "red",
 "res://Scenes/Title/": "teal",
+"res://Scenes/_DebugGameScene/": "gray",
 "res://Scripts/": "orange",
 "res://Shaders/": "purple",
 "res://TTEA/": "green",
