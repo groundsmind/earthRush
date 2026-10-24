@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://brdpopkv45hh5"]
+
+[ext_resource type="Script" uid="uid://benoy4ywq8p62" path="res://Scenes/Microgames/RecicleCerto/recicle_certo.gd" id="1_agfvx"]
+[ext_resource type="Texture2D" uid="uid://606n1kwdja7a" path="res://Scenes/Microgames/RecicleCerto/Assets/lixos.png" id="2_vdcve"]
+[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/FollowFoot.gd" id="3_qua4m"]
+[ext_resource type="Texture2D" uid="uid://b7bkdvob5v351" path="res://Scenes/Microgames/RecicleCerto/Assets/paper.png" id="3_vdcve"]
+[ext_resource type="Texture2D" uid="uid://b2pa47qhwy2o3" path="res://Scenes/Microgames/RecicleCerto/Assets/glass.png" id="4_07ywt"]
+[ext_resource type="Texture2D" uid="uid://c0vfmprvrrjip" path="res://Scenes/Microgames/RecicleCerto/Assets/metta.png" id="5_0e7ic"]
+[ext_resource type="Texture2D" uid="uid://dqsdxmfiyqbby" path="res://Scenes/Microgames/RecicleCerto/Assets/plastic.png" id="6_s12xy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(28.708206, 108.56508)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(33.386322, 110.038315)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
+size = Vector2(29.348145, 109.47558)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gngh"]
+size = Vector2(28.155762, 108.27928)
+
+[sub_resource type="GDScript" id="GDScript_57qmd"]
+script/source = "extends Area2D
+
+@onready var col: CollisionShape2D = $col
+@onready var trash_sprites: Array[Sprite2D] = [
+	$col/Paper,
+	$col/Glass,
+	$col/Metal,
+	$col/Plastic
+]
+
+var right_trash: Sprite2D
+
+func _ready() -> void:
+	right_trash = trash_sprites.pick_random()
+	right_trash.show()
+
+func _physics_process(_delta: float) -> void:
+	col.position.y += 2
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fcnqv"]
+radius = 106.50469
+
+[node name="RecicleCerto" type="Node2D" unique_id=1218890298 node_paths=PackedStringArray("player_start")]
+script = ExtResource("1_agfvx")
+VerbHint = "Recicle!"
+player_start = NodePath("PlayerStart")
+metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=231342597]
+offset_left = -37.0
+offset_top = -29.0
+offset_right = 1649.0
+offset_bottom = 1230.0
+
+[node name="Lixos" type="Sprite2D" parent="." unique_id=185472202]
+position = Vector2(786, 797)
+scale = Vector2(2.5159998, 1.697)
+texture = ExtResource("2_vdcve")
+
+[node name="Paper" type="Area2D" parent="Lixos" unique_id=246787894]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Paper" unique_id=1343883960]
+position = Vector2(-175.72127, -28.215973)
+scale = Vector2(0.9999996, 1)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Plastic" type="Area2D" parent="Lixos" unique_id=1852561291]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Plastic" unique_id=450144095]
+position = Vector2(-52.066772, -29.836487)
+scale = Vector2(0.99999964, 1)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="Metal" type="Area2D" parent="Lixos" unique_id=8660735]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Metal" unique_id=1947541789]
+position = Vector2(59.18918, -29.528564)
+scale = Vector2(0.9999996, 1)
+shape = SubResource("RectangleShape2D_d0u6y")
+
+[node name="Glass" type="Area2D" parent="Lixos" unique_id=857575931]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixos/Glass" unique_id=1372612916]
+position = Vector2(176.47061, -31.305237)
+scale = Vector2(0.99999964, 1)
+shape = SubResource("RectangleShape2D_3gngh")
+
+[node name="trash" type="Area2D" parent="." unique_id=153562801]
+position = Vector2(790, -108)
+script = SubResource("GDScript_57qmd")
+
+[node name="col" type="CollisionShape2D" parent="trash" unique_id=2021564393]
+position = Vector2(-1.5, -2)
+shape = SubResource("CircleShape2D_fcnqv")
+
+[node name="Paper" type="Sprite2D" parent="trash/col" unique_id=1894607244]
+visible = false
+position = Vector2(1.5, 2)
+scale = Vector2(0.19368418, 0.19368413)
+texture = ExtResource("3_vdcve")
+
+[node name="Glass" type="Sprite2D" parent="trash/col" unique_id=1527799153]
+visible = false
+scale = Vector2(0.0884, 0.0884)
+texture = ExtResource("4_07ywt")
+
+[node name="Metal" type="Sprite2D" parent="trash/col" unique_id=305445293]
+visible = false
+position = Vector2(-2.5, 5.999996)
+scale = Vector2(0.158, 0.134)
+texture = ExtResource("5_0e7ic")
+
+[node name="Plastic" type="Sprite2D" parent="trash/col" unique_id=688214368]
+visible = false
+position = Vector2(1.5, 1)
+scale = Vector2(0.10839844, 0.10839844)
+texture = ExtResource("6_s12xy")
+
+[node name="FollowFoot" type="Node2D" parent="trash" unique_id=1517519870]
+script = ExtResource("3_qua4m")
+track_y = false
+vertical_offset = 80.0
+metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
+
+[node name="PlayerStart" type="Marker2D" parent="." unique_id=971217927]
+position = Vector2(795, 1095)
+gizmo_extents = 30.0
+
+[connection signal="area_entered" from="trash" to="." method="_on_trash_area_entered"]

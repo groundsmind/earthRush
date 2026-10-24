@@ -42,10 +42,8 @@ func _process(_delta) -> void:
 		foot_pos = get_viewport().get_mouse_position()
 		
 	var target := parent_node.global_position
-	if track_x:
-		target.x = foot_pos.x
-	if track_y:
-		target.y = foot_pos.y-vertical_offset
+	target.x = foot_pos.x if track_x else parent_node.global_position.x
+	target.y = foot_pos.y-vertical_offset if track_y else parent_node.global_position.y
 
 	if _character:
 		_target_pos = target
@@ -65,6 +63,5 @@ func _physics_process(delta: float) -> void:
 
 	var collision := _character.move_and_collide(motion)
 	if collision and character_slide:
-		# One slide pass only; repeated passes are what cause popping.
 		var remainder := collision.get_remainder().slide(collision.get_normal())
 		_character.move_and_collide(remainder)

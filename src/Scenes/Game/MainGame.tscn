@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://410fcehxgsmi"]
 
 [ext_resource type="Script" uid="uid://bg0pe2s81uycd" path="res://Scenes/Game/GameManager.gd" id="1_u6ljv"]
-[ext_resource type="PackedScene" uid="uid://enwvsy3ixcki" path="res://Scenes/Microgames/ContandoFauna/ContandoFauna.tscn" id="2_5t1aa"]
+[ext_resource type="PackedScene" uid="uid://brdpopkv45hh5" path="res://Scenes/Microgames/RecicleCerto/RecicleCerto.tscn" id="2_5t1aa"]
 [ext_resource type="Script" uid="uid://erdfmyhgnl4y" path="res://Scenes/Game/song_mgr.gd" id="3_5t1aa"]
 [ext_resource type="Texture2D" uid="uid://cj13o3uke6rpk" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Light/texture_03.png" id="3_wn6li"]
 [ext_resource type="Script" uid="uid://dmd63p8wyuv04" path="res://Scenes/Game/heart_display.gd" id="6_1605l"]
@@ -519,7 +519,6 @@ script = ExtResource("9_5jl82")
 [node name="FootPositionEnforcer" parent="TransitionVisuals/Transition" unique_id=272862829 instance=ExtResource("10_5t1aa")]
 position = Vector2(796, 887)
 hold_time = 2.0
-debug_mode = true
 
 [node name="FPEPositioner" type="Node2D" parent="TransitionVisuals/Transition/FootPositionEnforcer" unique_id=255231195]
 script = SubResource("GDScript_yf5fn")

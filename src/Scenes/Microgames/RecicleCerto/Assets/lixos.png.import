@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6nncnhurmigs"
-path="res://.godot/imported/buny.png-8c477f659dce50c52843057f66f7b627.ctex"
+uid="uid://606n1kwdja7a"
+path="res://.godot/imported/lixos.png-13e109305e5f78b4ba391e234d48eab2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Microgames/FujaCoelho/Assets/buny.png"
-dest_files=["res://.godot/imported/buny.png-8c477f659dce50c52843057f66f7b627.ctex"]
+source_file="res://Scenes/Microgames/RecicleCerto/Assets/lixos.png"
+dest_files=["res://.godot/imported/lixos.png-13e109305e5f78b4ba391e234d48eab2.ctex"]
 
 [params]
 
