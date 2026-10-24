@@ -1,4 +1,4 @@
-class_name jump_detector
+class_name JumpDetector
 extends BodyMovementComponent
 
 @export var jump_distance_threshold: float = 1500

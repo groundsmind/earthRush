@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://wq3roht3e246" path="res://Scenes/Microgames/DesvieBalas/Assets/corpo_Rosto.svg" id="3_jspt3"]
 [ext_resource type="Texture2D" uid="uid://cy4tuwpe83soc" path="res://Scenes/Microgames/DesvieBalas/Assets/arma.svg" id="4_tarsf"]
 [ext_resource type="Script" uid="uid://c6tajnu2k8ln5" path="res://Scenes/Microgames/DesvieBalas/arma.gd" id="6_15tpj"]
-[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/follow_foot.gd" id="7_sua80"]
+[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/FollowFoot.gd" id="7_sua80"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
 normal = Vector2(0, 1)

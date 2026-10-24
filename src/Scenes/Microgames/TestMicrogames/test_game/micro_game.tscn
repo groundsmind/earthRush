@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://di48umma243aj" path="res://test_game.gd" id="1_tifcp"]
 [ext_resource type="Texture2D" uid="uid://cfli8p4te4vaq" path="res://Scenes/Microgames/FotoSapo/Assets/frog.png" id="2_o0uyi"]
-[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/follow_foot.gd" id="3_cpu21"]
+[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/FollowFoot.gd" id="3_cpu21"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 168.58232

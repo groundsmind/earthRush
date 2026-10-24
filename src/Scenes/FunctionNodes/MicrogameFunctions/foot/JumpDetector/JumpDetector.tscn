@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dn8hshlubm8rk"]
 
-[ext_resource type="Script" uid="uid://c1obm57s756ly" path="res://jump_detector.gd" id="1_v1u06"]
+[ext_resource type="Script" uid="uid://c1obm57s756ly" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/JumpDetector/JumpDetector.gd" id="1_v1u06"]
 
 [node name="JumpDetector" type="Node2D" unique_id=587202803]
 script = ExtResource("1_v1u06")

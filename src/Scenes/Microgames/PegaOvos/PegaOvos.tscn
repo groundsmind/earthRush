@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://calucmd550uss" path="res://Scenes/Microgames/PegaOvos/Assets/cloud.png" id="7_bgslt"]
 [ext_resource type="Texture2D" uid="uid://yiwipdio7pc0" path="res://Scenes/Microgames/PegaOvos/Assets/cesta.png" id="7_sjqsy"]
 [ext_resource type="Texture2D" uid="uid://f36s4bhr61n1" path="res://Scenes/Microgames/PegaOvos/Assets/back 2.png" id="8_ds0sl"]
-[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/follow_foot.gd" id="12_bgslt"]
+[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/FollowFoot.gd" id="12_bgslt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p70tr"]
 animations = [{

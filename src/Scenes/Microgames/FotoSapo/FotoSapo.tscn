@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b0nm3irrq4gco" path="res://Scripts/Juice/parallax_background.gd" id="3_jvv44"]
 [ext_resource type="Script" uid="uid://dfra1sbo4wvvw" path="res://Scenes/Microgames/FotoSapo/frog.gd" id="4_j6t38"]
 [ext_resource type="Texture2D" uid="uid://c0htohi28ihx1" path="res://Scenes/Microgames/FotoSapo/Assets/camera_overlay.png" id="4_scj1r"]
-[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/follow_foot.gd" id="5_j6t38"]
+[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/FollowFoot.gd" id="5_j6t38"]
 [ext_resource type="Texture2D" uid="uid://cfli8p4te4vaq" path="res://Scenes/Microgames/FotoSapo/Assets/frog.png" id="5_wnfyo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
