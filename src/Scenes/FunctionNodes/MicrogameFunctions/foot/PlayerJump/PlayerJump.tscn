@@ -1,34 +1,11 @@
 [gd_scene format=3 uid="uid://c7q7k45f7xlbi"]
 
+[ext_resource type="Script" uid="uid://b8dd2g6p33fh" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/PlayerJump/player_jump.gd" id="1_3t7wn"]
 [ext_resource type="Script" uid="uid://c1obm57s756ly" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/JumpDetector/JumpDetector.gd" id="2_3n42g"]
 
-[sub_resource type="GDScript" id="GDScript_yf5fn"]
-script/source = "extends CharacterBody2D
-
-@export var jump_velocity = 600.0
-
-@onready var jump_detector: JumpDetector = $JumpDetector
-@onready var sprite_2d: Sprite2D = $Sprite2D
-
-var feet_midpoint: Vector2
-signal jump
-
-func _process(_delta: float) -> void:
-	feet_midpoint = jump_detector.feet_midpoint
-
-func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity += get_gravity() * 1.5 * delta
-	move_and_slide()
-
-func _on_jump_detector_jumped() -> void:
-	if is_on_floor():
-		velocity.y = -jump_velocity
-		jump.emit()
-"
-
 [node name="PlayerJump" type="CharacterBody2D" unique_id=313542639]
-script = SubResource("GDScript_yf5fn")
+script = ExtResource("1_3t7wn")
+jump_velocity = null
 
 [node name="JumpDetector" type="Node2D" parent="." unique_id=1742842996]
 script = ExtResource("2_3n42g")

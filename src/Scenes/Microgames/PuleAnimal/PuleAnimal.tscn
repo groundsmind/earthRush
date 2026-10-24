@@ -1,0 +1,345 @@
+[gd_scene format=3 uid="uid://yiq02ghoo0xe"]
+
+[ext_resource type="Script" uid="uid://bi3djwxrno0w7" path="res://Scenes/Microgames/PuleAnimal/pule_animal.gd" id="1_gy1xg"]
+[ext_resource type="Texture2D" uid="uid://1ep21awsieoe" path="res://Scenes/Microgames/PuleAnimal/Assets/hood_irony_gif.png" id="2_8scq4"]
+[ext_resource type="Texture2D" uid="uid://nfqofq8273v8" path="res://Scenes/Microgames/PuleAnimal/Assets/landscape.jpg" id="2_gy1xg"]
+[ext_resource type="PackedScene" uid="uid://c7q7k45f7xlbi" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/PlayerJump/PlayerJump.tscn" id="4_gy1xg"]
+[ext_resource type="Texture2D" uid="uid://cdgfn72pknv8t" path="res://Scenes/Microgames/PuleAnimal/Assets/grama.png" id="4_hol7t"]
+
+[sub_resource type="GDScript" id="GDScript_3n42g"]
+script/source = "extends Node2D
+
+@onready var player_sprite: AnimatedSprite2D = $PlayerJump/PlayerSprite
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	player_sprite.play(\"default\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xogyv"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(0, 0, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk6f0"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(220, 0, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7871"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(440, 0, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bexa"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(660, 0, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaqsn"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(880, 0, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssipg"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(1100, 0, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yebb0"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(1320, 0, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mow6y"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(0, 371, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvl5n"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(220, 371, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fupk"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(440, 371, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkbri"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(660, 371, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2s0mu"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(880, 371, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3idm"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(1100, 371, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1ve7"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(1320, 371, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci3lk"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(0, 742, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev2en"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(220, 742, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56nob"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(440, 742, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo206"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(660, 742, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ejqp"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(880, 742, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jti5u"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(1100, 742, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6ck5"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(1320, 742, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujkvu"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(0, 1113, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7s7o3"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(220, 1113, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d35va"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(440, 1113, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jukvq"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(660, 1113, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_my08p"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(880, 1113, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2wr1"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(1100, 1113, 220, 371)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru3g0"]
+atlas = ExtResource("2_8scq4")
+region = Rect2(1320, 1113, 220, 371)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xogyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk6f0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7871")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bexa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaqsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssipg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yebb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mow6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvl5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fupk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkbri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s0mu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3idm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1ve7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci3lk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev2en")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56nob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo206")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ejqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jti5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6ck5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujkvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7s7o3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d35va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jukvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my08p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2wr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru3g0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 40.17
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yf5fn"]
+radius = 84.0
+height = 362.0
+
+[sub_resource type="GDScript" id="GDScript_yf5fn"]
+resource_name = "BunySpawn"
+script/source = "extends Node2D
+
+const BUNY = preload(\"uid://bklj8nud0y3q6\")
+
+@onready var timer: Timer = $Timer
+
+func _ready() -> void:
+	reproduce()
+
+func _on_timer_timeout() -> void:
+	timer.wait_time = randf_range(4, 8)
+	reproduce()
+
+func reproduce() -> void:
+	var bunny = BUNY.instantiate()
+	add_child(bunny)
+"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
+
+[node name="PuleAnimal" type="Node2D" unique_id=1157688044 node_paths=PackedStringArray("player_start")]
+script = ExtResource("1_gy1xg")
+VerbHint = "Pule!"
+player_start = NodePath("Marker2D")
+time_limit = 20.0
+metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
+
+[node name="Landscape" type="Sprite2D" parent="." unique_id=114546152]
+position = Vector2(799.5, 602)
+scale = Vector2(3.0462964, 3.461111)
+texture = ExtResource("2_gy1xg")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1440337316]
+scroll_offset = Vector2(0, 700)
+repeat_size = Vector2(1500, 0)
+autoscroll = Vector2(-40, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=245475565]
+position = Vector2(-10.999999, 40)
+scale = Vector2(1, 0.9433333)
+texture = ExtResource("4_hol7t")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D" unique_id=699648456]
+position = Vector2(-10.999999, 829)
+scale = Vector2(1, 1.7266667)
+texture = ExtResource("4_hol7t")
+flip_v = true
+
+[node name="Dynamic" type="Node2D" parent="." unique_id=277427777]
+script = SubResource("GDScript_3n42g")
+
+[node name="PlayerJump" parent="Dynamic" unique_id=313542639 instance=ExtResource("4_gy1xg")]
+jump_velocity = 1000.0
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="Dynamic/PlayerJump" unique_id=176900639]
+position = Vector2(313, 737)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+frame_progress = 0.4042667
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/PlayerJump" unique_id=387677654]
+position = Vector2(313, 737)
+shape = SubResource("CapsuleShape2D_yf5fn")
+
+[node name="Area2D" type="Area2D" parent="Dynamic/PlayerJump" unique_id=1209776357]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/PlayerJump/Area2D" unique_id=2146531258]
+position = Vector2(313, 737)
+shape = SubResource("CapsuleShape2D_yf5fn")
+
+[node name="BunySpawner" type="Node2D" parent="Dynamic" unique_id=367966559]
+position = Vector2(1904, 768)
+script = SubResource("GDScript_yf5fn")
+
+[node name="Timer" type="Timer" parent="Dynamic/BunySpawner" unique_id=1502990644]
+wait_time = 3.0
+autostart = true
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=222704666]
+scroll_offset = Vector2(0, 700)
+repeat_size = Vector2(1500, 0)
+autoscroll = Vector2(-80, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=860373969]
+position = Vector2(-10.999999, -7.0000114)
+scale = Vector2(1, 1.1)
+texture = ExtResource("4_hol7t")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D2" unique_id=1140104457]
+position = Vector2(-10.999999, 1114.5)
+scale = Vector2(1, 2.6783333)
+texture = ExtResource("4_hol7t")
+flip_v = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=959599197]
+position = Vector2(318, 925)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1732080977]
+shape = SubResource("WorldBoundaryShape2D_g4v7s")
+
+[node name="Timer" type="Timer" parent="." unique_id=1186938517]
+wait_time = 18.0
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1789573680]
+position = Vector2(321, 1145)
+
+[connection signal="area_entered" from="Dynamic/PlayerJump/Area2D" to="." method="_on_player_area_entered"]
+[connection signal="timeout" from="Dynamic/BunySpawner/Timer" to="Dynamic/BunySpawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

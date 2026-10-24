@@ -48,6 +48,7 @@ enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg")
 
 folder_colors={
 "res://Assets/": "red",
+"res://Assets/Sounds/": "pink",
 "res://Scenes/": "teal",
 "res://Scenes/FunctionNodes/": "green",
 "res://Scenes/Game/": "teal",
@@ -57,7 +58,10 @@ folder_colors={
 "res://Scenes/Microgames/CopoSapo/Assets/": "red",
 "res://Scenes/Microgames/DesvieBalas/Assets/": "red",
 "res://Scenes/Microgames/FotoSapo/Assets/": "red",
+"res://Scenes/Microgames/LimpandoRio/Assets/": "red",
 "res://Scenes/Microgames/PegaOvos/Assets/": "red",
+"res://Scenes/Microgames/PuleAnimal/Assets/": "red",
+"res://Scenes/Microgames/QueAnimal/Assets/": "red",
 "res://Scenes/Microgames/RecicleCerto/Assets/": "red",
 "res://Scenes/Microgames/RegaFlores/Assets/": "red",
 "res://Scenes/Title/": "teal",

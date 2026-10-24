@@ -40,7 +40,7 @@ script/source = "extends Area2D
 @onready var foot_position_enforcer: FootPositionEnforcerer = $\"..\"
 
 func _process(_delta: float) -> void:
-	if GameInfo.current_game[\"debug\"]:
+	if GameInfo.current_game.get(\"debug\"):
 		global_position = get_viewport().get_mouse_position()
 	elif FootPosition and FootPosition.midpoint != null:
 		global_position = FootPosition.midpoint

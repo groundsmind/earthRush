@@ -12,8 +12,7 @@ func _ready() -> void:
 	position = Vector2(rng.randi_range(250, 1400), startPos)
 	animated_sprite_2d.play("default")
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	rotate(rotationSpeed)
 	position -= Vector2(0, speed)

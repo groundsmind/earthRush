@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnrfwudy1qawq"]
 
 [ext_resource type="Script" uid="uid://bg0pe2s81uycd" path="res://Scenes/Game/GameManager.gd" id="1_0rtbi"]
-[ext_resource type="PackedScene" uid="uid://brdpopkv45hh5" path="res://Scenes/Microgames/RecicleCerto/RecicleCerto.tscn" id="2_qfdgm"]
+[ext_resource type="PackedScene" uid="uid://yiq02ghoo0xe" path="res://Scenes/Microgames/PuleAnimal/PuleAnimal.tscn" id="2_1j8cb"]
 [ext_resource type="Script" uid="uid://erdfmyhgnl4y" path="res://Scenes/Game/song_mgr.gd" id="3_5wwgf"]
 [ext_resource type="Texture2D" uid="uid://cj13o3uke6rpk" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Light/texture_03.png" id="4_l5jc4"]
 [ext_resource type="Script" uid="uid://dmd63p8wyuv04" path="res://Scenes/Game/heart_display.gd" id="5_056ng"]
@@ -26,7 +26,7 @@ resource_name = "FootPositionEnfPositioner"
 script/source = "extends Node2D
 
 @onready var game_mgr: Node2D = $\"../../../..\"
-@onready var fpe: FootPositionEnforcer = $\"..\"
+@onready var fpe: FootPositionEnforcerer = $\"..\"
 
 func _ready() -> void:
 	game_mgr.game_change.connect(_on_game_change)
@@ -454,7 +454,7 @@ _data = {
 
 [node name="GameMgr" type="Node2D" unique_id=336676652 node_paths=PackedStringArray("microgame_parent")]
 script = ExtResource("1_0rtbi")
-game_list = Array[PackedScene]([ExtResource("2_qfdgm")])
+game_list = Array[PackedScene]([ExtResource("2_1j8cb")])
 microgame_parent = NodePath("MicrogameContainer")
 
 [node name="SongMgr" type="Node2D" parent="." unique_id=1964847865]

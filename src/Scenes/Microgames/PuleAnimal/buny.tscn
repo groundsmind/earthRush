@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bklj8nud0y3q6"]
+
+[ext_resource type="Texture2D" uid="uid://dh3rnugb1s6l0" path="res://Scenes/Microgames/PuleAnimal/Assets/buny.jpg" id="1_t40wc"]
+
+[sub_resource type="GDScript" id="GDScript_g4v7s"]
+script/source = "extends Area2D
+
+var speed: int = 300
+
+func _process(delta: float) -> void:
+	position.x -= speed * delta
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(97, 201)
+
+[node name="Buny" type="Area2D" unique_id=397811124]
+script = SubResource("GDScript_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1986612198]
+scale = Vector2(0.18075801, 0.23906708)
+texture = ExtResource("1_t40wc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=38562157]
+position = Vector2(-1.5, 4.5)
+shape = SubResource("RectangleShape2D_g4v7s")

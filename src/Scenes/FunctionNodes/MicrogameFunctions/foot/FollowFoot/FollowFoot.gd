@@ -10,7 +10,7 @@ extends BodyMovementComponent
 @export var can_interact: bool = true
 @export var character_max_speed: float = 0.0
 @export var character_slide: bool = true
-@export var debug_mouse_mode: bool = true
+@export var debug_mouse_mode: bool = false
 var _character: CharacterBody2D
 var _target_pos: Vector2
 
@@ -31,7 +31,7 @@ func _process(_delta) -> void:
 	if not parent_node:
 		return
 	var foot_pos: Vector2
-	if not (GameInfo.current_game["debug"] or debug_mouse_mode):
+	if not (GameInfo.current_game.get("debug") or debug_mouse_mode):
 		match tracking:
 			"Midpoint":
 				foot_pos = feet_midpoint if feet_midpoint else Vector2.ZERO

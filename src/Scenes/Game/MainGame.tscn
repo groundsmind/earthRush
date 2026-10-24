@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://deh2qbl2c07rf" path="res://Scenes/FunctionNodes/Misc/FootPositionEnforcer/foot_position_enforcer.tscn" id="10_5t1aa"]
 [ext_resource type="PackedScene" uid="uid://didmhs5ysls7n" path="res://Scenes/Microgames/QueAnimal/QueAnimal.tscn" id="10_aamm6"]
 [ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="10_wn6li"]
+[ext_resource type="PackedScene" uid="uid://yiq02ghoo0xe" path="res://Scenes/Microgames/PuleAnimal/PuleAnimal.tscn" id="11_bn85w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wn6li"]
 
@@ -34,7 +35,7 @@ resource_name = "FootPositionEnfPositioner"
 script/source = "extends Node2D
 
 @onready var game_mgr: Node2D = $\"../../../..\"
-@onready var fpe: FootPositionEnforcer = $\"..\"
+@onready var fpe: FootPositionEnforcerer = $\"..\"
 
 func _ready() -> void:
 	game_mgr.game_change.connect(_on_game_change)
@@ -462,8 +463,7 @@ _data = {
 
 [node name="GameMgr" type="Node2D" unique_id=336676652 node_paths=PackedStringArray("microgame_parent")]
 script = ExtResource("1_u6ljv")
-debug_mode = true
-game_list = Array[PackedScene]([ExtResource("2_hcjis"), ExtResource("2_5t1aa"), ExtResource("4_aamm6"), ExtResource("5_bn85w"), ExtResource("6_7coxc"), ExtResource("7_qrh8x"), ExtResource("8_5gbaq"), ExtResource("9_h277f"), ExtResource("10_aamm6")])
+game_list = Array[PackedScene]([ExtResource("2_hcjis"), ExtResource("2_5t1aa"), ExtResource("4_aamm6"), ExtResource("5_bn85w"), ExtResource("6_7coxc"), ExtResource("7_qrh8x"), ExtResource("8_5gbaq"), ExtResource("9_h277f"), ExtResource("10_aamm6"), ExtResource("11_bn85w")])
 microgame_parent = NodePath("MicrogameContainer")
 
 [node name="SongMgr" type="Node2D" parent="." unique_id=1964847865]
