@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://7n1qrd1o88ak"]
+
+[ext_resource type="Script" uid="uid://dx4p78cy6hk52" path="res://Scenes/Microgames/ApagarIncendio/apagando_incendio.gd" id="1_u21y0"]
+[ext_resource type="Texture2D" uid="uid://otlujt7bvf58" path="res://Scenes/Microgames/ApagarIncendio/Assets/branco.png" id="2_6n8g5"]
+[ext_resource type="Texture2D" uid="uid://diukr7qfjwl6l" path="res://Scenes/Microgames/ApagarIncendio/Assets/agua.png" id="3_dwb1k"]
+[ext_resource type="Texture2D" uid="uid://c75g5ko8da4lx" path="res://Scenes/Microgames/ApagarIncendio/Assets/arvore.png" id="4_2a5ra"]
+[ext_resource type="Texture2D" uid="uid://qw0dle6op2sg" path="res://Scenes/Microgames/ApagarIncendio/Assets/fogo.png" id="4_enuj1"]
+[ext_resource type="Texture2D" uid="uid://81ehh63hdjew" path="res://Scenes/Microgames/ApagarIncendio/Assets/gota.png" id="5_6n8g5"]
+[ext_resource type="Script" uid="uid://dbegiij6be8tw" path="res://Scenes/FunctionNodes/MicrogameFunctions/AreaHoldTrigger/area_hold_trigger.gd" id="7_fyvu3"]
+[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/FollowFoot.gd" id="8_v2coq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p70tr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p70tr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5e8ib"]
+
+[sub_resource type="Gradient" id="Gradient_5e8ib"]
+offsets = PackedFloat32Array(0.32267442, 0.8517442, 0.997093, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.98039216, 0.98039216, 0.98039216, 0, 0.9099264, 0.9099264, 0.9099264, 0.071875036, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p70tr"]
+gradient = SubResource("Gradient_5e8ib")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="ApagandoIncendio" type="Node2D" unique_id=1785010866 node_paths=PackedStringArray("player_start")]
+script = ExtResource("1_u21y0")
+VerbHint = "Apague!"
+player_start = NodePath("Dynamic/AreaHoldTrigger/Marker2D")
+time_limit = 50.0
+metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
+
+[node name="Static" type="Node2D" parent="." unique_id=1638762647]
+
+[node name="Sprite2D" type="Sprite2D" parent="Static" unique_id=1077896606]
+position = Vector2(805.00006, 607)
+scale = Vector2(3.3167665, 2.5122542)
+texture = ExtResource("2_6n8g5")
+
+[node name="Arvores" type="Node2D" parent="Static" unique_id=262413547]
+
+[node name="arvore3" type="Area2D" parent="Static/Arvores" unique_id=1718198246]
+position = Vector2(916, 461)
+
+[node name="arvore" type="Sprite2D" parent="Static/Arvores/arvore3" unique_id=667334835]
+texture = ExtResource("4_2a5ra")
+
+[node name="fogo" type="Sprite2D" parent="Static/Arvores/arvore3" unique_id=2010061512]
+position = Vector2(-18, -112)
+scale = Vector2(0.80154526, 0.5279077)
+texture = ExtResource("4_enuj1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Arvores/arvore3" unique_id=1711121230]
+position = Vector2(-2, -111)
+scale = Vector2(20.53706, 13.213235)
+shape = SubResource("RectangleShape2D_p70tr")
+
+[node name="arvore1" type="Area2D" parent="Static/Arvores" unique_id=1348512266]
+position = Vector2(773, 761)
+
+[node name="arvore" type="Sprite2D" parent="Static/Arvores/arvore1" unique_id=1333905906]
+texture = ExtResource("4_2a5ra")
+
+[node name="fogo" type="Sprite2D" parent="Static/Arvores/arvore1" unique_id=183969190]
+position = Vector2(-18, -112)
+scale = Vector2(0.80154526, 0.5279077)
+texture = ExtResource("4_enuj1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Arvores/arvore1" unique_id=603062965]
+position = Vector2(-2, -111)
+scale = Vector2(20.53706, 13.213235)
+shape = SubResource("RectangleShape2D_p70tr")
+
+[node name="arvore2" type="Area2D" parent="Static/Arvores" unique_id=1324745768]
+position = Vector2(402, 484)
+
+[node name="arvore" type="Sprite2D" parent="Static/Arvores/arvore2" unique_id=10566476]
+texture = ExtResource("4_2a5ra")
+
+[node name="fogo" type="Sprite2D" parent="Static/Arvores/arvore2" unique_id=816037043]
+position = Vector2(-18, -112)
+scale = Vector2(0.80154526, 0.5279077)
+texture = ExtResource("4_enuj1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Arvores/arvore2" unique_id=705280754]
+position = Vector2(-2, -111)
+scale = Vector2(20.53706, 13.213235)
+shape = SubResource("RectangleShape2D_p70tr")
+
+[node name="arvore6" type="Area2D" parent="Static/Arvores" unique_id=1234626972]
+position = Vector2(1390, 497)
+
+[node name="arvore" type="Sprite2D" parent="Static/Arvores/arvore6" unique_id=1001831024]
+texture = ExtResource("4_2a5ra")
+
+[node name="fogo" type="Sprite2D" parent="Static/Arvores/arvore6" unique_id=1726702677]
+position = Vector2(-18, -112)
+scale = Vector2(0.80154526, 0.5279077)
+texture = ExtResource("4_enuj1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Arvores/arvore6" unique_id=2028017252]
+position = Vector2(-2, -111)
+scale = Vector2(20.53706, 13.213235)
+shape = SubResource("RectangleShape2D_p70tr")
+
+[node name="arvore4" type="Area2D" parent="Static/Arvores" unique_id=870093987]
+position = Vector2(1304, 810)
+
+[node name="arvore" type="Sprite2D" parent="Static/Arvores/arvore4" unique_id=2060341851]
+texture = ExtResource("4_2a5ra")
+
+[node name="fogo" type="Sprite2D" parent="Static/Arvores/arvore4" unique_id=1975443577]
+position = Vector2(-18, -112)
+scale = Vector2(0.80154526, 0.5279077)
+texture = ExtResource("4_enuj1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Arvores/arvore4" unique_id=1575224569]
+position = Vector2(-2, -111)
+scale = Vector2(20.53706, 13.213235)
+shape = SubResource("RectangleShape2D_p70tr")
+
+[node name="arvore5" type="Area2D" parent="Static/Arvores" unique_id=514913986]
+position = Vector2(965, 1115)
+
+[node name="arvore" type="Sprite2D" parent="Static/Arvores/arvore5" unique_id=792384918]
+texture = ExtResource("4_2a5ra")
+
+[node name="fogo" type="Sprite2D" parent="Static/Arvores/arvore5" unique_id=1978575196]
+position = Vector2(-18, -112)
+scale = Vector2(0.80154526, 0.5279077)
+texture = ExtResource("4_enuj1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Arvores/arvore5" unique_id=1920814166]
+position = Vector2(-2, -111)
+scale = Vector2(20.53706, 13.213235)
+shape = SubResource("RectangleShape2D_p70tr")
+
+[node name="Control" type="Control" parent="Static" unique_id=1853464591]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Static/Control" unique_id=1739537416]
+layout_mode = 0
+offset_top = 199.0
+offset_right = 500.0
+offset_bottom = 1707.0
+scale = Vector2(0.24156035, 0.24156035)
+
+[node name="TextureRect" type="TextureRect" parent="Static/Control/VBoxContainer" unique_id=1795005608]
+layout_mode = 2
+texture = ExtResource("5_6n8g5")
+
+[node name="TextureRect2" type="TextureRect" parent="Static/Control/VBoxContainer" unique_id=1155649209]
+layout_mode = 2
+texture = ExtResource("5_6n8g5")
+
+[node name="TextureRect3" type="TextureRect" parent="Static/Control/VBoxContainer" unique_id=1224465668]
+layout_mode = 2
+texture = ExtResource("5_6n8g5")
+
+[node name="agua" type="Area2D" parent="Static" unique_id=126578950]
+position = Vector2(257, 1015)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Static/agua" unique_id=1385252486]
+scale = Vector2(1.3408964, 1.0715749)
+texture = ExtResource("3_dwb1k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/agua" unique_id=1114873339]
+scale = Vector2(34.967327, 27.160099)
+shape = SubResource("CircleShape2D_p70tr")
+
+[node name="Dynamic" type="Node2D" parent="." unique_id=562798766]
+
+[node name="AreaHoldTrigger" type="Area2D" parent="Dynamic" unique_id=184258961]
+position = Vector2(245, 1010)
+script = ExtResource("7_fyvu3")
+hold_time = 1.0
+metadata/_custom_type_script = "uid://dbegiij6be8tw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/AreaHoldTrigger" unique_id=26390061]
+scale = Vector2(10.322298, 10.322298)
+shape = SubResource("CircleShape2D_5e8ib")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dynamic/AreaHoldTrigger" unique_id=746156570]
+scale = Vector2(3.0358174, 3.0358174)
+texture = SubResource("GradientTexture2D_p70tr")
+
+[node name="FollowFoot" type="Node2D" parent="Dynamic/AreaHoldTrigger" unique_id=1696271361]
+script = ExtResource("8_v2coq")
+debug_mouse_mode = true
+metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
+
+[node name="Marker2D" type="Marker2D" parent="Dynamic/AreaHoldTrigger" unique_id=1346810120]
+
+[connection signal="area_entered" from="Dynamic/AreaHoldTrigger" to="." method="_on_area_hold_trigger_area_entered"]
+[connection signal="duration_reached" from="Dynamic/AreaHoldTrigger" to="." method="_on_area_hold_trigger_duration_reached"]

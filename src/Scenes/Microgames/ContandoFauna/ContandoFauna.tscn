@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://enwvsy3ixcki"]
 
 [ext_resource type="Script" uid="uid://ctrde1nhrgh5u" path="res://Scenes/Microgames/ContandoFauna/ContandoFauna.gd" id="1_1koae"]
-[ext_resource type="Texture2D" uid="uid://govdtrmx18dj" path="res://Scenes/Microgames/ContandoFauna/Assets/grass.jpg" id="2_821ce"]
+[ext_resource type="Texture2D" uid="uid://govdtrmx18dj" path="res://Scenes/Microgames/ApagarIncendio/Assets/grass.jpg" id="2_821ce"]
 [ext_resource type="FontFile" uid="uid://b2guvml832oyi" path="res://Assets/Fonts/Speedy.ttf" id="3_vglpq"]
 [ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/FollowFoot.gd" id="4_821ce"]
 
