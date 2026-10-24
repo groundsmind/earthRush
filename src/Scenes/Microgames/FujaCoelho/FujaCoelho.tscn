@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://brdpopkv45hh5"]
 
 [ext_resource type="Script" uid="uid://benoy4ywq8p62" path="res://Scenes/Microgames/FujaCoelho/fuja_coelho.gd" id="1_0akwv"]
+[ext_resource type="Script" uid="uid://c1obm57s756ly" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/JumpDetector/JumpDetector.gd" id="3_gxxun"]
 [ext_resource type="Texture2D" uid="uid://b6nncnhurmigs" path="res://Scenes/Microgames/FujaCoelho/Assets/buny.png" id="3_i00mw"]
 
 [sub_resource type="GDScript" id="GDScript_yf5fn"]
@@ -24,18 +25,17 @@ size = Vector2(159, 179)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
 
-[node name="FujaCoelho" type="Node2D" unique_id=1218890298]
+[node name="FujaCoelho" type="Node2D" unique_id=1218890298 node_paths=PackedStringArray("player_start")]
 script = ExtResource("1_0akwv")
+player_start = NodePath("Player")
 time_limit = 999.0
 metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
 
-[node name="Label" type="Label" parent="." unique_id=163618867]
-offset_left = 519.0
-offset_top = 149.0
-offset_right = 1053.0
-offset_bottom = 306.0
-theme_override_font_sizes/font_size = 115
-text = "aaaaaaaa"
+[node name="Label" type="Label" parent="." unique_id=2019911965]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 98
+text = "00.00000"
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=718292923]
 position = Vector2(783, 725)
@@ -50,8 +50,14 @@ texture = ExtResource("3_i00mw")
 position = Vector2(1.5, -102.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 
+[node name="JumpDetector" type="Node2D" parent="Player" unique_id=369772071]
+script = ExtResource("3_gxxun")
+metadata/_custom_type_script = "uid://c1obm57s756ly"
+
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1143295928]
 position = Vector2(779, 722)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1056607283]
 shape = SubResource("WorldBoundaryShape2D_g4v7s")
+
+[connection signal="jumped" from="Player/JumpDetector" to="Player" method="_on_jump_detector_jumped"]
