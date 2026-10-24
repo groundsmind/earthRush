@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dd0ldypb3fp6v"]
 
 [ext_resource type="Texture2D" uid="uid://c75g5ko8da4lx" path="res://Scenes/Microgames/ApagarIncendio/Assets/arvore.png" id="1_bgod5"]
-[ext_resource type="Texture2D" uid="uid://qw0dle6op2sg" path="res://Scenes/Microgames/ApagarIncendio/Assets/fogo.png" id="2_1pflu"]
+[ext_resource type="Texture2D" uid="uid://bh3u0u0syud7e" path="res://Scenes/Microgames/ApagarIncendio/Assets/fogo2.png" id="2_bgod5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p70tr"]
 
@@ -13,7 +13,7 @@ texture = ExtResource("1_bgod5")
 [node name="fogo" type="Sprite2D" parent="." unique_id=2006870859]
 position = Vector2(-18, -112)
 scale = Vector2(0.80154526, 0.5279077)
-texture = ExtResource("2_1pflu")
+texture = ExtResource("2_bgod5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1717579602]
 position = Vector2(-2, -111)
