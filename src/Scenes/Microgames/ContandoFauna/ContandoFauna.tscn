@@ -201,7 +201,6 @@ shape = SubResource("CircleShape2D_p70tr")
 [node name="FollowFoot" type="Node2D" parent="Dynamic/Foot" unique_id=1292949756]
 script = ExtResource("4_821ce")
 vertical_offset = 80.0
-debug_mouse_pos = true
 metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
 
 [node name="Marker2D" type="Marker2D" parent="Dynamic/Foot" unique_id=1713611801]
