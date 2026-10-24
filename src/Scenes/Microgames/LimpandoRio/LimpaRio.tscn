@@ -1,0 +1,223 @@
+[gd_scene format=3 uid="uid://dqh1knou47xg2"]
+
+[ext_resource type="Script" uid="uid://chib5lhpsw5e8" path="res://Scenes/Microgames/LimpandoRio/limpa_rio.gd" id="1_fweh1"]
+[ext_resource type="Texture2D" uid="uid://d0o5vem35mvki" path="res://Scenes/Microgames/LimpandoRio/Assets/rio.jpg" id="2_fweh1"]
+[ext_resource type="Texture2D" uid="uid://bihmmkg3gqvd" path="res://Scenes/Microgames/LimpandoRio/Assets/homem.png" id="3_ap5gl"]
+[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/follow_foot.gd" id="4_bhoxr"]
+[ext_resource type="Texture2D" uid="uid://de8av54khytbw" path="res://Scenes/Microgames/LimpandoRio/Assets/clap.png" id="5_ap5gl"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p70tr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2we3i"]
+size = Vector2(8.24993, 19.624903)
+
+[sub_resource type="Animation" id="Animation_bhoxr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Maos:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Maos2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1696, 1199)]
+}
+
+[sub_resource type="Animation" id="Animation_fweh1"]
+resource_name = "limpandorio_win"
+length = 0.56666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Maos:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 255)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Maos2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1696, 1199), Vector2(1696, 953)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ap5gl"]
+_data = {
+&"RESET": SubResource("Animation_bhoxr"),
+&"limpandorio_win": SubResource("Animation_fweh1")
+}
+
+[node name="LimpaRio" type="Node2D" unique_id=991901163 node_paths=PackedStringArray("player_start")]
+script = ExtResource("1_fweh1")
+player_start = NodePath("Dynamic/Cesta/Marker2D")
+time_limit = 20.0
+metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
+
+[node name="Static" type="Node2D" parent="." unique_id=1814336557]
+
+[node name="Sprite2D" type="Sprite2D" parent="Static" unique_id=1413155884]
+position = Vector2(815, 601)
+scale = Vector2(0.61861354, 0.61861354)
+texture = ExtResource("2_fweh1")
+
+[node name="chao" type="Area2D" parent="Static" unique_id=1640206758]
+position = Vector2(1600, 0)
+
+[node name="Collision" type="CollisionShape2D" parent="Static/chao" unique_id=1097118019]
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_p70tr")
+
+[node name="Dynamic" type="Node2D" parent="." unique_id=117734793]
+
+[node name="Cesta" type="Area2D" parent="Dynamic" unique_id=1372301285]
+position = Vector2(1432, 664)
+rotation = -1.5707964
+
+[node name="sprite" type="Sprite2D" parent="Dynamic/Cesta" unique_id=1753195328]
+scale = Vector2(0.5405642, 0.5405642)
+texture = ExtResource("3_ap5gl")
+
+[node name="cesta" type="CollisionShape2D" parent="Dynamic/Cesta" unique_id=816493711]
+position = Vector2(36, 26)
+scale = Vector2(24.0002, 11.414061)
+shape = SubResource("RectangleShape2D_2we3i")
+
+[node name="FollowFoot" type="Node2D" parent="Dynamic/Cesta" unique_id=481189346 node_paths=PackedStringArray("parent_node")]
+script = ExtResource("4_bhoxr")
+parent_node = NodePath("..")
+track_x = false
+vertical_offset = 0.0
+debug_mouse_pos = true
+metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
+
+[node name="Marker2D" type="Marker2D" parent="Dynamic/Cesta" unique_id=527504601]
+position = Vector2(-4.3712134e-08, 1)
+gizmo_extents = 73.0
+
+[node name="Lixos" type="Node2D" parent="Dynamic" unique_id=893397945]
+
+[node name="lixoTimer" type="Timer" parent="Dynamic" unique_id=117928468]
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Dynamic" unique_id=1160210024]
+libraries/ = SubResource("AnimationLibrary_ap5gl")
+
+[node name="Maos" type="Node2D" parent="Dynamic" unique_id=809588151]
+
+[node name="Sprite2D" type="Sprite2D" parent="Dynamic/Maos" unique_id=1930675954]
+position = Vector2(172, -172)
+rotation = 3.1415927
+scale = Vector2(0.26805758, 0.26805758)
+texture = ExtResource("5_ap5gl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Dynamic/Maos" unique_id=1512158409]
+position = Vector2(381, -172.00002)
+rotation = 3.1415927
+scale = Vector2(0.26805758, 0.26805758)
+texture = ExtResource("5_ap5gl")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Dynamic/Maos" unique_id=1254137544]
+position = Vector2(634, -172.00002)
+rotation = 3.1415927
+scale = Vector2(0.26805758, 0.26805758)
+texture = ExtResource("5_ap5gl")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Dynamic/Maos" unique_id=2038180101]
+position = Vector2(897, -172.00002)
+rotation = 3.1415927
+scale = Vector2(0.26805758, 0.26805758)
+texture = ExtResource("5_ap5gl")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Dynamic/Maos" unique_id=97582288]
+position = Vector2(1146, -172.00002)
+rotation = 3.1415927
+scale = Vector2(0.26805758, 0.26805758)
+texture = ExtResource("5_ap5gl")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Dynamic/Maos" unique_id=1850395922]
+position = Vector2(1314, -172.00002)
+rotation = 3.1415927
+scale = Vector2(0.26805758, 0.26805758)
+texture = ExtResource("5_ap5gl")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Dynamic/Maos" unique_id=281302316]
+position = Vector2(1567, -172.99998)
+rotation = 3.1415927
+scale = Vector2(0.26805758, 0.26805758)
+texture = ExtResource("5_ap5gl")
+
+[node name="Maos2" type="Node2D" parent="Dynamic" unique_id=1151319130]
+position = Vector2(1696, 1199)
+rotation = 3.1415927
+
+[node name="Sprite2D" type="Sprite2D" parent="Dynamic/Maos2" unique_id=1033955226]
+position = Vector2(172, -172)
+rotation = 3.1415927
+scale = Vector2(0.26805758, 0.26805758)
+texture = ExtResource("5_ap5gl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Dynamic/Maos2" unique_id=1772464543]
+position = Vector2(381, -172.00002)
+rotation = 3.1415927
+scale = Vector2(0.26805758, 0.26805758)
+texture = ExtResource("5_ap5gl")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Dynamic/Maos2" unique_id=331735379]
+position = Vector2(634, -172.00002)
+rotation = 3.1415927
+scale = Vector2(0.26805758, 0.26805758)
+texture = ExtResource("5_ap5gl")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Dynamic/Maos2" unique_id=1301465337]
+position = Vector2(897, -172.00002)
+rotation = 3.1415927
+scale = Vector2(0.26805758, 0.26805758)
+texture = ExtResource("5_ap5gl")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Dynamic/Maos2" unique_id=759124300]
+position = Vector2(1146, -172.00002)
+rotation = 3.1415927
+scale = Vector2(0.26805758, 0.26805758)
+texture = ExtResource("5_ap5gl")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Dynamic/Maos2" unique_id=406061649]
+position = Vector2(1314, -172.00002)
+rotation = 3.1415927
+scale = Vector2(0.26805758, 0.26805758)
+texture = ExtResource("5_ap5gl")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Dynamic/Maos2" unique_id=1451820702]
+position = Vector2(1567, -172.99998)
+rotation = 3.1415927
+scale = Vector2(0.26805758, 0.26805758)
+texture = ExtResource("5_ap5gl")
+
+[connection signal="area_entered" from="Static/chao" to="." method="_on_chao_area_entered"]
+[connection signal="area_entered" from="Dynamic/Cesta" to="." method="_on_cesta_area_entered"]
+[connection signal="timeout" from="Dynamic/lixoTimer" to="." method="_on_lixo_timer_timeout"]
+[connection signal="animation_finished" from="Dynamic/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
