@@ -8,7 +8,6 @@ extends Node2D
 @export var randomize_game_order : bool = true
 @export var microgame_parent: Node2D
 
-@onready var transition_timer = $TransitionTimer
 @onready var transition_animation_player = $TransitionVisuals/Transition/AnimationPlayer
 @onready var result_label: Label = $TransitionVisuals/Transition/ResultLabel
 @onready var scene_transition_rect: ColorRect = $SceneTransitionRect
@@ -56,16 +55,11 @@ func _process(_delta) -> void:
 func start_transition(next_game: PackedScene) -> void:
 	print_debug("starting transition...")	
 	transitioning = false
-	transition_timer.stop()
-	for c in transition_timer.timeout.get_connections():
-		transition_timer.timeout.disconnect(c.callable)
 	print_debug("transitioning to ", next_game.resource_name)
 	current_game = next_game.instantiate()
 	microgame_parent.add_child(current_game)
 	current_game.won.connect(game_won)
 	current_game.lost.connect(game_lost)
-	if foot_position_enforcer.on_area.is_connected(start_transition):
-		foot_position_enforcer.on_area.disconnect(start_transition)
 	foot_position_enforcer.set_monitoring(false)
 	game_end_progress_bar.max_value = current_game.game_end_timer.wait_time
 	var game := current_game
@@ -117,7 +111,8 @@ func end_microgame(scene) -> void:
 	if transitioning: return
 	transitioning = true
 	if game_end:
-		start_game_over_sequence()
+		start_game_over_sequence(true)   # true = survived until the music ended
+		return
 	game_setup(scene)
 
 func game_setup(scene: Node2D = Node2D.new(), is_first: bool = false) -> void:

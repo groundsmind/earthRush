@@ -463,16 +463,11 @@ _data = {
 
 [node name="GameMgr" type="Node2D" unique_id=336676652 node_paths=PackedStringArray("microgame_parent")]
 script = ExtResource("1_u6ljv")
-debug_mode = true
 game_list = Array[PackedScene]([ExtResource("2_hcjis"), ExtResource("2_5t1aa"), ExtResource("4_aamm6"), ExtResource("5_bn85w"), ExtResource("6_7coxc"), ExtResource("7_qrh8x"), ExtResource("8_5gbaq"), ExtResource("9_h277f"), ExtResource("10_aamm6"), ExtResource("11_bn85w")])
 microgame_parent = NodePath("MicrogameContainer")
 
 [node name="SongMgr" type="Node2D" parent="." unique_id=1964847865]
 script = ExtResource("3_5t1aa")
-
-[node name="TransitionTimer" type="Timer" parent="." unique_id=59972649]
-wait_time = 2.0
-one_shot = true
 
 [node name="MicrogameContainer" type="Node2D" parent="." unique_id=1276752174]
 

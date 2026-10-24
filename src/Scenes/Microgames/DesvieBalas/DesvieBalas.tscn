@@ -120,6 +120,7 @@ texture = ExtResource("4_tarsf")
 offset = Vector2(-400, 0)
 
 [node name="Timer" type="Timer" parent="Dynamic/Arma" unique_id=982083228]
+wait_time = 2.0
 autostart = true
 
 [node name="BulletSpawn" type="Marker2D" parent="Dynamic/Arma" unique_id=1245856976]
