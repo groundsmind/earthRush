@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://81ehh63hdjew" path="res://Scenes/Microgames/ApagarIncendio/Assets/gota.png" id="5_6n8g5"]
 [ext_resource type="Script" uid="uid://dbegiij6be8tw" path="res://Scenes/FunctionNodes/MicrogameFunctions/AreaHoldTrigger/area_hold_trigger.gd" id="7_fyvu3"]
 [ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/FollowFoot.gd" id="8_v2coq"]
+[ext_resource type="Texture2D" uid="uid://hy6gjt33ola5" path="res://Scenes/Microgames/ApagarIncendio/Assets/helicoptero.png" id="13_x67un"]
 [ext_resource type="Texture2D" uid="uid://dhh60r6jcva57" path="res://Scenes/Microgames/ApagarIncendio/Assets/arvore1.png" id="arvore1_tex"]
 [ext_resource type="Texture2D" uid="uid://c58vhljffr65c" path="res://Scenes/Microgames/ApagarIncendio/Assets/arvore2.png" id="arvore2_tex"]
 [ext_resource type="Texture2D" uid="uid://baqrg7mfu7oed" path="res://Scenes/Microgames/ApagarIncendio/Assets/arvore3.png" id="arvore3_tex"]
@@ -18,20 +19,11 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5e8ib"]
 
-[sub_resource type="Gradient" id="Gradient_5e8ib"]
-offsets = PackedFloat32Array(0.32267442, 0.8517442, 0.997093, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.98039216, 0.98039216, 0.98039216, 0, 0.9099264, 0.9099264, 0.9099264, 0.071875036, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_p70tr"]
-gradient = SubResource("Gradient_5e8ib")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
 [node name="ApagandoIncendio" type="Node2D" unique_id=1785010866 node_paths=PackedStringArray("player_start")]
 script = ExtResource("1_u21y0")
 VerbHint = "Apague!"
 player_start = NodePath("Dynamic/AreaHoldTrigger/Marker2D")
-time_limit = 35.0
+time_limit = 25.0
 metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
 
 [node name="Static" type="Node2D" parent="." unique_id=1638762647]
@@ -139,8 +131,9 @@ scale = Vector2(6.239164, 6.239164)
 shape = SubResource("CircleShape2D_5e8ib")
 
 [node name="Sprite2D" type="Sprite2D" parent="Dynamic/AreaHoldTrigger" unique_id=746156570]
-scale = Vector2(3.0358174, 3.0358174)
-texture = SubResource("GradientTexture2D_p70tr")
+position = Vector2(124.999985, -27.999996)
+scale = Vector2(0.3741573, 0.3741573)
+texture = ExtResource("13_x67un")
 
 [node name="FollowFoot" type="Node2D" parent="Dynamic/AreaHoldTrigger" unique_id=1696271361]
 script = ExtResource("8_v2coq")
