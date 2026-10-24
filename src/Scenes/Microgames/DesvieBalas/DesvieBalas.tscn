@@ -11,7 +11,7 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
 normal = Vector2(0, 1)
-distance = -124.0
+distance = -35.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sua80"]
 distance = 10.0
@@ -54,22 +54,23 @@ autostart = true
 
 [node name="parallax" type="Node2D" parent="Static" unique_id=112589674 node_paths=PackedStringArray("player")]
 script = ExtResource("2_sua80")
+intensity = 0.5
 player = NodePath("../../Dynamic/Player")
 
 [node name="HandDrawnFlatDesignForestLandscape232149157285" type="Sprite2D" parent="Static/parallax" unique_id=2127680052]
 position = Vector2(808, 611)
-scale = Vector2(2.2472973, 2.6095335)
+scale = Vector2(2.3486488, 2.6095335)
 texture = ExtResource("2_jspt3")
 
 [node name="CorpoCorpo" type="Sprite2D" parent="Static" unique_id=173586441]
-modulate = Color(0.7298913, 0.80549467, 0.83743995, 1)
+modulate = Color(0.654902, 0.67058825, 0.7882353, 1)
 position = Vector2(1494.0844, 250.13321)
 rotation = -1.0297443
 scale = Vector2(0.4604744, 0.4313981)
 texture = ExtResource("2_q3utj")
 
 [node name="CorpoRosto" type="Sprite2D" parent="Static" unique_id=1848806067]
-modulate = Color(0.7294118, 0.8039216, 0.8392157, 1)
+modulate = Color(0.6557, 0.66913, 0.79, 1)
 position = Vector2(1358.0842, 128.13321)
 rotation = -0.44505897
 scale = Vector2(0.34114915, 0.28681457)
@@ -98,11 +99,12 @@ shape = SubResource("WorldBoundaryShape2D_pidnw")
 
 [node name="Arma" type="Node2D" parent="Dynamic" unique_id=972473953 node_paths=PackedStringArray("player")]
 position = Vector2(1379, 395)
+rotation = 2.6965337
 script = ExtResource("6_15tpj")
 player = NodePath("../Player")
 
 [node name="sprite" type="Sprite2D" parent="Dynamic/Arma" unique_id=1669450968]
-modulate = Color(0.7294118, 0.8039216, 0.8392157, 1)
+modulate = Color(0.654902, 0.67058825, 0.7882353, 1)
 position = Vector2(0.9999695, 0.9999962)
 rotation = -3.1415925
 scale = Vector2(0.35017845, 0.35017854)
