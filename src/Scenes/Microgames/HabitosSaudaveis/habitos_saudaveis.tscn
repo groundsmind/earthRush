@@ -7,9 +7,22 @@
 [ext_resource type="Texture2D" uid="uid://cv82u5cj2ub4q" path="res://Scenes/Microgames/HabitosSaudaveis/Assets/almoco.png" id="5_vvkd8"]
 [ext_resource type="Texture2D" uid="uid://cxlyqtfc2wpm5" path="res://Scenes/Microgames/HabitosSaudaveis/Assets/calabresa.png" id="6_bbfk6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p70tr"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_p70tr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p70tr"]
+[sub_resource type="Gradient" id="Gradient_vvkd8"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.26979473, 0.92521995)
+colors = PackedColorArray(0, 0.79933906, 0.3622732, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_vvkd8")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [sub_resource type="Animation" id="Animation_vvkd8"]
 length = 0.001
@@ -72,7 +85,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.34151033, 1),
+"transitions": PackedFloat32Array(0.17075527, 1),
 "update": 0,
 "values": [Vector2(-220, 406), Vector2(270, 406)]
 }
@@ -84,7 +97,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.34151033, 1),
+"transitions": PackedFloat32Array(0.17075527, 1),
 "update": 0,
 "values": [Vector2(1831, 406), Vector2(1354, 406)]
 }
@@ -96,7 +109,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.34151033, 1),
+"transitions": PackedFloat32Array(0.17075527, 1),
 "update": 0,
 "values": [6.265732, 0.0]
 }
@@ -108,7 +121,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.34151033, 1),
+"transitions": PackedFloat32Array(0.17075527, 1),
 "update": 0,
 "values": [6.265732, 0.0]
 }
@@ -123,7 +136,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.341, 1),
+"transitions": PackedFloat32Array(0.1827375, 1),
 "update": 0,
 "values": [Vector2(270, 406), Vector2(-220, 406)]
 }
@@ -135,7 +148,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.341, 1),
+"transitions": PackedFloat32Array(0.1827375, 1),
 "update": 0,
 "values": [Vector2(1354, 406), Vector2(1831, 406)]
 }
@@ -147,7 +160,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.341, 1),
+"transitions": PackedFloat32Array(0.1827375, 1),
 "update": 0,
 "values": [0.0, 6.265732]
 }
@@ -159,7 +172,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.341, 1),
+"transitions": PackedFloat32Array(0.1827375, 1),
 "update": 0,
 "values": [0.0, 6.265732]
 }
@@ -187,23 +200,6 @@ texture = ExtResource("2_qpc0e")
 
 [node name="Dynamic" type="Node2D" parent="." unique_id=49514207]
 
-[node name="Foot" type="Area2D" parent="Dynamic" unique_id=1824308626]
-position = Vector2(793, 993)
-script = ExtResource("3_w0s3s")
-metadata/_custom_type_script = "uid://dbegiij6be8tw"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/Foot" unique_id=800359324]
-scale = Vector2(11.779003, 11.779003)
-shape = SubResource("CircleShape2D_p70tr")
-
-[node name="Marker2D" type="Marker2D" parent="Dynamic/Foot" unique_id=1549862476]
-gizmo_extents = 1000.0
-
-[node name="FollowFoot" type="Node2D" parent="Dynamic/Foot" unique_id=1122604173]
-script = ExtResource("4_6y3k3")
-debug_mouse_mode = false
-metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
-
 [node name="Alimento 1" type="Area2D" parent="Dynamic" unique_id=1205945488]
 position = Vector2(270, 406)
 
@@ -225,6 +221,27 @@ shape = SubResource("RectangleShape2D_p70tr")
 [node name="Sprite2D" type="Sprite2D" parent="Dynamic/Alimento 2" unique_id=1678353701]
 scale = Vector2(0.62290645, 0.62290645)
 texture = ExtResource("6_bbfk6")
+
+[node name="Foot" type="Area2D" parent="Dynamic" unique_id=1824308626]
+position = Vector2(793, 993)
+script = ExtResource("3_w0s3s")
+metadata/_custom_type_script = "uid://dbegiij6be8tw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/Foot" unique_id=800359324]
+scale = Vector2(11.779003, 11.779003)
+shape = SubResource("CircleShape2D_p70tr")
+
+[node name="Marker2D" type="Marker2D" parent="Dynamic/Foot" unique_id=1549862476]
+gizmo_extents = 1000.0
+
+[node name="FollowFoot" type="Node2D" parent="Dynamic/Foot" unique_id=1122604173]
+script = ExtResource("4_6y3k3")
+vertical_offset = 110.0
+metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
+
+[node name="Sprite2D" type="Sprite2D" parent="Dynamic/Foot" unique_id=2014727316]
+scale = Vector2(1.90625, 1.90625)
+texture = SubResource("GradientTexture2D_g4v7s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1019790291]
 libraries/ = SubResource("AnimationLibrary_tyiac")

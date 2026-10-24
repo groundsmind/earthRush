@@ -11,14 +11,8 @@ script/source = "extends Node2D
 
 @onready var player_sprite: AnimatedSprite2D = $PlayerJump/PlayerSprite
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player_sprite.play(\"default\")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xogyv"]
@@ -289,7 +283,6 @@ jump_velocity = 1000.0
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="Dynamic/PlayerJump" unique_id=176900639]
 position = Vector2(313, 737)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-frame_progress = 0.4042667
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dynamic/PlayerJump" unique_id=387677654]
@@ -322,8 +315,8 @@ scale = Vector2(1, 1.1)
 texture = ExtResource("4_hol7t")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Parallax2D2" unique_id=1140104457]
-position = Vector2(-10.999999, 1114.5)
-scale = Vector2(1, 2.6783333)
+position = Vector2(-10.999999, 716)
+scale = Vector2(1, 1.3499999)
 texture = ExtResource("4_hol7t")
 flip_v = true
 
