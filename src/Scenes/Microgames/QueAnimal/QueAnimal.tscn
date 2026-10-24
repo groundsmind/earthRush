@@ -16,7 +16,7 @@ radius = 60.0
 
 [node name="QueAnimal" type="Node2D" unique_id=1601226819 node_paths=PackedStringArray("player_start")]
 script = ExtResource("1_akebc")
-VerbHint = "Descubra"
+VerbHint = "Descubra!"
 player_start = NodePath("Foot")
 metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
 
@@ -96,5 +96,4 @@ shape = SubResource("CircleShape2D_foot")
 
 [node name="FollowFoot" type="Node2D" parent="Foot" unique_id=906411772]
 script = ExtResource("8_foot")
-debug_mouse_pos = true
 metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"

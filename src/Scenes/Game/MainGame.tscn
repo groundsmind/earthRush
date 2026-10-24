@@ -17,6 +17,7 @@
 [ext_resource type="FontFile" uid="uid://b2guvml832oyi" path="res://Assets/Fonts/Speedy.ttf" id="9_5t1aa"]
 [ext_resource type="PackedScene" uid="uid://enwvsy3ixcki" path="res://Scenes/Microgames/ContandoFauna/ContandoFauna.tscn" id="9_h277f"]
 [ext_resource type="PackedScene" uid="uid://deh2qbl2c07rf" path="res://Scenes/FunctionNodes/Misc/FootPositionEnforcer/foot_position_enforcer.tscn" id="10_5t1aa"]
+[ext_resource type="PackedScene" uid="uid://didmhs5ysls7n" path="res://Scenes/Microgames/QueAnimal/QueAnimal.tscn" id="10_aamm6"]
 [ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="10_wn6li"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wn6li"]
@@ -461,7 +462,8 @@ _data = {
 
 [node name="GameMgr" type="Node2D" unique_id=336676652 node_paths=PackedStringArray("microgame_parent")]
 script = ExtResource("1_u6ljv")
-game_list = Array[PackedScene]([ExtResource("2_hcjis"), ExtResource("2_5t1aa"), ExtResource("4_aamm6"), ExtResource("5_bn85w"), ExtResource("6_7coxc"), ExtResource("7_qrh8x"), ExtResource("8_5gbaq"), ExtResource("9_h277f")])
+debug_mode = true
+game_list = Array[PackedScene]([ExtResource("2_hcjis"), ExtResource("2_5t1aa"), ExtResource("4_aamm6"), ExtResource("5_bn85w"), ExtResource("6_7coxc"), ExtResource("7_qrh8x"), ExtResource("8_5gbaq"), ExtResource("9_h277f"), ExtResource("10_aamm6")])
 microgame_parent = NodePath("MicrogameContainer")
 
 [node name="SongMgr" type="Node2D" parent="." unique_id=1964847865]

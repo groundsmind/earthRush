@@ -1,17 +1,32 @@
 [gd_scene format=3 uid="uid://cal3gy6gs6ymk"]
 
 [ext_resource type="Texture2D" uid="uid://b5m1w5c7kqamq" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Light/texture_07.png" id="1_rb55s"]
-[ext_resource type="Script" uid="uid://bfdyh5ldwik4s" path="res://Scripts/Juice/swing_sprite.gd" id="2_7kha8"]
+[ext_resource type="Texture2D" uid="uid://bdp4j7aytyr27" path="res://Assets/earthrush_logo.png" id="2_rb55s"]
 [ext_resource type="PackedScene" uid="uid://c107qcl25j8ht" path="res://Scenes/FunctionNodes/Misc/SceneTransitionFade/scene_transition_rect.tscn" id="3_cb5jd"]
 [ext_resource type="Script" uid="uid://xfxipoxftyrq" path="res://Scripts/Juice/button_hover_bump.gd" id="3_rb55s"]
+[ext_resource type="FontFile" uid="uid://b2guvml832oyi" path="res://Assets/Fonts/Speedy.ttf" id="3_tm67p"]
 
 [sub_resource type="GDScript" id="GDScript_rb55s"]
 script/source = "extends Node2D
 
+const THIRD_SANCTUARY = preload(\"uid://dgewm01umtgvy\")
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+var has_conf_menu: bool = false
 
 func _ready() -> void:
-	animation_player.play(\"eter\")
+	SaveManager.game_data[\"passed_first_boot\"] = true
+	animation_player.play(\"boot\")
+	SaveManager.save_game()
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if has_conf_menu:
+		return
+	if event is InputEventKey and event.pressed and not event.is_echo():
+		if event.physical_keycode == KEY_ENTER:
+			has_conf_menu = true
+			animation_player.play(\"eter\")
+			SoundManager.play_music_from_position_at_volume(THIRD_SANCTUARY, 25.4, -8)
 "
 
 [sub_resource type="GDScript" id="GDScript_g4v7s"]
@@ -26,22 +41,22 @@ const SND_CAL = preload(\"uid://dibowit1if7u5\")
 func _on_exit_pressed() -> void:
 	scene_transition_rect.transition_to(\"res://Scenes/Title/Exit.tscn\")
 	SoundManager.play_sound(SND_EXT)
+	SoundManager.stop_music(1.0)
 
 func _on_start_pressed() -> void:
 	scene_transition_rect.transition_to(\"res://Scenes/Game/MainGame.tscn\")
 	SoundManager.play_sound(SND_CONFIRM)
+	SoundManager.stop_music(1.0)
 
 func _on_cal_pressed() -> void:
 	scene_transition_rect.transition_to(\"res://Scenes/Calibration/calibration.tscn\")
 	SoundManager.play_sound(SND_CAL)
-
-func _on_debug_pressed() -> void:
-	scene_transition_rect.transition_to(\"res://foot_tracking/FootTrackingDebug/DebugScene.tscn\")
-	SoundManager.play_sound(SND_CAL)
+	SoundManager.stop_music(1.0)
 
 func _on_credits_pressed() -> void:
 	scene_transition_rect.transition_to(\"res://Scenes/Title/Credits.tscn\")
 	SoundManager.play_sound(SND_CONFIRM)
+	SoundManager.stop_music(1.0)
 "
 
 [sub_resource type="Animation" id="Animation_rb55s"]
@@ -56,7 +71,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(150, 655)]
+"values": [Vector2(-600, 655)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -68,7 +83,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(150, 795)]
+"values": [Vector2(-600, 795)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -80,7 +95,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(150, 940)]
+"values": [Vector2(-600, 940)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -92,24 +107,76 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(81.99994, 1051)]
+"values": [Vector2(-600, 1051)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Node2D:position")
+tracks/4/path = NodePath("EarthrushLogo:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1192, 305)]
+"values": [Vector2(2500, 320)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EarthrushLogo/Label:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vksqd"]
+resource_name = "boot"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EarthrushLogo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7, 2.0333333),
+"transitions": PackedFloat32Array(0.24148421, 1),
+"update": 0,
+"values": [Vector2(2500, 600), Vector2(800, 600)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EarthrushLogo/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.1666667, 2.8506582),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_tm67p"]
 resource_name = "eter"
-length = 1.5
+length = 4.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -117,7 +184,7 @@ tracks/0/path = NodePath("ButtonMgr/Start:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.6333333, 1.1333333),
+"times": PackedFloat32Array(0.4333334, 0.9333334),
 "transitions": PackedFloat32Array(0.29730198, 1),
 "update": 0,
 "values": [Vector2(-400, 655), Vector2(150, 655)]
@@ -129,10 +196,10 @@ tracks/1/path = NodePath("ButtonMgr/Cal:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.73333335, 1.2333333),
+"times": PackedFloat32Array(0.53333354, 1.0333335),
 "transitions": PackedFloat32Array(0.29730198, 1),
 "update": 0,
-"values": [Vector2(-400, 795), Vector2(150, 795)]
+"values": [Vector2(-400, 825), Vector2(150, 825)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -141,7 +208,7 @@ tracks/2/path = NodePath("ButtonMgr/Exit:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.83333325, 1.3333334),
+"times": PackedFloat32Array(0.63333344, 1.1333337),
 "transitions": PackedFloat32Array(0.29730198, 1),
 "update": 0,
 "values": [Vector2(-400, 940), Vector2(150, 940)]
@@ -153,7 +220,7 @@ tracks/3/path = NodePath("ButtonMgr/credits:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.9333333, 1.4333333),
+"times": PackedFloat32Array(0.7333336, 1.2333336),
 "transitions": PackedFloat32Array(0.29730198, 1),
 "update": 0,
 "values": [Vector2(-400, 1051), Vector2(81.99994, 1051)]
@@ -161,19 +228,44 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Node2D:position")
+tracks/4/path = NodePath("EarthrushLogo:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.13333334, 1.1333333),
-"transitions": PackedFloat32Array(0.24148433, 1),
+"times": PackedFloat32Array(0.03333354, 1.0666671),
+"transitions": PackedFloat32Array(0.21022417, 1),
 "update": 0,
-"values": [Vector2(1900, 305), Vector2(1192, 305)]
+"values": [Vector2(800, 600), Vector2(800, 320)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0466671, 1.2000003),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0.04, 0.000666666, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EarthrushLogo/Label:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.76666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vksqd"]
 _data = {
 &"RESET": SubResource("Animation_rb55s"),
+&"boot": SubResource("Animation_vksqd"),
 &"eter": SubResource("Animation_tm67p")
 }
 
@@ -189,59 +281,63 @@ repeat_times = 3
 texture = ExtResource("1_rb55s")
 offset = Vector2(512, 512)
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1851498996]
-position = Vector2(1192, 305)
-script = ExtResource("2_7kha8")
+[node name="ColorRect" type="ColorRect" parent="." unique_id=843219355]
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 1623.0
+offset_bottom = 1224.0
+color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="Node2D" unique_id=1009098578]
-offset_left = -356.0
-offset_top = -67.0
-offset_right = 361.00024
-offset_bottom = 70.0
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
-text = "earthRush!"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
+[node name="EarthrushLogo" type="Sprite2D" parent="." unique_id=902728107]
+position = Vector2(2500, 320)
+texture = ExtResource("2_rb55s")
+
+[node name="Label" type="Label" parent="EarthrushLogo" unique_id=20777598]
+offset_left = 2.0
+offset_top = 105.0
+offset_right = 718.0
+offset_bottom = 172.0
+theme_override_fonts/font = ExtResource("3_tm67p")
+theme_override_font_sizes/font_size = 39
+text = "aperte [ENTER] para começar"
 
 [node name="ButtonMgr" type="Node2D" parent="." unique_id=174553260]
 script = SubResource("GDScript_g4v7s")
 
 [node name="Start" type="Button" parent="ButtonMgr" unique_id=724268205]
-offset_left = 150.0
+offset_left = -600.0
 offset_top = 655.0
-offset_right = 472.0
-offset_bottom = 772.0
+offset_right = -278.0
+offset_bottom = 809.0
 pivot_offset = Vector2(161, 58.5)
 theme_override_font_sizes/font_size = 64
-text = "Começar"
+text = "Jogar"
 script = ExtResource("3_rb55s")
 
 [node name="Cal" type="Button" parent="ButtonMgr" unique_id=2134512822]
-offset_left = 150.0
+offset_left = -600.0
 offset_top = 795.0
-offset_right = 472.0
-offset_bottom = 912.0
+offset_right = -278.0
+offset_bottom = 891.0
 pivot_offset = Vector2(161, 58.5)
 theme_override_font_sizes/font_size = 64
 text = "Calibrar"
 script = ExtResource("3_rb55s")
 
 [node name="Exit" type="Button" parent="ButtonMgr" unique_id=2021947295]
-offset_left = 150.0
+offset_left = -600.0
 offset_top = 940.0
-offset_right = 472.0
-offset_bottom = 1042.0
+offset_right = -278.0
+offset_bottom = 1036.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_font_sizes/font_size = 64
 text = "Sair"
 script = ExtResource("3_rb55s")
 
 [node name="credits" type="Button" parent="ButtonMgr" unique_id=1687467242]
-offset_left = 81.99994
+offset_left = -600.0
 offset_top = 1051.0
-offset_right = 451.23077
+offset_right = -230.76917
 offset_bottom = 1131.3413
 scale = Vector2(0.585, 0.585)
 pivot_offset_ratio = Vector2(0.5, 0.5)

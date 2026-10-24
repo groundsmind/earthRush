@@ -87,7 +87,7 @@ size = Vector2(19.254341, 11.277138)
 
 [node name="PegaOvos" type="Node2D" unique_id=770963249 node_paths=PackedStringArray("player_start")]
 script = ExtResource("1_l0pvr")
-VerbHint = "Pegue"
+VerbHint = "Pegue!"
 player_start = NodePath("Dynamic/Marker2D")
 time_limit = 15.0
 metadata/_custom_type_script = "uid://c0xhdhmoevnq5"

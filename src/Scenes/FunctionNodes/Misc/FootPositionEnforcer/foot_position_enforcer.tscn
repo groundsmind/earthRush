@@ -37,10 +37,10 @@ radius = 131.74597
 script/source = "extends Area2D
 
 @export var vertical_offset: float = 50.0
-@onready var foot_position_enforcer: FootPositionEnforcer = $\"..\"
+@onready var foot_position_enforcer: FootPositionEnforcerer = $\"..\"
 
 func _process(_delta: float) -> void:
-	if foot_position_enforcer.debug_mode:
+	if GameInfo.current_game[\"debug\"]:
 		global_position = get_viewport().get_mouse_position()
 	elif FootPosition and FootPosition.midpoint != null:
 		global_position = FootPosition.midpoint

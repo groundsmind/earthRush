@@ -16,7 +16,7 @@ size = Vector2(466, 358)
 
 [node name="FotoSapo" type="Node2D" unique_id=755445720 node_paths=PackedStringArray("player_start")]
 script = ExtResource("1_0erab")
-VerbHint = "Fotografe"
+VerbHint = "Fotografe!"
 player_start = NodePath("Dynamic/playerCamera")
 metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
 

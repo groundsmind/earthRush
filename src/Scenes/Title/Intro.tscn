@@ -1,0 +1,217 @@
+[gd_scene format=3 uid="uid://c2w2qtxh1sc8"]
+
+[ext_resource type="AudioStream" uid="uid://dgewm01umtgvy" path="res://Assets/Sounds/Music/Menu/63 Toby Fox - The Third Sanctuary.mp3" id="1_umo6m"]
+[ext_resource type="Texture2D" uid="uid://dh2afo0hbipcm" path="res://Assets/udesc.png" id="1_v07ta"]
+
+[sub_resource type="GDScript" id="GDScript_tm67p"]
+resource_name = "sickassintro"
+script/source = "extends Node2D
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+const TITLE_SCREEN = preload(\"uid://cal3gy6gs6ymk\")
+
+func _ready() -> void:
+	if false:#SaveManager.game_data.get(\"passed_first_boot\", false):
+		get_tree().change_scene_to_packed(TITLE_SCREEN)
+	else:
+		animation_player.play(\"sick_ass_intro\")
+
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
+	get_tree().change_scene_to_packed(TITLE_SCREEN)
+"
+
+[sub_resource type="Gradient" id="Gradient_66gfs"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_umo6m"]
+gradient = SubResource("Gradient_66gfs")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Animation" id="Animation_v07ta"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("names:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("larva:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("udesc:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_66gfs"]
+resource_name = "sick_ass_intro"
+length = 13.333333
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 234.72972,
+"start_offset": 0.0,
+"stream": ExtResource("1_umo6m")
+}],
+"times": PackedFloat32Array(0.6333332)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("names:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.73333335, 3.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("larva:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.8, 3.8129175, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("udesc:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(7, 10.266666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n00m7"]
+_data = {
+&"RESET": SubResource("Animation_v07ta"),
+&"sick_ass_intro": SubResource("Animation_66gfs")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1429639574]
+script = SubResource("GDScript_tm67p")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=972855776]
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 1623.0
+offset_bottom = 1224.0
+color = Color(0, 0, 0, 1)
+
+[node name="names" type="Node2D" parent="." unique_id=26154433]
+visible = false
+
+[node name="Label" type="Label" parent="names" unique_id=72731029]
+offset_left = 208.0
+offset_top = 117.0
+offset_right = 606.0
+offset_bottom = 296.0
+theme_override_font_sizes/font_size = 64
+text = "Um jogo por:
+"
+
+[node name="Label2" type="Label" parent="names" unique_id=1543615503]
+offset_left = 566.0
+offset_top = 758.0
+offset_right = 1415.0
+offset_bottom = 846.0
+theme_override_font_sizes/font_size = 64
+text = "// Guilherme Gamaliel Lima"
+
+[node name="Label3" type="Label" parent="names" unique_id=596434498]
+offset_left = 545.0
+offset_top = 868.0
+offset_right = 1480.0
+offset_bottom = 956.0
+theme_override_font_sizes/font_size = 64
+text = " // Marco Antonio Reche Rigon"
+
+[node name="Label4" type="Label" parent="names" unique_id=558093613]
+offset_left = 545.0
+offset_top = 982.0
+offset_right = 1468.0
+offset_bottom = 1070.0
+theme_override_font_sizes/font_size = 64
+text = " // Pedro Henrique dos Santos"
+
+[node name="larva" type="Node2D" parent="." unique_id=1314818346]
+visible = false
+
+[node name="Label" type="Label" parent="larva" unique_id=1412877296]
+offset_left = 485.0
+offset_top = 195.0
+offset_right = 1112.0
+offset_bottom = 283.0
+theme_override_font_sizes/font_size = 64
+text = "Desenvolvido para a"
+
+[node name="Label2" type="Label" parent="larva" unique_id=406694789]
+offset_left = 307.0
+offset_top = 602.0
+offset_right = 1307.0
+offset_bottom = 690.0
+theme_override_font_sizes/font_size = 64
+text = "3ª ExerGamejam do NAVI/LARVA"
+
+[node name="udesc" type="Node2D" parent="." unique_id=1165020102]
+visible = false
+
+[node name="Udesc2" type="Sprite2D" parent="udesc" unique_id=2093728050]
+position = Vector2(791, 599)
+scale = Vector2(1.8085938, 1.8085938)
+texture = SubResource("GradientTexture2D_umo6m")
+
+[node name="Udesc" type="Sprite2D" parent="udesc" unique_id=1438264585]
+position = Vector2(800, 600)
+texture = ExtResource("1_v07ta")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1352426707]
+libraries/ = SubResource("AnimationLibrary_n00m7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1080315902]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

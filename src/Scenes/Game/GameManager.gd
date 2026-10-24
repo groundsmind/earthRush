@@ -3,6 +3,7 @@
 
 extends Node2D
 
+@export var debug_mode: bool = false
 @export var game_list : Array[PackedScene]  
 @export var randomize_game_order : bool = true
 @export var microgame_parent: Node2D
@@ -41,6 +42,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		scene_transition_rect.transition_to("res://Scenes/Title/TitleScreen.tscn")
 
 func _ready() -> void:
+	GameInfo.current_game.set("debug", debug_mode)
 	game_setup(Node2D.new(), true)
 
 func _process(_delta) -> void:

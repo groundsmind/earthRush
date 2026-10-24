@@ -16,6 +16,7 @@ extends MicroGame
 
 @onready var lista_botao := [botao1, botao2, botao3]
 @onready var lista_label := [label1, label2, label3]
+@onready var foot: Area2D = $Dynamic/Foot
 
 var sapoScene : PackedScene = load("res://Scenes/Microgames/ContandoFauna/sapo.tscn")
 
@@ -24,6 +25,9 @@ var respondido := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
+	
+	foot.hide()
+	
 	num = randi_range(minSapos, maxSapos)
 	for i in range(num):
 		var new = sapoScene.instantiate()
@@ -37,6 +41,10 @@ func _process(_delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
+	foot.show()
+	foot.modulate = Color.TRANSPARENT
+	var _ft = create_tween().tween_property(foot, "modulate", Color.WHITE, 1)
+	
 	opcoes.show()
 	animation_player.play("answer")
 	

@@ -2,6 +2,7 @@
 extends Node
 
 var current_game: Dictionary = {
+	"debug": false,
 	"score": 0,
 	"games won": 0,
 	"games played": 0,

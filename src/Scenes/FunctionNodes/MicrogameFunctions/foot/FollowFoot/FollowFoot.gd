@@ -5,11 +5,12 @@ extends BodyMovementComponent
 @export_enum("Midpoint", "Left foot", "Right foot") var tracking: String = "Midpoint"
 @export var track_x: bool = true
 @export var track_y: bool = true
-@export var vertical_offset: float = 50
+@export var vertical_offset: float = 50.0
+@export var horizontal_offset: float = 0.0
 @export var can_interact: bool = true
-@export var debug_mouse_pos: bool = false
 @export var character_max_speed: float = 0.0
 @export var character_slide: bool = true
+@export var debug_mouse_mode: bool = true
 var _character: CharacterBody2D
 var _target_pos: Vector2
 
@@ -30,7 +31,7 @@ func _process(_delta) -> void:
 	if not parent_node:
 		return
 	var foot_pos: Vector2
-	if not debug_mouse_pos:
+	if not (GameInfo.current_game["debug"] or debug_mouse_mode):
 		match tracking:
 			"Midpoint":
 				foot_pos = feet_midpoint if feet_midpoint else Vector2.ZERO

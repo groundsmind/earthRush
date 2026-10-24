@@ -155,9 +155,9 @@ _data = {
 &"answer": SubResource("Animation_d680l")
 }
 
-[node name="MicroGame" type="Node2D" unique_id=365558061 node_paths=PackedStringArray("player_start")]
+[node name="ContandoFauna" type="Node2D" unique_id=365558061 node_paths=PackedStringArray("player_start")]
 script = ExtResource("1_1koae")
-VerbHint = "Conte"
+VerbHint = "Conte!"
 player_start = NodePath("Dynamic/Foot/Marker2D")
 time_limit = 20.0
 metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
