@@ -9,7 +9,6 @@ signal jumped
 func _process(_delta: float) -> void:
 	super(_delta)
 	if feet_midpoint.y > jump_distance_threshold:
-		print(feet_midpoint.y)
 		jumped.emit()
 		can_jump = false
 	else:

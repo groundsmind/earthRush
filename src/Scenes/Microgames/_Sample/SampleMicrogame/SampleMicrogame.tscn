@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c3448k3go3ern"]
 
-[ext_resource type="Script" uid="uid://djruyenv3lubg" path="res://Scenes/Microgames/TestMicrogames/SampleMicrogame/sample_microgame.gd" id="1_0ic3k"]
+[ext_resource type="Script" uid="uid://djruyenv3lubg" path="res://Scenes/Microgames/_Sample/SampleMicrogame/sample_microgame.gd" id="1_0ic3k"]
 [ext_resource type="Texture2D" uid="uid://dukine88ffubf" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Dark/texture_08.png" id="2_fgcia"]
 [ext_resource type="Texture2D" uid="uid://rfdhlvcp7ql7" path="res://foot_tracking/Assets/circ.png" id="2_shixa"]
 [ext_resource type="Texture2D" uid="uid://cd3j2aseai3op" path="res://foot_tracking/Assets/circ2.png" id="3_fgcia"]
