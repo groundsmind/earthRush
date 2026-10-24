@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://didmhs5ysls7n"]
+
+[ext_resource type="Script" uid="uid://dl8d6bceu6d6i" path="res://Scenes/Microgames/QueAnimal/que_animal.gd" id="1_akebc"]
+[ext_resource type="Texture2D" uid="uid://bh30oiq671832" path="res://Scenes/Microgames/QueAnimal/Assets/istockphoto-506692747-612x612.jpg" id="2_akebc"]
+[ext_resource type="Script" uid="uid://dbegiij6be8tw" path="res://Scenes/FunctionNodes/MicrogameFunctions/AreaHoldTrigger/area_hold_trigger.gd" id="3_470oj"]
+[ext_resource type="Texture2D" uid="uid://dbfgp4gspjwrl" path="res://Scenes/Microgames/QueAnimal/Assets/arara.png" id="4_g02in"]
+[ext_resource type="Texture2D" uid="uid://cllq7iuk2g2k2" path="res://Scenes/Microgames/QueAnimal/Assets/sapo.png" id="5_s6vry"]
+[ext_resource type="Texture2D" uid="uid://coxs2xmtmgfdy" path="res://Scenes/Microgames/QueAnimal/Assets/tamandua.png" id="6_skcmu"]
+[ext_resource type="Texture2D" uid="uid://dto4aycvd3xxi" path="res://Scenes/Microgames/QueAnimal/Assets/tucano.png" id="7_vgwk0"]
+[ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/FollowFoot.gd" id="8_foot"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p70tr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_foot"]
+radius = 60.0
+
+[node name="QueAnimal" type="Node2D" unique_id=1601226819 node_paths=PackedStringArray("player_start")]
+script = ExtResource("1_akebc")
+VerbHint = "Descubra"
+player_start = NodePath("Foot")
+metadata/_custom_type_script = "uid://c0xhdhmoevnq5"
+
+[node name="Static" type="Node2D" parent="." unique_id=1467839887]
+
+[node name="Sprite2D" type="Sprite2D" parent="Static" unique_id=238065915]
+texture_filter = 2
+position = Vector2(801.00006, 591)
+scale = Vector2(2.7135806, 3.1730783)
+texture = ExtResource("2_akebc")
+
+[node name="Animais" type="Node2D" parent="Static" unique_id=1659347883]
+
+[node name="arara" type="Area2D" parent="Static/Animais" unique_id=1050300581]
+position = Vector2(169, 355)
+script = ExtResource("3_470oj")
+metadata/_custom_type_script = "uid://dbegiij6be8tw"
+
+[node name="Sprite2D" type="Sprite2D" parent="Static/Animais/arara" unique_id=60361217]
+scale = Vector2(5.8405557, 5.8405557)
+texture = ExtResource("4_g02in")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Animais/arara" unique_id=1644894016]
+scale = Vector2(16.349855, 17.565458)
+shape = SubResource("RectangleShape2D_p70tr")
+
+[node name="sapo" type="Area2D" parent="Static/Animais" unique_id=1653871392]
+position = Vector2(169, 804)
+script = ExtResource("3_470oj")
+metadata/_custom_type_script = "uid://dbegiij6be8tw"
+
+[node name="Sprite2D" type="Sprite2D" parent="Static/Animais/sapo" unique_id=1721471456]
+scale = Vector2(5.8405557, 5.8405557)
+texture = ExtResource("5_s6vry")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Animais/sapo" unique_id=1789464427]
+scale = Vector2(15.802653, 15.950781)
+shape = SubResource("RectangleShape2D_p70tr")
+
+[node name="tamandua" type="Area2D" parent="Static/Animais" unique_id=556000934]
+position = Vector2(1401, 804)
+script = ExtResource("3_470oj")
+metadata/_custom_type_script = "uid://dbegiij6be8tw"
+
+[node name="Sprite2D" type="Sprite2D" parent="Static/Animais/tamandua" unique_id=1540599200]
+scale = Vector2(5.8405557, 5.8405557)
+texture = ExtResource("6_skcmu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Animais/tamandua" unique_id=542612767]
+scale = Vector2(15.802653, 15.950781)
+shape = SubResource("RectangleShape2D_p70tr")
+
+[node name="tucano" type="Area2D" parent="Static/Animais" unique_id=1903578435]
+position = Vector2(1401, 355)
+script = ExtResource("3_470oj")
+metadata/_custom_type_script = "uid://dbegiij6be8tw"
+
+[node name="Sprite2D" type="Sprite2D" parent="Static/Animais/tucano" unique_id=1427499896]
+scale = Vector2(5.8405557, 5.8405557)
+texture = ExtResource("7_vgwk0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Animais/tucano" unique_id=1794640746]
+scale = Vector2(15.802653, 15.950781)
+shape = SubResource("RectangleShape2D_p70tr")
+
+[node name="sombra" type="Sprite2D" parent="Static" unique_id=1346998604]
+position = Vector2(801.00006, 591)
+scale = Vector2(2.7135806, 3.1730783)
+
+[node name="Dynamic" type="Node2D" parent="." unique_id=458781139]
+
+[node name="Foot" type="Area2D" parent="." unique_id=1188834521]
+position = Vector2(801, 1000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foot" unique_id=1427708391]
+shape = SubResource("CircleShape2D_foot")
+
+[node name="FollowFoot" type="Node2D" parent="Foot" unique_id=906411772]
+script = ExtResource("8_foot")
+debug_mouse_pos = true
+metadata/_custom_type_script = "uid://cwl0pyyhrkg1h"
