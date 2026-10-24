@@ -9,7 +9,8 @@ class_name MicroGame
 @export var player_start: Node2D
 @export var time_limit: float = 10.0
 
-var game_end_timer: Timer = Timer.new()
+var game_end_timer: Timer
+var time_left_at_win: float = 0.0
 
 var is_active : bool = false
 
@@ -20,10 +21,10 @@ signal won(scene)
 signal lost(scene)
 
 func _ready():
+	game_end_timer = Timer.new()
+	game_end_timer.one_shot = true
 	game_end_timer.wait_time = time_limit
 	add_child(game_end_timer)
-	start_time = Time.get_ticks_msec()
-	start_game()
 
 func _process(_delta: float) -> void:
 	if not is_active: return
@@ -32,6 +33,8 @@ func _process(_delta: float) -> void:
 	total_time = time_passed_ms / 1000.0
 
 func start_game():
+	if is_active: return
+	start_time = Time.get_ticks_msec()
 	is_active = true
 	if not game_end_timer.timeout.is_connected(game_lost):
 		game_end_timer.timeout.connect(game_lost)
@@ -39,12 +42,14 @@ func start_game():
 
 func game_won():
 	if not is_active: return
+	time_left_at_win = game_end_timer.time_left
 	_end_game_sequence()
 	print_debug("game won!! emmitting...")
 	won.emit(self)
 	
 func game_lost():
 	if not is_active: return
+	_end_game_sequence()
 	print_debug("game lost!! emmitting...")
 	lost.emit(self)
 

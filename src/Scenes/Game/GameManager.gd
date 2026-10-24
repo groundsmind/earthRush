@@ -48,7 +48,8 @@ func _ready() -> void:
 func _process(_delta) -> void:
 	if is_instance_valid(current_game) and current_game.game_end_timer:
 		game_end_progress_bar.show()
-		game_end_progress_bar.value = current_game.game_end_timer.time_left
+		var t := current_game.game_end_timer
+		game_end_progress_bar.value = t.time_left if not t.is_stopped() else t.wait_time
 	else:
 		game_end_progress_bar.hide()
 
@@ -67,7 +68,11 @@ func start_transition(next_game: PackedScene) -> void:
 		foot_position_enforcer.on_area.disconnect(start_transition)
 	foot_position_enforcer.set_monitoring(false)
 	game_end_progress_bar.max_value = current_game.game_end_timer.wait_time
+	var game := current_game
 	transition_animation_player.play("open")
+	await transition_animation_player.animation_finished
+	if is_instance_valid(game) and game == current_game:
+		game.start_game()
 
 func refill_queue() -> void:
 	game_queue = game_list.duplicate()
@@ -92,12 +97,15 @@ func start_game_over_sequence(has_won: bool = false) -> void:
 	scene_transition_rect.transition_to("res://Scenes/GameOver/game_over.tscn")
 
 func game_won(scene) -> void:
+	if transitioning: return
 	print_debug("received game won!")
-	game_stats["score"] += 5 * scene.game_end_timer.time_left
+	var points: float = 5 * scene.time_left_at_win
+	game_stats["score"] += int(round(points))
 	game_stats["games played"] += 1
 	end_microgame(scene)
 
 func game_lost(scene) -> void:
+	if transitioning: return
 	print_debug("received game lost!")
 	game_stats["score"] += 1
 	game_stats["games played"] += 1
