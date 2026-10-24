@@ -1,16 +1,10 @@
 [gd_scene format=3 uid="uid://7n1qrd1o88ak"]
 
 [ext_resource type="Script" uid="uid://dx4p78cy6hk52" path="res://Scenes/Microgames/ApagarIncendio/apagando_incendio.gd" id="1_u21y0"]
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://otlujt7bvf58" path="res://Scenes/Microgames/ApagarIncendio/Assets/branco.png" id="2_6n8g5"]
-[ext_resource type="PackedScene" uid="uid://dd0ldypb3fp6v" path="res://Scenes/Microgames/ApagarIncendio/arvore.tscn" id="3_2a5ra"]
-[ext_resource type="Texture2D" uid="uid://diukr7qfjwl6l" path="res://Scenes/Microgames/ApagarIncendio/Assets/agua.png" id="3_dwb1k"]
-=======
 [ext_resource type="Texture2D" uid="uid://cdij487l6gai6" path="res://Scenes/Microgames/ApagarIncendio/Assets/grama.png" id="2_npphf"]
 [ext_resource type="Texture2D" uid="uid://diukr7qfjwl6l" path="res://Scenes/Microgames/ApagarIncendio/Assets/agua.png" id="3_dwb1k"]
 [ext_resource type="Texture2D" uid="uid://qw0dle6op2sg" path="res://Scenes/Microgames/ApagarIncendio/Assets/fogo.png" id="4_enuj1"]
 [ext_resource type="Texture2D" uid="uid://baqrg7mfu7oed" path="res://Scenes/Microgames/ApagarIncendio/Assets/arvore3.png" id="4_x67un"]
->>>>>>> 5b2fbf0bf05cc2e3ef04456b1852735f4868f0a9
 [ext_resource type="Texture2D" uid="uid://81ehh63hdjew" path="res://Scenes/Microgames/ApagarIncendio/Assets/gota.png" id="5_6n8g5"]
 [ext_resource type="Texture2D" uid="uid://dhh60r6jcva57" path="res://Scenes/Microgames/ApagarIncendio/Assets/arvore1.png" id="6_70dlo"]
 [ext_resource type="Script" uid="uid://dbegiij6be8tw" path="res://Scenes/FunctionNodes/MicrogameFunctions/AreaHoldTrigger/area_hold_trigger.gd" id="7_fyvu3"]
@@ -23,11 +17,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_p70tr"]
 radius = 11.553642
 
-<<<<<<< HEAD
-[sub_resource type="CircleShape2D" id="CircleShape2D_p70tr"]
-=======
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p70tr"]
->>>>>>> 5b2fbf0bf05cc2e3ef04456b1852735f4868f0a9
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5e8ib"]
 
@@ -73,14 +63,9 @@ shape = SubResource("CircleShape2D_p70tr")
 [node name="1" parent="Static/Arvores" unique_id=1590745951 instance=ExtResource("3_2a5ra")]
 position = Vector2(920, 275)
 
-<<<<<<< HEAD
-[node name="2" parent="Static/Arvores" unique_id=62302570 instance=ExtResource("3_2a5ra")]
-position = Vector2(806, 740)
-=======
 [node name="arvore" type="Sprite2D" parent="Static/Arvores/arvore3" unique_id=667334835]
 scale = Vector2(1.9, 1.9)
 texture = ExtResource("4_x67un")
->>>>>>> 5b2fbf0bf05cc2e3ef04456b1852735f4868f0a9
 
 [node name="3" parent="Static/Arvores" unique_id=409660476 instance=ExtResource("3_2a5ra")]
 position = Vector2(1468, 409)
@@ -91,10 +76,6 @@ position = Vector2(300, 422)
 [node name="5" parent="Static/Arvores" unique_id=2147287794 instance=ExtResource("3_2a5ra")]
 position = Vector2(1437, 805)
 
-<<<<<<< HEAD
-[node name="6" parent="Static/Arvores" unique_id=455610173 instance=ExtResource("3_2a5ra")]
-position = Vector2(994, 1152)
-=======
 [node name="arvore" type="Sprite2D" parent="Static/Arvores/arvore1" unique_id=1333905906]
 scale = Vector2(1.892873, 1.892873)
 texture = ExtResource("6_70dlo")
@@ -177,7 +158,6 @@ texture = ExtResource("4_enuj1")
 position = Vector2(-2, -111)
 scale = Vector2(20.53706, 13.213235)
 shape = SubResource("RectangleShape2D_p70tr")
->>>>>>> 5b2fbf0bf05cc2e3ef04456b1852735f4868f0a9
 
 [node name="Control" type="Control" parent="Static" unique_id=1853464591]
 layout_mode = 3
