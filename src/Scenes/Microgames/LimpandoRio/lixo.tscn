@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bteojl8yvnjmb"]
+
+[ext_resource type="Script" uid="uid://cw2wsxtn6kxuy" path="res://Scenes/Microgames/LimpandoRio/lixo.gd" id="1_vum4c"]
+[ext_resource type="Texture2D" uid="uid://tdj6vmthx66v" path="res://Scenes/Microgames/LimpandoRio/Assets/apple-core.png" id="2_vum4c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p70tr"]
+radius = 6.066105
+height = 20.221481
+
+[node name="Lixo" type="Area2D" unique_id=1380545313]
+script = ExtResource("1_vum4c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=418532175]
+scale = Vector2(0.611199, 0.611199)
+texture = ExtResource("2_vum4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1954145190]
+scale = Vector2(11.704382, 9.890472)
+shape = SubResource("CapsuleShape2D_p70tr")
