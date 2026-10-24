@@ -19,6 +19,8 @@ extends MicroGame
 @onready var foot: Area2D = $Dynamic/Foot
 
 var sapoScene : PackedScene = load("res://Scenes/Microgames/ContandoFauna/sapo.tscn")
+const BFDI_YAY = preload("uid://c7ddsvlis1lbh")
+const SAD_AW = preload("uid://cxtmf6q4a2aji")
 
 var num : int
 var respondido := false
@@ -74,8 +76,10 @@ func _on_foot_area_entered(area: Area2D) -> void:
 			var _anim = create_tween().tween_property(label, "modulate", Color.GREEN, 1.5)
 			_anim.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 			if label == chosen_label:
+				SoundManager.play_sound(BFDI_YAY)
 				_anim.finished.connect(game_won)
 			else:
+				SoundManager.play_sound(SAD_AW)
 				_anim.finished.connect(game_lost)
 		else:
 			var _anim = create_tween().tween_property(label, "modulate", Color.RED, 1.5)

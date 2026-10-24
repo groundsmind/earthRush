@@ -15,6 +15,9 @@ extends Node2D
 
 @onready var foot_position_enforcer: Node2D = $TransitionVisuals/Transition/FootPositionEnforcer
 
+const LOW_DOWN = preload("uid://d4m85gkuod26t")
+const POWER_UP_2 = preload("uid://c0jcm02v322pl")
+
 # game variables #
 var game_end: bool = false
 var total_hp: int = 3
@@ -41,6 +44,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		scene_transition_rect.transition_to("res://Scenes/Title/TitleScreen.tscn")
 
 func _ready() -> void:
+	SoundManager.set_default_sound_bus("SFX")
 	GameInfo.current_game.set("debug", debug_mode)
 	game_setup(Node2D.new(), true)
 
@@ -93,6 +97,7 @@ func start_game_over_sequence(has_won: bool = false) -> void:
 func game_won(scene) -> void:
 	if transitioning: return
 	print_debug("received game won!")
+	SoundManager.play_sound(POWER_UP_2)
 	var points: float = 5 * scene.time_left_at_win
 	game_stats["score"] += int(round(points))
 	game_stats["games played"] += 1
@@ -101,6 +106,7 @@ func game_won(scene) -> void:
 func game_lost(scene) -> void:
 	if transitioning: return
 	print_debug("received game lost!")
+	SoundManager.play_sound(LOW_DOWN)
 	game_stats["score"] += 1
 	game_stats["games played"] += 1
 	decrease_health()

@@ -10,6 +10,7 @@ script/source = "extends Area2D
 
 @onready var timer: Timer = $Timer
 @onready var flowersprite: AnimatedSprite2D = $flowersprite
+const IMPACT_SOFT_MEDIUM_001 = preload(\"uid://d2mvg1tmn4d1t\")
 
 var flower_state: int = 0
 signal finished
@@ -21,6 +22,7 @@ func _on_timer_timeout() -> void:
 		
 	flowersprite.frame += 1 if flowersprite.frame < 2 else 0
 	flower_state += 1
+	SoundManager.play_sound(IMPACT_SOFT_MEDIUM_001)
 	
 	if flower_state >= 2:
 		is_finished = true

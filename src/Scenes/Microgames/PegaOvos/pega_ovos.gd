@@ -5,6 +5,8 @@ extends MicroGame
 @onready var ovos: Node2D = $Dynamic/Ovos
 @onready var montanhas: AnimatedSprite2D = $Static/montanhas
 @onready var nuvens: Node2D = $Static/nuvens
+const IMPACT_WOOD_MEDIUM_000 = preload("uid://bw2r2k5n0qxo1")
+const ERROR_002 = preload("uid://dy5w1prd10q3c")
 
 var cena_ovo : PackedScene = load("res://Scenes/Microgames/PegaOvos/ovos.tscn")
 var scoreOvo := 0
@@ -30,6 +32,7 @@ func _on_ovo_timer_timeout() -> void:
 
 
 func _on_cesta_area_entered(area: Area2D) -> void:
+	SoundManager.play_sound(IMPACT_WOOD_MEDIUM_000)
 	ovos.remove_child(area)
 	scoreOvo += 1
 	if scoreOvo >= 10:
@@ -37,5 +40,6 @@ func _on_cesta_area_entered(area: Area2D) -> void:
 
 
 func _on_chão_area_entered(_area: Area2D) -> void:
+	SoundManager.play_sound(ERROR_002)
 	sol.play("triste")
 	game_lost()

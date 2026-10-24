@@ -5,6 +5,9 @@ var lixo : PackedScene = load("res://Scenes/Microgames/LimpandoRio/lixo.tscn")
 @onready var animation_player: AnimationPlayer = $Dynamic/AnimationPlayer
 @onready var lixo_timer: Timer = $Dynamic/lixoTimer
 
+const IMPACT_PLANK_MEDIUM_001 = preload("uid://pocxmwyc1f7y")
+const BFDI_YAY = preload("uid://c7ddsvlis1lbh")
+
 var score := 0
 
 # Called when the node enters the scene tree for the first time.
@@ -25,7 +28,9 @@ func _on_lixo_timer_timeout() -> void:
 func _on_cesta_area_entered(area: Area2D) -> void:
 	area.queue_free()
 	score += 1
+	SoundManager.play_sound_with_pitch(IMPACT_PLANK_MEDIUM_001, randf_range(0.8, 1.2))
 	if score >= 10:
+		SoundManager.play_sound(BFDI_YAY)
 		animation_player.play("limpandorio_win")
 		lixo_timer.stop()
 		lixos.queue_free()

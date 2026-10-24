@@ -186,6 +186,7 @@ _data = {
 
 [node name="HabitosSaudaveis" type="Node2D" unique_id=722934143 node_paths=PackedStringArray("player_start")]
 script = ExtResource("1_vvkd8")
+VerbHint = "Escolha"
 player_start = NodePath("Dynamic/Foot/Marker2D")
 time_limit = 20.0
 metadata/_custom_type_script = "uid://c0xhdhmoevnq5"

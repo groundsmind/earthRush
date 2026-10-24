@@ -11,6 +11,8 @@ extends MicroGame
 var correto: Area2D
 var respondido := false
 
+const YAY = preload("uid://c7ddsvlis1lbh")
+const AW = preload("uid://cxtmf6q4a2aji")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,6 +39,8 @@ func _on_animal_pisado(_pe: Area2D, animal: Area2D) -> void:
 	await get_tree().create_timer(1.0).timeout
 
 	if animal == correto:
+		SoundManager.play_sound(YAY)
 		game_won()
 	else:
+		SoundManager.play_sound(AW)
 		game_lost()

@@ -4,6 +4,7 @@ extends Node2D
 
 @onready var bullet_spawn: Marker2D = $BulletSpawn
 const BULLET = preload("uid://onbnfwhlm5nt")
+const LASER_1 = preload("uid://35y6uljtb6ae")
 
 signal player_hit(player)
 
@@ -19,6 +20,7 @@ func _on_timer_timeout() -> void:
 	bullet.global_position = bullet_spawn.global_position
 	bullet.rotation = rotation
 	bullet.body_entered.connect(_on_bullet_body_entered)
+	SoundManager.play_sound(LASER_1)
 
 func _on_bullet_body_entered(_body: Node2D) -> void:
 	player_hit.emit(_body)

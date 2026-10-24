@@ -9,3 +9,4 @@ calibracao.csv
 .conda/
 .venv/
 *.tmp
+.export/

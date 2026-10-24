@@ -15,6 +15,9 @@ extends MicroGame
 @onready var alimento_2: Area2D = $"Dynamic/Alimento 2"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+const YAY = preload("uid://c7ddsvlis1lbh")
+const AW = preload("uid://cxtmf6q4a2aji")
+
 var alimentoSaudavel : Area2D
 var resolvidos := 0
 var escolha := [0,1,2]
@@ -36,16 +39,13 @@ func sortear() -> void:
 		alimento_2.get_node("Sprite2D").texture = load(saudaveis[sorteado])
 		alimento_1.get_node("Sprite2D").texture = load(cringes[sorteado])
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-
 func _on_foot_duration_reached(target_area: Area2D) -> void:
 	if target_area == alimentoSaudavel:
+		SoundManager.play_sound(YAY)
 		resolvidos += 1
 		animation_player.play("out")
 	else:
+		SoundManager.play_sound(AW)
 		game_lost()
 
 

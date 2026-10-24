@@ -2,6 +2,7 @@ extends MicroGame
 
 @onready var frog_in_frame_timer: Timer = $Dynamic/playerCamera/FrogInFrameTimer
 @onready var color_rect: ColorRect = $ColorRect
+const SHUTTER = preload("uid://dv0sew6h1mh7t")
 
 func _ready():
 	super._ready()
@@ -17,4 +18,6 @@ func _on_frog_in_frame_timer_timeout() -> void:
 	color_rect.show()
 	var tween = create_tween()
 	tween.tween_property(color_rect, "color", Color.TRANSPARENT, 1.0)
+	game_end_timer.stop()
+	SoundManager.play_sound(SHUTTER)
 	tween.tween_callback(game_won)
