@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnrfwudy1qawq"]
 
 [ext_resource type="Script" uid="uid://bg0pe2s81uycd" path="res://Scenes/Game/GameManager.gd" id="1_0rtbi"]
-[ext_resource type="PackedScene" uid="uid://yiq02ghoo0xe" path="res://Scenes/Microgames/PuleAnimal/PuleAnimal.tscn" id="2_1j8cb"]
+[ext_resource type="PackedScene" uid="uid://7n1qrd1o88ak" path="res://Scenes/Microgames/ApagarIncendio/apagando_incendio.tscn" id="2_1j8cb"]
 [ext_resource type="Script" uid="uid://erdfmyhgnl4y" path="res://Scenes/Game/song_mgr.gd" id="3_5wwgf"]
 [ext_resource type="Texture2D" uid="uid://cj13o3uke6rpk" path="res://Assets/Sprites/kenney_prototype-textures/PNG/Light/texture_03.png" id="4_l5jc4"]
 [ext_resource type="Script" uid="uid://dmd63p8wyuv04" path="res://Scenes/Game/heart_display.gd" id="5_056ng"]
@@ -454,6 +454,7 @@ _data = {
 
 [node name="GameMgr" type="Node2D" unique_id=336676652 node_paths=PackedStringArray("microgame_parent")]
 script = ExtResource("1_0rtbi")
+debug_mode = true
 game_list = Array[PackedScene]([ExtResource("2_1j8cb")])
 microgame_parent = NodePath("MicrogameContainer")
 
