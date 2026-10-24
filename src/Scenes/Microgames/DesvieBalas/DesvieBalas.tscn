@@ -10,7 +10,19 @@
 [ext_resource type="Script" uid="uid://cwl0pyyhrkg1h" path="res://Scenes/FunctionNodes/MicrogameFunctions/foot/FollowFoot/follow_foot.gd" id="7_sua80"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
-normal = Vector2(0, 0.998)
+normal = Vector2(0, 1)
+distance = -124.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sua80"]
+distance = 10.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0flw2"]
+normal = Vector2(1, 0)
+distance = 14.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pidnw"]
+normal = Vector2(-1, 0)
+distance = 9.0
 
 [sub_resource type="Gradient" id="Gradient_sua80"]
 interpolation_mode = 2
@@ -50,12 +62,14 @@ scale = Vector2(2.2472973, 2.6095335)
 texture = ExtResource("2_jspt3")
 
 [node name="CorpoCorpo" type="Sprite2D" parent="Static" unique_id=173586441]
+modulate = Color(0.7298913, 0.80549467, 0.83743995, 1)
 position = Vector2(1494.0844, 250.13321)
 rotation = -1.0297443
 scale = Vector2(0.4604744, 0.4313981)
 texture = ExtResource("2_q3utj")
 
 [node name="CorpoRosto" type="Sprite2D" parent="Static" unique_id=1848806067]
+modulate = Color(0.7294118, 0.8039216, 0.8392157, 1)
 position = Vector2(1358.0842, 128.13321)
 rotation = -0.44505897
 scale = Vector2(0.34114915, 0.28681457)
@@ -68,6 +82,18 @@ position = Vector2(887, 607)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D" unique_id=470335658]
 shape = SubResource("WorldBoundaryShape2D_g4v7s")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Static/StaticBody2D" unique_id=2034028738]
+position = Vector2(0, 600)
+shape = SubResource("WorldBoundaryShape2D_sua80")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Static/StaticBody2D" unique_id=812620605]
+position = Vector2(-900, 600)
+shape = SubResource("WorldBoundaryShape2D_0flw2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Static/StaticBody2D" unique_id=2044845822]
+position = Vector2(720, 600)
+shape = SubResource("WorldBoundaryShape2D_pidnw")
+
 [node name="Dynamic" type="Node2D" parent="." unique_id=1577402256]
 
 [node name="Arma" type="Node2D" parent="Dynamic" unique_id=972473953 node_paths=PackedStringArray("player")]
@@ -76,6 +102,7 @@ script = ExtResource("6_15tpj")
 player = NodePath("../Player")
 
 [node name="sprite" type="Sprite2D" parent="Dynamic/Arma" unique_id=1669450968]
+modulate = Color(0.7294118, 0.8039216, 0.8392157, 1)
 position = Vector2(0.9999695, 0.9999962)
 rotation = -3.1415925
 scale = Vector2(0.35017845, 0.35017854)
